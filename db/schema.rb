@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160511053730) do
+ActiveRecord::Schema.define(version: 20180503005221) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -281,6 +281,7 @@ ActiveRecord::Schema.define(version: 20160511053730) do
     t.string   "background_info"
     t.string   "skype",            limit: 128
     t.text     "subscribed_users"
+    t.string   "address"
   end
 
   add_index "leads", ["assigned_to"], name: "index_leads_on_assigned_to", using: :btree

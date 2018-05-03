@@ -1,0 +1,4 @@
+buyer form 1
+<%= simple_form_for(@lead) do |f| %>
+  <%= f.input :address, :input_html =>{:id => 'gmaps-input-address'}, :placeholder => 'Start typing a place...'%>
+<% end %>

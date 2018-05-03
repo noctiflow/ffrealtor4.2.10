@@ -53,4 +53,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  get 'landing/buy1', to: 'landing#create1'
+  get 'landing/buy2', to: 'landing#create2'
+  get 'landing/sell1', to: 'landing#create3'
+  get 'landing/sell2', to: 'landing#create4'
 end
