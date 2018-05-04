@@ -27,6 +27,6 @@ class LandingController < ApplicationController
   private
 
   def lead_params
-    params.require(:lead).permit(:first_name, :last_name, :address, :postalcode, :unit, :desireddeal, :extrainfo, :phone, :email)
+    params.require(:lead).permit(:first_name, :last_name, :address, :postalcode, :unit, :desireddeal, :extrainfo, :phone, :email, :source, :buysell)
   end
 end

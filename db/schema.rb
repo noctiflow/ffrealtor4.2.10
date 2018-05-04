@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180503080902) do
+ActiveRecord::Schema.define(version: 20180504104055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -286,6 +286,7 @@ ActiveRecord::Schema.define(version: 20180503080902) do
     t.string   "postalcode"
     t.date     "desireddeal"
     t.text     "extrainfo"
+    t.string   "buysell"
   end
 
   add_index "leads", ["assigned_to"], name: "index_leads_on_assigned_to", using: :btree

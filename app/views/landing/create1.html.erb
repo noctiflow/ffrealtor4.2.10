@@ -1,59 +1,57 @@
 buyer form 1
 <body onload="initialize()">
-  <div id="address-form">
-    <div id="locationField">
-
-      <br><br>
-      <input placeholder="Unit #" type="text"></input>
-      <button id="form-continue" type="button" class="btn btn-success" style="display:none;">Continue</button>
-    </div>
-    <br><br>
-    <br>
-    <table id="address">
-      <tr>
-        <td class="label">Street address</td>
-        <td class="slimField"><input class="field" id="street_number"
-                                     disabled="true"></input></td>
-        <td class="wideField" colspan="2"><input class="field" id="route"
-                                                 disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">City</td>
-        <td class="wideField" colspan="3"><input class="field" id="locality"
-                                                 disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">Province</td>
-        <td class="slimField"><input class="field"
-                                     id="administrative_area_level_1" disabled="true"></input></td>
-        <td class="label">Postal code</td>
-        <td class="wideField"><input class="field" id="postal_code"
-                                     disabled="true"></input></td>
-      </tr>
-      <tr>
-        <td class="label">Country</td>
-        <td class="wideField" colspan="3"><input class="field"
-                                                 id="country" disabled="true"></input></td>
-      </tr>
-    </table>
-  </div>
-
-  <div class="secondary-form" style="">
+  <div>
     <%= simple_form_for @lead, url: landing_path do |f| %>
+      <%= f.input :source, :as => :hidden, input_html: { value: 'buyer form 1'} %>
+      <%= f.input :buysell, :as => :hidden, input_html: { value: 'buyer'} %>
+      <div id="address-form">
         <div id="locationField">
-      <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' } %>
-          </div>
-      more info
-      <%= f.input :first_name %>
-      <%= f.input :last_name %>
-      contact
-      <%= f.input :phone %>
-      <%= f.input :email %>
-      desired move in date
-      <%= f.input :desireddeal %>
-      extra info
-      <%= f.input :extrainfo %>
-      <%= f.button :submit %>
+        <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' } %>
+        <%= f.input :unit %>
+        <%= f.input :postalcode, :as => :hidden, input_html: { id: 'postal_code', class: 'field' } %>
+        <button id="form-continue" type="button" class="btn btn-success" style="display:none;">Continue</button>
+        </div>
+      </div>
+      <div id="secondary-form" style="padding-top: 100px">
+        more info
+        <%= f.input :first_name %>
+        <%= f.input :last_name %>
+        contact
+        <%= f.input :phone %>
+        <%= f.input :email %>
+        desired move in date
+        <%= f.input :desireddeal %>
+        extra info
+        <%= f.input :extrainfo %>
+        <%= f.button :submit %>
+      </div>
+        <table id="address" style="display: none">
+          <tr>
+            <td class="label">Street address</td>
+            <td class="slimField"><input class="field" id="street_number"
+                                         disabled="true"></input></td>
+            <td class="wideField" colspan="2"><input class="field" id="route"
+                                                     disabled="true"></input></td>
+          </tr>
+          <tr>
+            <td class="label">City</td>
+            <td class="wideField" colspan="3"><input class="field" id="locality"
+                                                     disabled="true"></input></td>
+          </tr>
+          <tr>
+            <td class="label">Province</td>
+            <td class="slimField"><input class="field"
+                                         id="administrative_area_level_1" disabled="true"></input></td>
+            <td class="label">Postal code</td>
+            <td class="wideField"><input class="field" id="postal_code"
+                                         disabled="true"></input></td>
+          </tr>
+          <tr>
+            <td class="label">Country</td>
+            <td class="wideField" colspan="3"><input class="field"
+                                                     id="country" disabled="true"></input></td>
+          </tr>
+        </table>
     <% end %>
   </div>
 

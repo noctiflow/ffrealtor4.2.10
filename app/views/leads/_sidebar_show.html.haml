@@ -1,0 +1,83 @@
+.panel#summary
+  %span{style: "float:right"}= avatar_for(@lead, size: "50x50")
+  %h4= h(@lead.full_name)
+  - if !@lead.title.blank? && !@lead.company.blank?
+    -# works_at: "{{job_title}} at {{company}}"
+    %div= t(:works_at, job_title: @lead.title, company: @lead.company)
+  - else
+    %div= @lead.title unless @lead.title.blank?
+    %div= @lead.company unless @lead.company.blank?
+
+  %div
+    - if @lead.buysell.present?
+      == <b>[#{@lead.buysell}]</b><br /><br />
+  %div= render "shared/address_show", asset: @lead, type: 'business', title: :address
+
+  %div
+    - if @lead.address.present? && @lead.unit.present?
+      == #{t :Property}: <b>Unit #{@lead.unit} - #{@lead.address}</b><br />
+    - elsif @lead.address.present? && @lead.unit.blank?
+      == #{t :Property}: <b>#{@lead.address}</b><br />
+
+  %div
+    - if @lead.postalcode.present?
+      == <b>#{@lead.postalcode}</b><br /><br />
+
+  %div
+    - if @lead.phone.present?
+      == #{t :phone}: <b>#{@lead.do_not_call ? content_tag(:strike, @lead.phone) : @lead.phone}</b><br />
+    - if @lead.mobile.present?
+      == #{t :mobile}: <b>#{@lead.do_not_call ? content_tag(:strike, @lead.mobile) : @lead.mobile}</b><br />
+    - if @lead.email.present?
+      == #{t :email}: <b>#{link_to_email(@lead.email)}</b><br />
+    - if @lead.alt_email.present?
+      == #{t :other}: <b>#{link_to_email(@lead.alt_email)}</b><br />
+  = web_presence_icons(@lead)
+
+  %div
+    - if @lead.source.present?
+      == #{t :source}: <b>#{@lead.source}</b><br />
+
+  %div
+    - if @lead.desireddeal.present?
+      == #{t 'desired deal date'}: <b>#{@lead.desireddeal}</b><br />
+
+  .caption #{t :lead_summary}
+  %li
+    %dt= t(@lead.status, default: :n_a)
+    %tt #{t :status}:
+  %li
+    %span{style: "float:right;"}= stars_for(@lead)
+    %tt #{t :rating}:
+  %li
+    %dt= @lead.referred_by ? truncate(@lead.referred_by, length: 16) : t(:n_a)
+    %tt #{t :referred_by}:
+  %li
+    %dt= @lead.assigned_to ? truncate(@lead.assignee.full_name, length: 16) : nil
+    %tt #{t :assigned_to}:
+  %li
+    %dt
+      - if @lead.campaign
+        = link_to(truncate(@lead.campaign.name, length: 16), @lead.campaign, title: @lead.campaign.name)
+      - else
+        #{t :n_a}
+    %tt #{t :campaign}:
+  %li
+    %dt
+      - if @lead.contact
+        = link_to(truncate(@lead.contact.name, length: 16), @lead.contact, title: @lead.contact.name)
+      - else
+        #{t :n_a}
+    %tt #{t :contact}:
+
+  - unless @lead.background_info.blank?
+    .caption #{t :background_info}
+    = auto_link(simple_format @lead.background_info)
+
+  = render "fields/sidebar_show", asset: @lead
+
+  - if @lead.tags.present?
+    %dt
+      .tags= tags_for_index(@lead)
+
+  = hook(:show_lead_sidebar_bottom, self, lead: @lead)
