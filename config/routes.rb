@@ -59,4 +59,8 @@ Rails.application.routes.draw do
   get 'landing/sell2', to: 'landing#create4'
   post 'landing', action: :create, controller: 'landing'
   get 'landing', to: 'landing#index'
+  get '/redirect', to: 'calendar#redirect', as: 'redirect'
+  get '/callback', to: 'calendar#callback', as: 'callback'
+  get '/calendars', to: 'calendar#calendars', as: 'calendars'
+  get '/events/:calendar_id', to: 'calendar#events', as: 'events', calendar_id: /[^\/]+/
 end
