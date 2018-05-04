@@ -40,7 +40,7 @@ buyer form 1
   </div>
 
   <div class="secondary-form" style="">
-    <%= simple_form_for @lead do |f| %>
+    <%= simple_form_for @lead, url: landing_path do |f| %>
       more info
       <%= f.input :first_name %>
       <%= f.input :last_name %>

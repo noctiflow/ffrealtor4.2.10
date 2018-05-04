@@ -57,5 +57,6 @@ Rails.application.routes.draw do
   get 'landing/buy2', to: 'landing#create2'
   get 'landing/sell1', to: 'landing#create3'
   get 'landing/sell2', to: 'landing#create4'
-  get 'landing', action: :create, controller: 'landing'
+  post 'landing', action: :create, controller: 'landing'
+  get 'landing', to: 'landing#index'
 end

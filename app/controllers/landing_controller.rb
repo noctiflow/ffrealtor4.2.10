@@ -18,7 +18,7 @@ class LandingController < ApplicationController
   def create
     @lead = Lead.new (lead_params)
     if @lead.save
-      redirect_to 'landing#index'
+      redirect_to landing_path
     else
       render 'create1'
     end
