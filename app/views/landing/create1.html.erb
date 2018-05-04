@@ -2,8 +2,7 @@ buyer form 1
 <body onload="initialize()">
   <div id="address-form">
     <div id="locationField">
-      <input id="autocomplete" placeholder="Enter property address"
-             onFocus="geolocate()" type="text"></input>
+
       <br><br>
       <input placeholder="Unit #" type="text"></input>
       <button id="form-continue" type="button" class="btn btn-success" style="display:none;">Continue</button>
@@ -41,6 +40,9 @@ buyer form 1
 
   <div class="secondary-form" style="">
     <%= simple_form_for @lead, url: landing_path do |f| %>
+        <div id="locationField">
+      <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' } %>
+          </div>
       more info
       <%= f.input :first_name %>
       <%= f.input :last_name %>

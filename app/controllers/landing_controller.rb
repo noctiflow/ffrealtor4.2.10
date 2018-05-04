@@ -7,13 +7,13 @@ class LandingController < ApplicationController
     @lead = Lead.new
   end
   def create2
-
+    @lead = Lead.new
   end
   def create3
-
+    @lead = Lead.new
   end
   def create4
-
+    @lead = Lead.new
   end
   def create
     @lead = Lead.new (lead_params)
