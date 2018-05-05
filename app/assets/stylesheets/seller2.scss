@@ -1,5 +1,5 @@
 .background-image {
-background: image_url('1.jpg') no-repeat center center fixed;
+background: image_url('4.jpg') no-repeat center center fixed;
 color: white !important;
 -webkit-background-size: cover;
 -moz-background-size: cover;
@@ -12,8 +12,7 @@ input {
   color: black;
   background-color: rgba(255,255,255, 0.85) !important;
   border-radius: 30px !important;
-  // padding-left: 3% !important;
-  text-indent: 2% !important;
+  padding-left: 3% !important;
 }
 
 input:focus {
