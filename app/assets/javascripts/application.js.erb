@@ -40,7 +40,10 @@
 $(document).ready(function(){
   $('#calendar').fullCalendar({
     events: '/tasks.json',
-    eventTextColor: '#fff'
+    eventTextColor: '#fff',
+    eventRender: function (event, element, view) {
+      element.find('.fc-title').append('<div class="hr-line-solid-no-margin"></div><span style="font-size: 10px"><em>'+event.description+'</em></span></div>');
+    }
   });
 })
 <%
