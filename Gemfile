@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'fat_free_crm', github: 'fatfreecrm/fat_free_crm', ref: 'ca59028'
 gem 'google-api-client', require: 'google/apis/calendar_v3'
+gem 'fullcalendar-rails'
+gem 'momentjs-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.10'
 # Use postgresql as the database for Active Record
