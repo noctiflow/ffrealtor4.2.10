@@ -92,8 +92,8 @@
         var f = jQuery("#autocomplete").val();
         if(f){
           jQuery("#form-continue").prop('disabled', true);
-          jQuery("#secondary-form").fadeIn();
-          jQuery("#address-form").fadeOut();
+          jQuery("#secondary-form").fadeIn(3000);
+          jQuery("#address-form").fadeOut(3000);
           //send f and postal code to db if page abandoned without full submission as partial lead
         }
         //if address field is not blank, disable continue button and popup secondary form.
