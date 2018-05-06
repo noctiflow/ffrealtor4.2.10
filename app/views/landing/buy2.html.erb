@@ -1,31 +1,37 @@
 <head>
  <%= stylesheet_link_tag "buyer2" %>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
 </head>
 
     <body class="background-image" onload="initialize()">
-      <div class="row " style="padding-top: 6%;">
-        <div class="col s6">
+      <div class="row " style="padding-top: 4%;">
+        <div class="col s4">
         </div>
       <div class="col s4 formbg">
-        <%= simple_form_for @lead, url: landing_path do |f| %>
-          <%= f.input :source, :as => :hidden, input_html: { value: 'buyer form 1'} %>
-          <%= f.input :buysell, :as => :hidden, input_html: { value: 'buyer'} %>
+        <%= simple_form_for @lead, url: landing2_path do |f| %>
+          <%= f.input :source, :as => :hidden, input_html: { value: 'Buyer Form 2'} %>
+          <%= f.input :buysell, :as => :hidden, input_html: { value: 'Buyer'} %>
           <div id="address-form">
-            <h1><strong>Looking To Buy A Property?</h1></strong>
-            <h5 style="padding-bottom: 3%;">Search For The Property Address Below</h5>
+            <center><h1><strong>Looking To Buy A Property?</h1></strong></center>
+            <center><h6 style="padding-bottom: 4%;">Search For The Property Address Below</h6></center>
             <div id="locationField">
-            <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' }, placeholder: 'Enter a location and select from the following list...' %>
-            <br/>
-            <%= f.input :unit, placeholder: 'Unit #'%>
+              <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' }, placeholder: 'Enter a location and select from the following list...' %>
+              <br/>
+              <%= f.input :unit, placeholder: 'Unit #'%>
+
             <%= f.input :postalcode, :as => :hidden, input_html: { id: 'postal_code', class: 'field' } %>
-            <div class="center-align">
-              <button id="form-continue" type="button" class="waves-effect waves-light btn" style="display:none; margin-top: 4%; font-size: 20px;">Clik Here To Continue <i class="material-icons right">send</i></button>
+            <br/>
+            <div class="right-align">
+              <button id="form-continue" type="button" class="waves-effect waves-light btn" style="display:none; margin-top: 10%; font-size: 20px;">Clik Here To Continue <i class="material-icons right">send</i></button>
             </div>
             </div>
           </div>
           <div id="secondary-form" style="display:none;">
-            <h1><strong>Property Found!</h1></strong>
-            <h5 style="padding-bottom: 3%;">Let Us Help You By Leaving Your Information Below</h5>
+            <h1><center<<strong>Property Found!</h1></strong></center>
+            <center><h6 style="padding-bottom: 3%;">Let Us Help You By Leaving Your Information Below</h6></center>
             <%= f.input :first_name , placeholder: 'First Name...' %>
             <%= f.input :last_name , placeholder: 'Last Name...' %>
 

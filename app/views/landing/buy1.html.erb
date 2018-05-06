@@ -1,5 +1,8 @@
 <head>
  <%= stylesheet_link_tag "buyer1" %>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+ <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
 </head>
 
     <body class="background-image" onload="initialize()">
@@ -8,8 +11,8 @@
         </div>
       <div class="col s5">
         <%= simple_form_for @lead, url: landing_path do |f| %>
-          <%= f.input :source, :as => :hidden, input_html: { value: 'buyer form 1'} %>
-          <%= f.input :buysell, :as => :hidden, input_html: { value: 'buyer'} %>
+          <%= f.input :source, :as => :hidden, input_html: { value: 'Buyer Form 1'} %>
+          <%= f.input :buysell, :as => :hidden, input_html: { value: 'Buyer'} %>
           <div id="address-form">
             <h1><strong>Looking To Buy A Property?</h1></strong>
             <h5 style="padding-bottom: 3%;">Search For The Property Address Below</h5>

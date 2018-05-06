@@ -28,13 +28,13 @@ input::placeholder{
 
 .btn, .btn-large, .btn-small {
   background-color: rgba(255,255,255,0.8) !important;
-  color: black;
-  border-radius: 30px;
+  color: black !important;
+  border-radius: 30px !important;
 }
 
 .btn:hover{
   background-color: rgba(0,0,0,0.8) !important;
-  color: white;
+  color: white !important;
 }
 
 
@@ -50,14 +50,26 @@ label {
 }
 
 .ui-datepicker-prev , .ui-datepicker-next {
-  display: none;
+  color: #039be5;
+  cursor: pointer !important;
+}
+
+.ui-datepicker-prev {
+  margin-left: 5% !important;
+  float: left;
+}
+
+.ui-datepicker-next {
+  margin-right: 5% !important;
+  float: right;
 }
 
 #ui-datepicker-div{
-  // background-color: rgba(0,0,0,0) !important;
+  background-color: white !important;
   color: white;
   font-size: 15px !important;
   text-align: center;
+  border-radius: 10px !important;
 }
 
 .ui-datepicker-year {
