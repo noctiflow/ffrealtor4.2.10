@@ -1,9 +1,28 @@
-<table style="width:100%;border:thin black solid;">
-  <tr>
+<br><br>
+<div style="display: flex; width:100%;align-content: stretch;">
   <% @stage.each do |value, key| %>
-    <th>
+    <div style="flex:1;text-align: center">
     <%= label_tag(key, value) %>
-    </th>
+    </div>
   <% end %>
-  </tr>
-</table>
+</div>
+<br>
+<div style="display: flex; width:100%;align-content: stretch;">
+<% @stage.each do |value, key| %>
+  <%# label_tag(key) %>
+    <div style="border:thin whitesmoke solid;flex:1;">
+      <% @opportunities.where(stage: key).each do |op| %>
+        <%= link_to opportunity_path(op) do %>
+          <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px;">
+            <div style="text-align: center;color:white;word-break: break-all;hyphens: auto">
+              <span style="font-size:1.2em;"><%= op.name %></span>
+              <br>
+              <span style="font-size:1em;font-weight: 100"><% if op.amount? %>$<%= op.amount %><% end %></span>
+              <br>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+<% end %>
+</div>
