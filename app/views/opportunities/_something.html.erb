@@ -1,0 +1,9 @@
+<table style="width:100%;border:thin black solid;">
+  <tr>
+  <% @stage.each do |value, key| %>
+    <th>
+    <%= label_tag(key, value) %>
+    </th>
+  <% end %>
+  </tr>
+</table>
