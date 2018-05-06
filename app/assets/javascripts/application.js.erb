@@ -36,7 +36,6 @@
 //= require fullcalendar
 //= require_self
 
-
 $(document).ready(function(){
   $('#calendar').fullCalendar({
     events: '/tasks.json',
@@ -46,6 +45,8 @@ $(document).ready(function(){
     }
   });
 })
+
+
 <%
 Gem.loaded_specs.keys.grep(/^ffcrm_/).each do |plugin|
   require_asset(plugin) rescue Sprockets::FileNotFound

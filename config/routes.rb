@@ -53,12 +53,18 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
-  get 'landing/buy1', to: 'landing#create1'
-  get 'landing/buy2', to: 'landing#create2'
-  get 'landing/sell1', to: 'landing#create3'
-  get 'landing/sell2', to: 'landing#create4'
-  post 'landing', action: :create, controller: 'landing'
+  get 'landing/buy1', to: 'landing#buy1'
+  get 'landing/buy2', to: 'landing#buy2'
+  get 'landing/sell1', to: 'landing#sell1'
+  get 'landing/sell2', to: 'landing#sell2'
+  post 'landing', action: :create1, controller: 'landing'
+  post 'landing2', action: :create2, controller: 'landing'
+  post 'landing3', action: :create3, controller: 'landing'
+  post 'landing4', action: :create4, controller: 'landing'
   get 'landing', to: 'landing#index'
+  get 'landing2', to: 'landing#index2'
+  get 'landing3', to: 'landing#index3'
+  get 'landing4', to: 'landing#index4'
   get '/redirect', to: 'calendar#redirect', as: 'redirect'
   get '/callback', to: 'calendar#callback', as: 'callback'
   get '/calendars', to: 'calendar#calendars', as: 'calendars'
