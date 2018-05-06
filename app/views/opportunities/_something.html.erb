@@ -12,15 +12,31 @@
   <%# label_tag(key) %>
     <div style="border:thin whitesmoke solid;flex:1;">
       <% @opportunities.where(stage: key).each do |op| %>
-        <%= link_to opportunity_path(op) do %>
-          <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px;">
-            <div style="text-align: center;color:white;word-break: break-all;hyphens: auto">
-              <span style="font-size:1.2em;"><%= op.name %></span>
-              <br>
-              <span style="font-size:1em;font-weight: 100"><% if op.amount? %>$<%= op.amount %><% end %></span>
-              <br>
+        <% if current_user.admin? %>
+          <%= link_to opportunity_path(op) do %>
+            <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px;">
+              <div style="text-align: center;color:white;word-break: break-all;hyphens: auto">
+                <span style="font-size:1.2em;"><%= op.name %></span>
+                <br>
+                <span style="font-size:.9em;font-weight: 100"><% if op.amount? %>$<%= op.amount %><% end %></span>
+                <br>
+                <span style="font-size:.8em;"><em><% if op.assigned_to? %><%= User.find(op.assigned_to).name %><% end %></em></span>
+              </div>
             </div>
-          </div>
+          <% end %>
+        <% else %>
+          <% if current_user.id == op.assigned_to %>
+            <%= link_to opportunity_path(op) do %>
+                <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px;">
+                  <div style="text-align: center;color:white;word-break: break-all;hyphens: auto">
+                    <span style="font-size:1.2em;"><%= op.name %></span>
+                    <br>
+                    <span style="font-size:.9em;font-weight: 100"><% if op.amount? %>$<%= op.amount %><% end %></span>
+                    <br>
+                  </div>
+                </div>
+            <% end %>
+          <% end %>
         <% end %>
       <% end %>
     </div>
