@@ -98,12 +98,20 @@ class TasksController < ApplicationController
     respond_with(@task) do |_format|
       if @task.update_attributes(task_params)
         @task.bucket = @task.computed_bucket
+
         if called_from_index_page?
           if Task.bucket_empty?(@task_before_update.bucket, current_user, @view)
             @empty_bucket = @task_before_update.bucket
           end
           update_sidebar
         end
+
+        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+        format.json { render :show, status: :ok, location: @task }
+      else
+        format.html { render :edit }
+        format.json { render json: @task.errors, status: :unprocessable_entity }
+
       end
     end
   end
