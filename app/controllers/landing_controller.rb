@@ -18,28 +18,28 @@ class LandingController < ApplicationController
   def create1
     @lead = Lead.create (lead_params)
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to landing_path }
       format.js { }
     end
   end
   def create2
     @lead = Lead.create (lead_params)
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to landing2_path }
       format.js { }
     end
   end
   def create3
     @lead = Lead.create (lead_params)
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to landing3_path }
       format.js { }
     end
   end
   def create4
     @lead = Lead.create (lead_params)
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to landing4_path }
       format.js { }
     end
   end
