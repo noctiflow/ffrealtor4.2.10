@@ -10,7 +10,10 @@
 
   %div
     - if @lead.buysell.present?
-      == <b>[#{@lead.buysell}]</b><br /><br />
+      == <b>[#{@lead.buysell}]</b>
+    - if @lead.leadstatus.present?
+      == <b>[#{@lead.leadstatus.capitalize} Lead]</b><br /><br />
+
   %div= render "shared/address_show", asset: @lead, type: 'business', title: :address
 
   %div

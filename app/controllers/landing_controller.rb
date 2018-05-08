@@ -16,45 +16,37 @@ class LandingController < ApplicationController
     @lead = Lead.new
   end
   def create1
-    @lead = Lead.new (lead_params)
-    if @lead.save
-      redirect_to landing_path
-    else
-      # change to flash error
-      render 'buy1'
+    @lead = Lead.create (lead_params)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
     end
   end
   def create2
-    @lead = Lead.new (lead_params)
-    if @lead.save
-      redirect_to landing2_path
-    else
-      # change to flash error
-      render 'buy2'
+    @lead = Lead.create (lead_params)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
     end
   end
   def create3
-    @lead = Lead.new (lead_params)
-    if @lead.save
-      redirect_to landing3_path
-    else
-      # change to flash error
-      render 'sell1'
+    @lead = Lead.create (lead_params)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
     end
   end
   def create4
-    @lead = Lead.new (lead_params)
-    if @lead.save
-      redirect_to landing4_path
-    else
-      # change to flash error
-      render 'sell2'
+    @lead = Lead.create (lead_params)
+    respond_to do |format|
+      format.html { redirect_to root_path }
+      format.js { }
     end
   end
 
   private
 
   def lead_params
-    params.require(:lead).permit(:first_name, :last_name, :address, :postalcode, :unit, :desireddeal, :extrainfo, :phone, :email, :source, :buysell)
+    params.require(:lead).permit(:first_name, :last_name, :address, :postalcode, :unit, :desireddeal, :extrainfo, :phone, :email, :source, :buysell, :leadstatus)
   end
 end

@@ -37,6 +37,9 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'dotenv-rails'
+  gem 'hirb'
+  gem 'awesome_print'
+  gem 'interactive_editor'
 end
 
 group :development do

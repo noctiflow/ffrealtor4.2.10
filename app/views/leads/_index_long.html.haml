@@ -39,6 +39,8 @@
         == #{t :referred_by_small} #{lead.referred_by}
       - if lead.buysell.present?
         == #{t "["}#{lead.buysell}#{t "]"}
+      - if lead.leadstatus.present?
+        == #{t "["}#{lead.leadstatus.capitalize}#{t " Lead]"}
 
     %dt
       - if can?(:read, lead)
