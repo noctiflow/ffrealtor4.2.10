@@ -5,16 +5,17 @@ $(function(){
   $("form").submit(function(event) {
     event.preventDefault();
     var magic = $(this).serializeArray();
+    var path = $(this).attr("href");
     $.ajax({
       type: 'PUT',
-      url: '/leads/' + "<%= @lead.id %>",
+      url: '/landing/' + "<%= @lead.id %>",
       data: magic,
-      dataType: "JSON",
       success: function (data) {
-        console.log(data);
+        console.log('success');
         location.href = "<%= landing3_path %>"
       },
       error: function (data){
+        console.log('error');
         console.log(data);
       }
     });

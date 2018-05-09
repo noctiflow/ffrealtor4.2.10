@@ -61,6 +61,8 @@ Rails.application.routes.draw do
   post 'landing2', action: :create2, controller: 'landing'
   post 'landing3', action: :create3, controller: 'landing'
   post 'landing4', action: :create4, controller: 'landing'
+  put 'landing/:id', to: 'landing#update1'
+  put 'landing', to: 'landing#index'
   get 'landing', to: 'landing#index'
   get 'landing2', to: 'landing#index2'
   get 'landing3', to: 'landing#index3'
