@@ -7,10 +7,11 @@
 </head>
 
     <body class="background-image" onload="initialize()">
-      <div class="row " style="padding-top: 4%;">
-        <div class="col s4">
+      <main>
+      <div class="row" style="padding-top: 4%;">
+        <div class="col s1 m2 l4">
         </div>
-      <div class="col s4 formbg">
+      <div class="col s12 m8 l4 formbg">
         <%= simple_form_for @lead, url: landing4_path, remote: true do |f| %>
           <%= f.input :source, :as => :hidden, input_html: { value: 'Seller Form 2'} %>
           <%= f.input :buysell, :as => :hidden, input_html: { value: 'Seller'} %>
@@ -36,7 +37,7 @@
         <% end %>
         <%= simple_form_for @lead, url: landing4_path do |f| %>
           <div id="secondary-form" style="display:none;">
-            <h1><center<<strong>Property Found!</h1></strong></center>
+            <h1><center><strong>Property Found!</h1></strong></center>
             <center><h6 style="padding-bottom: 3%;">Let Us Help You By Leaving Your Information Below</h6></center>
             <%= f.input :first_name , placeholder: 'First Name...' %>
             <%= f.input :last_name , placeholder: 'Last Name...' %>
@@ -81,7 +82,16 @@
             </table>
         <% end %>
       </div>
-      <div class="col s3">
+      <div class="col s1 m2 l4">
       </div>
       </div>
-    </body>
+    </main>
+
+    <footer>
+      <div class="footer-copyright">
+        <div class="container center-align">
+          ©2018 James Wang Personal Real Estate Corporation. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+</body>

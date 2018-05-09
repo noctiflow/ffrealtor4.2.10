@@ -5,10 +5,11 @@
 </head>
 
     <body class="background-image" onload="initialize()">
+      <main>
       <div class="row " style="padding-top: 6%;">
-        <div class="col s6">
+        <div class="col s1 m3 l6">
         </div>
-      <div class="col s4 formbg">
+      <div class="col s12 m8 l4 formbg">
         <%= simple_form_for @lead, url: landing3_path, remote: true do |f| %>
           <%= f.input :source, :as => :hidden, input_html: { value: 'Seller Form 1'} %>
           <%= f.input :buysell, :as => :hidden, input_html: { value: 'Seller'} %>
@@ -16,8 +17,8 @@
           <%= f.input :last_name , :as => :hidden, input_html: { value: 'anonymous'} %>
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
           <div id="address-form">
-            <h1><strong>Looking To Sell A Property?</h1></strong>
-            <h5 style="padding-bottom: 3%;">Search For The Property Address Below</h5>
+            <h1><strong>Get Listings In Your Inbox Every Day!</h1></strong>
+            <h5 style="padding-bottom: 3%;">Where Are You Looking To Buy?</h5>
             <div id="locationField">
             <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' }, placeholder: 'Enter a location and select from the following list...' %>
             <br/>
@@ -77,7 +78,17 @@
             </table>
         <% end %>
       </div>
-      <div class="col s3">
+      <div class="col s1 m1 l2">
       </div>
       </div>
-    </body>
+    </main>
+
+    <footer>
+      <div class="footer-copyright">
+        <div class="container center-align">
+          ©2018 James Wang Personal Real Estate Corporation. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+    
+  </body>
