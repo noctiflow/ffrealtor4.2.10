@@ -87,19 +87,19 @@
     // [END region_geolocation]
 
     // noctiflow
-    jQuery(document).ready(function(){
-      jQuery("#form-continue").click(function(){
-        var f = jQuery("#autocomplete").val();
-        if(f){
-          jQuery("#form-continue").prop('disabled', true);
-          jQuery("#secondary-form").fadeIn(3000);
-          jQuery("#address-form").fadeOut(0);
-          //send f and postal code to db if page abandoned without full submission as partial lead
-        }
-        //if address field is not blank, disable continue button and popup secondary form.
-        //primary data gets held on to for later submission
-      });
-    });
+//    jQuery(document).ready(function(){
+//      jQuery("#form-continue").click(function(){
+//        var f = jQuery("#autocomplete").val();
+//        if(f){
+//          jQuery("#form-continue").prop('disabled', true);
+//          jQuery("#secondary-form").fadeIn(3000);
+//          jQuery("#address-form").fadeOut(0);
+//          //send f and postal code to db if page abandoned without full submission as partial lead
+//        }
+//        //if address field is not blank, disable continue button and popup secondary form.
+//        //primary data gets held on to for later submission
+//      });
+//    });
 
 
   </script>

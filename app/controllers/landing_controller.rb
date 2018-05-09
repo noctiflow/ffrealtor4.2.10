@@ -43,7 +43,14 @@ class LandingController < ApplicationController
       format.js { }
     end
   end
-
+  def update1
+    @lead = Lead.find(params[:id])
+    if @lead.update(lead_params)
+      redirect_to '/landing'
+    else
+      render :create1
+    end
+  end
   private
 
   def lead_params
