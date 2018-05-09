@@ -7,11 +7,26 @@ color: white !important;
 background-size: cover;
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
 
 .formbg{
   background-color: rgba(0, 0, 0, 0.8) !important;
-  padding-bottom: 5% !important;
+  padding-bottom: 3% !important;
   border-radius: 5px !important;
+}
+
+#locationField{
+  padding: 2% !important;
+  margin: 2% !important;
 }
 
 .btn, .btn-large, .btn-small {

@@ -7,6 +7,21 @@ color: white !important;
 background-size: cover;
 }
 
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+
+iframe {
+  min-height: 400px !important;
+}
+
 
 input {
   color: black;

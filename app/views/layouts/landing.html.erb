@@ -86,23 +86,15 @@
     }
     // [END region_geolocation]
 
-    // noctiflow
-    jQuery(document).ready(function(){
-      jQuery("#form-continue").click(function(){
-        var f = jQuery("#autocomplete").val();
-        if(f){
-          jQuery("#form-continue").prop('disabled', true);
-          jQuery("#secondary-form").fadeIn(3000);
-          jQuery("#address-form").fadeOut(0);
-          //send f and postal code to db if page abandoned without full submission as partial lead
-        }
-        //if address field is not blank, disable continue button and popup secondary form.
-        //primary data gets held on to for later submission
-      });
-    });
-
-
   </script>
+
+  <div class="navbar-fixed">
+    <nav style="background-color: rgba(0,0,0,0); box-shadow: none;">
+      <div class="" style="padding-left: 2%; scale: 0.2;">
+        <a href="/" class="brand-logo responsive-img"><%= image_tag( 'logo/horizontaleng.png' ) %></a>
+      </div>
+    </nav>
+  </div>
 
 </head>
   <%=yield%>

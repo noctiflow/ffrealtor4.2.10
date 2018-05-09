@@ -2,15 +2,14 @@
  <%= stylesheet_link_tag "buyer2" %>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
 </head>
 
     <body class="background-image" onload="initialize()">
-      <div class="row " style="padding-top: 4%;">
-        <div class="col s4">
+      <main>
+      <div class="row" style="padding-top: 4%;">
+        <div class="col s1 m2 l4">
         </div>
-      <div class="col s4 formbg">
+      <div class="col s12 m8 l4 formbg">
         <%= simple_form_for @lead, url: landing2_path, remote: true do |f| %>
           <%= f.input :source, :as => :hidden, input_html: { value: 'Buyer Form 2'} %>
           <%= f.input :buysell, :as => :hidden, input_html: { value: 'Buyer'} %>
@@ -18,7 +17,7 @@
           <%= f.input :last_name , :as => :hidden, input_html: { value: 'anonymous'} %>
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
           <div id="address-form">
-            <center><h1><strong>Looking To Buy A Property?</h1></strong></center>
+            <center><h1><strong>Find Out What Your Home is Worth?</h1></strong></center>
             <center><h6 style="padding-bottom: 4%;">Search For The Property Address Below</h6></center>
             <div id="locationField">
               <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' }, placeholder: 'Enter a location and select from the following list...' %>
@@ -36,8 +35,11 @@
         <% end %>
         <%= simple_form_for @lead, url: landing2_path do |f| %>
           <div id="secondary-form" style="display:none;">
-            <h1><center<<strong>Property Found!</h1></strong></center>
-            <center><h6 style="padding-bottom: 3%;">Let Us Help You By Leaving Your Information Below</h6></center>
+            <h1><center><strong>Property Found!</h1></strong></center>
+            <iframe id="map" width="100%" height="150%" frameborder="1" scrolling="no" marginheight="0" marginwidth="0" style="border:0;"
+             allowfullscreen>
+            </iframe>
+            <center><h4 style="padding-bottom: 3%; padding-top: 3%;">Who Do We Send The Report To?</h4></center>
             <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'full'} %>
             <%= f.input :first_name , placeholder: 'First Name...' %>
             <%= f.input :last_name , placeholder: 'Last Name...' %>
@@ -81,7 +83,17 @@
             </table>
         <% end %>
       </div>
-      <div class="col s3">
+      <div class="col s1 m2 l4">
       </div>
       </div>
-    </body>
+    </main>
+
+    <footer>
+      <div class="footer-copyright">
+        <div class="container center-align" style="color: white;">
+          ©2018 James Wang Personal Real Estate Corporation. All Rights Reserved
+        </div>
+      </div>
+    </footer>
+
+  </body>
