@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ee588170-a47f-4d82-a790-3816da129e11" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/landing_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/landing_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/landing/buy1.html.erb" afterPath="$PROJECT_DIR$/app/views/landing/buy1.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/landing/buy2.html.erb" afterPath="$PROJECT_DIR$/app/views/landing/buy2.html.erb" />
     </list>
     <ignored path="ffrealtor4.2.10.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,11 +28,31 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="landing.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="landing.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/landing.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-78">
-              <caret line="69" column="40" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="40" />
+            <state relative-caret-position="402">
+              <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buy1.html.erb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/landing/buy1.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="91" column="150" selection-start-line="82" selection-start-column="12" selection-end-line="91" selection-end-column="150" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="buy2.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/landing/buy2.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="147">
+              <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -106,7 +124,6 @@
         <option value="$PROJECT_DIR$/app/views/opportunities/_something.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/app/views/landing/create1.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/landing/buy2.html.erb" />
         <option value="$PROJECT_DIR$/app/views/landing/sell1.html.erb" />
         <option value="$PROJECT_DIR$/app/views/landing/sell2.html.erb" />
         <option value="$PROJECT_DIR$/app/views/leads/_sidebar_show.html.haml" />
@@ -119,6 +136,7 @@
         <option value="$PROJECT_DIR$/app/views/landing/create1.js.erb" />
         <option value="$PROJECT_DIR$/app/controllers/landing_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/landing/buy1.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/landing/buy2.html.erb" />
       </list>
     </option>
   </component>
@@ -651,12 +669,12 @@
       <updated>1524425822754</updated>
       <workItem from="1524425827071" duration="35978000" />
       <workItem from="1525561245942" duration="14709000" />
-      <workItem from="1525747959722" duration="25418000" />
+      <workItem from="1525747959722" duration="25797000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="76105000" />
+    <option name="totallyTimeSpent" value="76484000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="119" y="147" width="1133" height="587" extended-state="0" />
@@ -931,14 +949,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/landing/buy2.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="675">
-          <caret line="40" column="80" selection-start-line="40" selection-start-column="80" selection-end-line="40" selection-end-column="80" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/landing/create4.js.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
@@ -1043,18 +1053,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/landing/buy1.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/landing.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="86" column="33" selection-start-line="86" selection-start-column="33" selection-end-line="86" selection-end-column="33" />
+        <state relative-caret-position="402">
+          <caret line="101" column="0" selection-start-line="101" selection-start-column="0" selection-end-line="101" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/layouts/landing.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/landing/buy1.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-78">
-          <caret line="69" column="40" selection-start-line="69" selection-start-column="6" selection-end-line="69" selection-end-column="40" />
+        <state relative-caret-position="255">
+          <caret line="91" column="150" selection-start-line="82" selection-start-column="12" selection-end-line="91" selection-end-column="150" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/landing/buy2.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="94" column="16" selection-start-line="94" selection-start-column="16" selection-end-line="94" selection-end-column="16" />
           <folding />
         </state>
       </provider>
