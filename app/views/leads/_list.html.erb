@@ -1,0 +1,51 @@
+<%# app/views/leads/_list.html.erb %>
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info leads %>
+  </div>
+  <br>
+  <style>
+    #filter{
+      width:100%;
+    }
+    #filter td,th{
+      border:thin black dotted;
+    }
+    #filter th{
+      font-size:1.2em;
+    }
+    #filter td{
+      text-align: right;
+      padding-right:5px;
+    }
+  </style>
+  <table id="filter">
+    <tr>
+      <th>Name</th>
+      <th>Lead Status</th>
+      <th>Buyer/Seller</th>
+      <th>Assigned to</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Registered at</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <% leads.each do |lead| %>
+        <tr>
+          <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
+          <td><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
+          <td><%= lead.buysell if lead.buysell.present? %></td>
+          <td><%= User.where(:id => lead.assigned_to).last.username if lead.assigned_to.present? %></td>
+          <td><%= lead.email %></td>
+          <td><%= lead.phone %></td>
+          <td><%= lead.decorated_created_at %></td>
+          <td><%= link_to('/', lead_path(lead)) %></td>
+          <td><%= link_to('x', lead_path(lead), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= will_paginate leads %>
