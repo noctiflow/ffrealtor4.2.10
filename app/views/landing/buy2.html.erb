@@ -2,11 +2,18 @@
  <%= stylesheet_link_tag "buyer2" %>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+ <div class="navbar-fixed">
+   <nav style="background-color: rgba(0,0,0,0); box-shadow: none;">
+     <div style="padding-left: 2%; scale: 0.2;">
+       <a href="" class="brand-logo responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></a>
+     </div>
+   </nav>
+ </div>
 </head>
 
     <body class="background-image" onload="initialize()">
       <main>
-      <div class="row" style="padding-top: 4%;">
+      <div class="row" style="padding-top: 8%;">
         <div class="col s1 m2 l4">
         </div>
       <div class="col s12 m8 l4 formbg">
@@ -17,7 +24,7 @@
           <%= f.input :last_name , :as => :hidden, input_html: { value: 'anonymous'} %>
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
           <div id="address-form">
-            <center><h1><strong>Find Out What Your Home is Worth?</h1></strong></center>
+            <center><h1><strong>Find Out What Your Home is Worth</h1></strong></center>
             <center><h6 style="padding-bottom: 4%;">Search For The Property Address Below</h6></center>
             <div id="locationField">
               <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' }, placeholder: 'Enter a location and select from the following list...' %>

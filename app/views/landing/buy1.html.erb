@@ -3,6 +3,15 @@
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
+   <div class="navbar-fixed">
+     <nav style="background-color: rgba(0,0,0,0); box-shadow: none;">
+       <div class="" style="padding-left: 2%; scale: 0.2;">
+         <a href="" class="brand-logo responsive-img"><%= image_tag( 'logo/white/horeng300x200.png' ) %></a>
+       </div>
+     </nav>
+   </div>
+
 </head>
 
     <body class="background-image" onload="initialize()">
@@ -18,7 +27,7 @@
           <%= f.input :last_name , :as => :hidden, input_html: { value: 'anonymous'} %>
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
           <div id="address-form">
-            <h1><strong>Find Out What Your Home is Worth?</h1></strong>
+            <h1><strong>Find Out What Your Home is Worth</h1></strong>
             <h5 style="padding-bottom: 3%;">Search For The Property Address Below</h5>
             <div id="locationField">
               <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' }, placeholder: 'Enter a location and select from the following list...' %>
