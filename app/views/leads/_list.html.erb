@@ -42,10 +42,17 @@
           <td><%= lead.phone %></td>
           <td><%= lead.decorated_created_at %></td>
           <td><%= link_to('/', lead_path(lead)) %></td>
-          <td><%= link_to('x', lead_path(lead), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>
+          <!--<td><%# link_to('x', lead_path(lead), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
+          <td><%= check_box_tag("delete[#{lead.id}]",1) %></td>
         </tr>
     <% end %>
   </table>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $('input').click(function(){
+    $('input').type("checkbox")
+  })
+</script>
 
 <%= will_paginate leads %>
