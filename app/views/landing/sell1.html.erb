@@ -2,11 +2,19 @@
  <%= stylesheet_link_tag "seller1" %>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+ <div class="navbar-fixed">
+   <nav style="background-color: rgba(255,255,255,0.8); box-shadow: none; height: 8% !important;">
+     <div style="padding-left: 2%; scale: 0.2;">
+       <a href="" class="brand-logo responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></a>
+     </div>
+   </nav>
+ </div>
 </head>
 
     <body class="background-image" onload="initialize()">
       <main>
-      <div class="row " style="padding-top: 6%;">
+      <div class="row " style="padding-top: 15%;">
         <div class="col s1 m3 l6">
         </div>
       <div class="col s12 m8 l4 formbg">
@@ -90,5 +98,5 @@
         </div>
       </div>
     </footer>
-    
+
   </body>
