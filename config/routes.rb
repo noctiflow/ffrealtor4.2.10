@@ -71,5 +71,27 @@ Rails.application.routes.draw do
   get '/callback', to: 'calendar#callback', as: 'callback'
   get '/calendars', to: 'calendar#calendars', as: 'calendars'
   get '/events/:calendar_id', to: 'calendar#events', as: 'events', calendar_id: /[^\/]+/
-  
+
+  resources :leads, id: /\d+/ do
+    collection do
+      get :advanced_search
+      post :filter
+      get :options
+      get :field_group
+      match :auto_complete, via: %i[get post]
+      get :redraw
+      get :versions
+      get :autocomplete_account_name
+      delete 'destroy_multiple'
+    end
+    member do
+      get :convert
+      post :discard
+      post :subscribe
+      post :unsubscribe
+      put :attach
+      match :promote, via: %i[patch put]
+      put :reject
+    end
+  end
 end

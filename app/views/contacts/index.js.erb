@@ -1,0 +1,8 @@
+<%# app/views/contacts/index.js.erb %>
+<% js = escape_javascript(
+  render(partial: 'contacts/list', locals: { contacts: @contacts })
+) %>
+$("#filterrific_results").html("<%= js %>");
+if ($('.pagination').length > 1){
+  $('.pagination:first').hide(); //weird double pagination bugfix
+}

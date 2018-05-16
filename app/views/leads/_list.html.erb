@@ -1,8 +1,30 @@
 <%# app/views/leads/_list.html.erb %>
 <div id="filterrific_results">
-
+  <style>
+    .bulkbutton{
+      color:white;
+      display:inline-block;
+      float:right;
+      padding: 5px;
+      margin: 5px;
+      border-radius: 4px;
+      box-shadow: 2px 2px 3px #aaa;
+    }
+  </style>
   <div>
     <%= page_entries_info leads %>(s)
+    <div class="bulkbutton" id="bulkdelete" style="background-color:red;">Delete Selected</div>
+    <!--<div class="bulkbutton" id="bulkconvert" style="background-color:green;">Convert Selected</div>-->
+
+
+  </div>
+  <script type="text/javascript" charset="utf-8">
+    $('#bulkdelete').click(function(){
+      console.log("hi")
+    })
+  </script>
+  <div>
+
   </div>
   <br>
   <style>
@@ -20,6 +42,7 @@
       padding-right:5px;
     }
   </style>
+  <%= form_tag destroy_multiple_leads_path, method: :delete do %>
   <table id="filter">
     <tr>
       <th>Name</th>
@@ -43,16 +66,13 @@
           <td><%= lead.decorated_created_at %></td>
           <td><%= link_to('/', lead_path(lead)) %></td>
           <!--<td><%# link_to('x', lead_path(lead), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
-          <td><%= check_box_tag("delete[#{lead.id}]",1) %></td>
+          <!--<td><%# check_box_tag("convert[#{lead.id}]",1,false,class: "convertcheck") %></td>-->
+          <td><%= check_box_tag("lead_ids[]",lead.id,false,class: "deletecheck") %></td>
         </tr>
     <% end %>
   </table>
+  <%= submit_tag "delete selected" %>
+  <% end %>
 </div>
-
-<script type="text/javascript" charset="utf-8">
-  $('input').click(function(){
-    $('input').type("checkbox")
-  })
-</script>
 
 <%= will_paginate leads %>
