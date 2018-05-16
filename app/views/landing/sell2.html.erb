@@ -2,14 +2,32 @@
  <%= stylesheet_link_tag "seller2" %>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
- <div class="navbar-fixed">
-   <nav style="background-color: rgba(0,0,0,0); box-shadow: none;">
-     <div style="padding-left: 2%; scale: 0.2;">
-       <a href="" class="brand-logo responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></a>
-     </div>
-   </nav>
- </div>
+
+  <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+      $('.lead_email label').append(' <em>required</em>');
+      $('#secondary-form').keydown(function(e){
+        setTimeout(function(){
+          if($('#lead_email').val()){
+            $('#form-submitall').prop('disabled',false);
+          }
+          else{
+            $('#form-submitall').prop('disabled',true);
+          }
+        },100);
+      })
+    });
+  </script>
+
 </head>
+
+  <div class="navbar-fixed">
+    <nav style="background-color: rgba(0,0,0,0); box-shadow: none;">
+      <div style="padding-left: 2%; scale: 0.2;">
+        <a href="" class="brand-logo responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></a>
+      </div>
+    </nav>
+  </div>
 
     <body class="background-image" onload="initialize()">
       <main>
@@ -48,14 +66,14 @@
             <%= f.input :last_name , placeholder: 'Last Name...' %>
 
             <%= f.input :phone , placeholder: 'Phone Number...' %>
-            <%= f.input :email , placeholder: 'Email Address...' %>
+            <%= f.input :email , placeholder: 'Email Address...', label: "Email *" %>
             <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'full'} %>
 
             <%= f.input :desireddeal ,label: 'Desire Date To Sell' , placeholder: 'Please Select From The Calendar...'%>
 
             <%= f.input :extrainfo, label: 'Other Information', placeholder: 'Please Write Down Any Information You Would Like To Share With Us...' %>
 
-            <%= f.button :submit , :class => "btn formbtn" , value: 'Submit Information' %>
+            <%= f.button :submit , :class => "btn formbtn" , value: 'Submit Information', disabled: 'true', id: 'form-submitall' %>
 
           </div>
             <table id="address" style="display: none">

@@ -1,0 +1,56 @@
+<%# app/views/contacts/_list.html.erb %>
+<div id="filterrific_results">
+
+  <div>
+    <%= page_entries_info contacts %>(s)
+  </div>
+  <br>
+  <style>
+    #filter{
+      width:100%;
+    }
+    #filter td,th{
+      border:thin black dotted;
+    }
+    #filter th{
+      font-size:1.2em;
+    }
+    #filter td{
+      text-align: right;
+      padding-right:5px;
+    }
+  </style>
+  <table id="filter">
+    <tr>
+      <th>Name</th>
+      <th>Buyer/Seller</th>
+      <th>Assigned to</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Registered at</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+    <% contacts.each do |contact| %>
+        <tr>
+          <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
+          <td><%= contact.lead.buysell if contact.lead.present? %></td>
+          <td><%= User.where(:id => contact.assigned_to).last.username if contact.assigned_to.present? %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.phone %></td>
+          <td><%= contact.decorated_created_at %></td>
+          <td><%= link_to('/', contact_path(contact)) %></td>
+          <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
+          <td><%= check_box_tag("delete[#{contact.id}]",1) %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $('input').click(function(){
+    $('input').type("checkbox")
+  })
+</script>
+
+<%= will_paginate contacts %>

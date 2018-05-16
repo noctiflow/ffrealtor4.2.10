@@ -9,17 +9,25 @@
       return regex.test(email);
     }
     var field_a;
+    var field_b;
+    var field_c;
+    var field_d;
+
     function showButton(){
       setTimeout(function(){
-        if($('#lead_first_name').val()&&isEmail($('#lead_email').val())&&field_a){
+        if(field_a&&field_b&&field_c&&field_d){
           jQuery("i").fadeIn();
         }else{
           jQuery("i").fadeOut();
         }
       },100)
     }
-    $(document).ready(function(){
 
+    $(document).ready(function(){
+      $('.lead_cityname label').append(' <em>required</em>');
+      $('.lead_first_name label').append(' <em>required</em>');
+      $('.lead_last_name label').append(' <em>required</em>');
+      $('.lead_email label').append(' <em>required</em>');
 
 
       $('form').bind("keypress", function(e) {
@@ -31,19 +39,53 @@
       $('select').formSelect();
       $('.dropdown-content > li').click(function(){
         if($(this).children().text()){
-//          jQuery("i").fadeIn();
           field_a = true;
+          showButton();
         }
         else{
           field_a = false;
         }
       });
-      $(document).keydown(function(){
-        showButton();
+      $('#lead_email').on('input', function(){
+        if(isEmail($(this).val())){
+          field_b = true;
+          showButton();
+        }
+        else{
+          field_b = false;
+        }
       });
-      $(document).click(function(){
-        showButton();
+      $('#lead_first_name').on('input',function(){
+        if($(this).val()){
+          field_c = true;
+          showButton();
+        }
+        else{
+          field_c = false;
+        }
       });
+      $('#lead_last_name').on('input',function(){
+        if($(this).val()){
+          field_d = true;
+          showButton();
+        }
+        else{
+          field_d = false;
+        }
+      });
+//      $('form').keydown(function(){
+//        setTimeout(function(){
+//          console.log($("#lead_email").val());
+//        });
+//
+////        showButton();
+//      });
+//      $(document).click(function(){
+//        setTimeout(function(){
+//          console.log($("#lead_email").val());
+//        });
+//        showButton();
+//      });
 
     });
   </script>
