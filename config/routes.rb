@@ -71,6 +71,7 @@ Rails.application.routes.draw do
   get '/callback', to: 'calendar#callback', as: 'callback'
   get '/calendars', to: 'calendar#calendars', as: 'calendars'
   get '/events/:calendar_id', to: 'calendar#events', as: 'events', calendar_id: /[^\/]+/
+  put 'tasks/:id', to: 'tasks#update1'
 
   resources :leads, id: /\d+/ do
     collection do

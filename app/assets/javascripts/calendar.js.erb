@@ -29,14 +29,29 @@ $(document).ready(function(){
 });
 
 updateEvent = function(the_task) {
+  var sttime = new Date(); sttime.setTime(the_task.start);
+  var date = sttime.toISOString();
+  console.log(date);
   return $.ajax("/tasks/" + the_task.id, {
-    type: "PATCH",
+    type: "PUT",
     dataType: 'json',
-    event: {
-      title: the_task.title,
-      start_time: "" + the_task.start,
-      due_at: "" + the_task.end,
-      description: the_task.description
+    data: {
+      task:{
+//        title: the_task.title,
+        name: the_task.title,
+        start_time: "" + new Date(the_task.start).toUTCString(),
+        due_at: "" + new Date(the_task.end).toUTCString(),
+//      start_time: date,
+//      due_at: date,
+//        due_at: the_task.end,
+        description: the_task.description
+      }
+    },
+    success: function (data) {
+      console.log("success");
+    },
+    error: function(){
+      console.log("fail");
     }
   });
 };

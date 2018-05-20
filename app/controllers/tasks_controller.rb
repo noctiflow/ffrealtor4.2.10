@@ -94,25 +94,42 @@ class TasksController < ApplicationController
     else
       @task_before_update.bucket = @task.computed_bucket
     end
-
+    #
     respond_with(@task) do |_format|
       if @task.update_attributes(task_params)
-        @task.bucket = @task.computed_bucket
-
-        if called_from_index_page?
-          if Task.bucket_empty?(@task_before_update.bucket, current_user, @view)
-            @empty_bucket = @task_before_update.bucket
-          end
-          update_sidebar
-        end
-
-        format.html { redirect_to @task, notice: 'Task was successfully updated.' }
-        format.json { render :show, status: :ok, location: @task }
-      else
-        format.html { render :edit }
-        format.json { render json: @task.errors, status: :unprocessable_entity }
-
+      #   @task.bucket = @task.computed_bucket
+      #
+      #   if called_from_index_page?
+      #     if Task.bucket_empty?(@task_before_update.bucket, current_user, @view)
+      #       @empty_bucket = @task_before_update.bucket
+      #     end
+      #     update_sidebar
+      #   end
+      #   format.html { redirect_to @task, notice: 'Task was successfully updated.' }
+      #   format.json { render :show, status: :ok, location: @task }
+      # else
+      #   format.html { render :edit }
+      #   format.json { render json: @task.errors, status: :unprocessable_entity }
       end
+    end
+
+
+
+    # @task = Task.tracked_by(current_user).find(params[:id])
+    # if @task.update_attributes(task_params)
+    #
+    # else
+    #
+    # end
+
+  end
+
+  def update1
+    @task = Task.find(params[:id])
+    if @task.update(task_params)
+      redirect_to task_path
+    else
+      render :create1
     end
   end
 
