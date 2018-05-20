@@ -73,6 +73,28 @@ Rails.application.routes.draw do
   get '/events/:calendar_id', to: 'calendar#events', as: 'events', calendar_id: /[^\/]+/
   put 'tasks/:id', to: 'tasks#update1'
 
+
+  resources :contacts, id: /\d+/ do
+    collection do
+      get :advanced_search
+      post :filter
+      get :options
+      get :field_group
+      match :auto_complete, via: %i[get post]
+      get :redraw
+      get :versions
+      delete 'destroy_multiple'
+    end
+    member do
+      put :attach
+      post :discard
+      post :subscribe
+      post :unsubscribe
+      get :opportunities
+    end
+  end
+
+
   resources :leads, id: /\d+/ do
     collection do
       get :advanced_search

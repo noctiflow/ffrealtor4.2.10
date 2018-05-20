@@ -118,6 +118,14 @@ class ContactsController < EntitiesController
     end
   end
 
+  def destroy_multiple
+    Contact.where(id: params[:contact_ids]).destroy_all
+    respond_to do |format|
+      format.html { redirect_to contacts_url }
+      format.json { head :no_content }
+    end
+  end
+
   # PUT /contacts/1/attach
   #----------------------------------------------------------------------------
   # Handled by EntitiesController :attach

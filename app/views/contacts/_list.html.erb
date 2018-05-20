@@ -20,6 +20,7 @@
       padding-right:5px;
     }
   </style>
+  <%= form_tag destroy_multiple_contacts_path, method: :delete do %>
   <table id="filter">
     <tr>
       <th>Name</th>
@@ -41,10 +42,13 @@
           <td><%= contact.decorated_created_at %></td>
           <td><%= link_to('/', contact_path(contact)) %></td>
           <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
-          <td><%= check_box_tag("delete[#{contact.id}]",1) %></td>
+          <!--<td><%# check_box_tag("delete[#{contact.id}]",1) %></td>-->
+          <td><%= check_box_tag("contact_ids[]",contact.id,false,class: "deletecheck") %></td>
         </tr>
     <% end %>
   </table>
+  <%= submit_tag "delete selected" %>
+  <% end %>
 </div>
 
 <script type="text/javascript" charset="utf-8">

@@ -48,7 +48,7 @@
       <th>Name</th>
       <th>Lead Status</th>
       <th>Buyer/Seller</th>
-      <th>Assigned to</th>
+      <th>Area</th>
       <th>Email</th>
       <th>Phone</th>
       <th>Registered at</th>
@@ -60,7 +60,7 @@
           <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
           <td><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
           <td><%= lead.buysell if lead.buysell.present? %></td>
-          <td><%= User.where(:id => lead.assigned_to).last.username if lead.assigned_to.present? %></td>
+          <td><%= lead.cityname %></td>
           <td><%= lead.email %></td>
           <td><%= lead.phone %></td>
           <td><%= lead.decorated_created_at %></td>

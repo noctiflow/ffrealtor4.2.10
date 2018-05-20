@@ -29,12 +29,9 @@ $(document).ready(function(){
 });
 
 updateEvent = function(the_task) {
-  var sttime = new Date(); sttime.setTime(the_task.start);
-  var date = sttime.toISOString();
-  console.log(date);
   return $.ajax("/tasks/" + the_task.id, {
     type: "PUT",
-    dataType: 'json',
+//    dataType: 'json',
     data: {
       task:{
 //        title: the_task.title,
