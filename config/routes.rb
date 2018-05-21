@@ -72,6 +72,7 @@ Rails.application.routes.draw do
   get '/calendars', to: 'calendar#calendars', as: 'calendars'
   get '/events/:calendar_id', to: 'calendar#events', as: 'events', calendar_id: /[^\/]+/
   put 'tasks/:id', to: 'tasks#update1'
+  get 'matches', to: 'matches#index'
 
 
   resources :contacts, id: /\d+/ do
