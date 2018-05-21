@@ -113,7 +113,7 @@ class Contact < ActiveRecord::Base
     where('contacts.created_at >= ?', Date.parse(ref_date))
   }
   scope :with_buysell, lambda { |buysells|
-    where(:buysell => [*buysells])
+    joins(:lead).where(:leads => { :buysell => [*buysells] })
   }
 
   scope :created_by,  ->(user) { where(user_id: user.id) }
@@ -259,7 +259,10 @@ class Contact < ActiveRecord::Base
     ]
   end
   def self.options_for_buysell
-    order('LOWER(buysell)').map { |e| [e.buysell] }.uniq
+    # Contact.joins(:lead).where(:leads => { :buysell => "Buyer" })
+    # order('LOWER(buysell)').map { |e| [e.buysell] }.uniq
+
+    joins(:lead).map { |e| [e.lead.buysell] }.uniq
   end
   def decorated_created_at
     created_at.to_date.to_s(:long)
