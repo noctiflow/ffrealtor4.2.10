@@ -17,6 +17,7 @@ class LandingController < ApplicationController
   end
   def create1
     @lead = Lead.create (lead_params)
+    LeadMailer.new_lead_notification(@lead).deliver
     respond_to do |format|
       format.html { redirect_to landing_path }
       format.js { }
@@ -24,6 +25,7 @@ class LandingController < ApplicationController
   end
   def create2
     @lead = Lead.create (lead_params)
+    LeadMailer.new_lead_notification(@lead).deliver
     respond_to do |format|
       format.html { redirect_to landing2_path }
       format.js { }
@@ -31,6 +33,7 @@ class LandingController < ApplicationController
   end
   def create3
     @lead = Lead.create (lead_params)
+    LeadMailer.new_lead_notification(@lead).deliver
     respond_to do |format|
       format.html { redirect_to landing3_path }
       format.js { }
@@ -38,6 +41,7 @@ class LandingController < ApplicationController
   end
   def create4
     @lead = Lead.create (lead_params)
+    LeadMailer.new_lead_notification(@lead).deliver
     respond_to do |format|
       format.html { redirect_to landing4_path }
       format.js { }
