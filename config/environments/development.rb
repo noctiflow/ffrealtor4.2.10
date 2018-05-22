@@ -38,13 +38,26 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-      :authentication => :plain,
-      :address => "smtp.mailgun.org",
-      :port => 587,
-      :domain => "sandboxc0b74d9e0a1149929d58cad7b43c4d40.mailgun.org",
-      :user_name => "postmaster@sandboxc0b74d9e0a1149929d58cad7b43c4d40.mailgun.org",
-      :password => "45a63e6a84d0ee21f38b780910f90cb8-115fe3a6-793daeea"
+
+
+  # config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = {
+  #     :authentication => :plain,
+  #     :address => "smtp.mailgun.org",
+  #     :port => 587,
+  #     :domain => "sandboxc0b74d9e0a1149929d58cad7b43c4d40.mailgun.org",
+  #     :user_name => "postmaster@sandboxc0b74d9e0a1149929d58cad7b43c4d40.mailgun.org",
+  #     :password => "45a63e6a84d0ee21f38b780910f90cb8-115fe3a6-793daeea"
+  # }
+
+  Mailgun.configure do |config|
+    config.api_key = ENV["mailgun_key"]
+  end
+
+  config.action_mailer.delivery_method = :mailgun
+  config.action_mailer.mailgun_settings = {
+      api_key: ENV["mailgun_key"],
+      domain: ENV["mailgun_url"]
   }
+
 end
