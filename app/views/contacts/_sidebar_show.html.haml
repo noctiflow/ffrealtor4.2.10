@@ -4,7 +4,7 @@
   = account_with_title_and_department(@contact)
 
   %div
-    - if @contact.lead.present? && contact.lead.buysell.present?
+    - if @contact.lead.present? && @contact.lead.buysell.present?
       == <b>[#{@contact.lead.buysell}]</b><br /><br />
 
   %div= render "shared/address_show", asset: @contact, type: 'business', title: :address
