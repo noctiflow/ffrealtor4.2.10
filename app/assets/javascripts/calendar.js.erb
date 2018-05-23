@@ -38,8 +38,8 @@ updateEvent = function(the_task) {
         name: the_task.title,
         start_time: "" + new Date(the_task.start).toUTCString(),
         due_at: "" + new Date(the_task.end).toUTCString(),
-//      start_time: date,
-//      due_at: date,
+//      start_time: "99999999999",
+//      due_at: "99999999999",
 //        due_at: the_task.end,
         description: the_task.description
       }
@@ -47,8 +47,8 @@ updateEvent = function(the_task) {
     success: function (data) {
       console.log("success");
     },
-    error: function(){
-      console.log("fail");
+    error: function(e){
+      console.log(e);
     }
   });
 };

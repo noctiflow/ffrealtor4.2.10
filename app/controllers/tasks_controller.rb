@@ -126,10 +126,12 @@ class TasksController < ApplicationController
 
   def update1
     @task = Task.find(params[:id])
-    if @task.update(task_params)
+    if @task.update(utask_params)
       redirect_to task_path
     else
-      render :create1
+      # render :create1
+      render json: @task.errors, status: :bad_request
+      # format.json { render :json => { :error => @task.errors.full_messages } }
     end
   end
 
@@ -204,6 +206,9 @@ class TasksController < ApplicationController
     params[:task].permit!
   end
 
+  def utask_params
+    params.require(:task).permit(:name, :description, :start_time, :due_at)
+  end
   private
 
   # Yields array of current filters and updates the session using new values.
