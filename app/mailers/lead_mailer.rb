@@ -19,11 +19,12 @@ class LeadMailer < ApplicationMailer
   def new_lead_notification(lead)
     @lead = lead
     mg_client = Mailgun::Client.new ENV['mailgun_key']
-    message_params = {:from => 'staff@noctiflow.com',
+    message_params = {:from => 'noctiflow@gmail.com',
                       :to => 'jmacdonald404@gmail.com', #lead.email when mailgun plan setup
+                      # :bcc => 'noctiflow@gmail.com',
                       :subject => 'Contact Form',
                       :text => "Thanks for signing up #{lead.first_name}! We are currently reviewing your information regarding real estate in #{lead.cityname}, and will be in touch with you soon! this was generated from #{lead.source}. now to add you to the mailing list",
-                      "o:deliverytime" => 10.minutes.from_now.rfc2822
+                      "o:deliverytime" => 30.seconds.from_now.rfc2822
                       }
     mg_client.send_message ENV['mailgun_url'], message_params
   end
