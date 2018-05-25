@@ -217,11 +217,11 @@
   :icon: :fa-tasks
   :url:
     :controller: leads
-- :active: false
-  :text: :tab_accounts
-  :icon: :fa-users
-  :url:
-    :controller: accounts
+#- :active: false
+#  :text: :tab_accounts
+#  :icon: :fa-users
+#  :url:
+#    :controller: accounts
 - :active: false
   :text: :tab_contacts
   :icon: :fa-user

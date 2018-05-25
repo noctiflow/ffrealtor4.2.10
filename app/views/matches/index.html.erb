@@ -1,3 +1,12 @@
 <h3>Potential Matching Contacts</h3>
 <hr>
-buyers   | sellers 
+<% lastcity = "" %>
+<% @contacts.each do |contact| %>
+  <% if lastcity == "" || lastcity != contact.lead.cityname %>
+    <% lastcity = contact.lead.cityname %>
+    <h3><%= lastcity %></h3>
+  <% end %>
+  <div>
+    <%= contact.first_name %> | <%= contact.lead.cityname %> | <%= lastcity %>
+  </div>
+<% end %>
