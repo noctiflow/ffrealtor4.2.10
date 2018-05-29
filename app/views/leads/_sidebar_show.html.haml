@@ -1,6 +1,6 @@
 .panel#summary
   %span{style: "float:right"}= avatar_for(@lead, size: "50x50")
-  %h4= h(@lead.full_name)
+  %h3= h(@lead.full_name)
   - if !@lead.title.blank? && !@lead.company.blank?
     -# works_at: "{{job_title}} at {{company}}"
     %div= t(:works_at, job_title: @lead.title, company: @lead.company)
@@ -12,7 +12,22 @@
     - if @lead.buysell.present?
       == <b>[#{@lead.buysell}]</b>
     - if @lead.leadstatus.present?
-      == <b>[#{@lead.leadstatus.capitalize} Lead]</b><br /><br />
+      == <b>[#{@lead.leadstatus.capitalize} Lead]</b><br />
+
+  %div
+    - if @lead.source.present?
+      == #{t :source}: <b>#{@lead.source}</b><br />
+
+  %div
+    - if @lead.desireddeal.present?
+      == Desired Deal Date: <b>#{@lead.desireddeal}</b><br />
+  <br>
+  %div
+    - if @lead.buysell == "Buyer"
+      - if @lead.cityname.present?
+        == Area of Interest: #{@lead.cityname}
+      - if @lead.neighbourhood.present?
+        == Neighbourhood: #{@lead.neighbourhood}
 
   %div= render "shared/address_show", asset: @lead, type: 'business', title: :address
 
@@ -38,12 +53,20 @@
   = web_presence_icons(@lead)
 
   %div
-    - if @lead.source.present?
-      == #{t :source}: <b>#{@lead.source}</b><br />
-
-  %div
-    - if @lead.desireddeal.present?
-      == #{t 'desired deal date'}: <b>#{@lead.desireddeal}</b><br />
+    -if @lead.propertytype.present?
+      == Property Type: <b>#{@lead.propertytype}</b> <br>
+    -if @lead.pricemin.present?
+      == Minimum Price: <b>$#{@lead.pricemin}</b> <br>
+    -if @lead.pricemax.present?
+      == Maximum Price: <b>$#{@lead.pricemax}</b> <br>
+    -if @lead.bedrooms.present?
+      == # of bedrooms: <b>#{@lead.bedrooms}</b> <br>
+    -if @lead.bathrooms.present?
+      == # of bathrooms: <b>#{@lead.bathrooms}</b> <br>
+    -if @lead.buildingage.present?
+      == Max. Bldg. Age: <b>#{@lead.buildingage}</b> <br>
+    -if @lead.extrainfo.present?
+      == Extra Information: <b>#{@lead.extrainfo}</b> <br>
 
   .caption #{t :lead_summary}
   %li

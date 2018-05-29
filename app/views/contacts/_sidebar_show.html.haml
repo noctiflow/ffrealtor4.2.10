@@ -1,11 +1,30 @@
 .panel#summary
   %span{style: "float:right"}= avatar_for(@contact, size: "50x50")
-  %h4= h(@contact.full_name)
+  %h3= h(@contact.full_name)
+  <br>
   -#= account_with_title_and_department(@contact)
 
   %div
     - if @contact.lead.present? && @contact.lead.buysell.present?
-      == <b>[#{@contact.lead.buysell}]</b><br /><br />
+      == <b>[#{@contact.lead.buysell}]</b><br />
+
+  %div
+    - if @contact.lead && @contact.lead.source.present?
+      == #{t :source}: <b>#{@contact.lead.source}</b><br />
+
+  %div
+    - if @contact.lead && @contact.lead.desireddeal.present?
+      == #{t 'desired deal date'}: <b>#{@contact.lead.desireddeal}</b><br />
+
+  <br>
+
+  %div
+    - if @contact.lead && @contact.lead.buysell.present?
+      - if @contact.lead.buysell == "Buyer"
+        - if @contact.lead.cityname.present?
+          == Area of Interest: <b>#{@contact.lead.cityname}</b>
+        - if @contact.lead.neighbourhood.present?
+          == Neighbourhood: <b>#{@contact.lead.neighbourhood}</b>
 
   %div= render "shared/address_show", asset: @contact, type: 'business', title: :address
 
@@ -36,12 +55,21 @@
   = web_presence_icons(@contact)
 
   %div
-    - if @contact.lead && @contact.lead.source.present?
-      == #{t :source}: <b>#{@contact.lead.source}</b><br />
+    -if @contact.lead.propertytype.present?
+      == Property Type: <b>#{@contact.lead.propertytype}</b> <br>
+    -if @contact.lead.pricemin.present?
+      == Minimum Price: <b>$#{@contact.lead.pricemin}</b> <br>
+    -if @contact.lead.pricemax.present?
+      == Maximum Price: <b>$#{@contact.lead.pricemax}</b> <br>
+    -if @contact.lead.bedrooms.present?
+      == # of bedrooms: <b>#{@contact.lead.bedrooms}</b> <br>
+    -if @contact.lead.bathrooms.present?
+      == # of bathrooms: <b>#{@contact.lead.bathrooms}</b> <br>
+    -if @contact.lead.buildingage.present?
+      == Max. Bldg. Age: <b>#{@contact.lead.buildingage}</b> <br>
+    -if @contact.lead.extrainfo.present?
+      == Extra Information: <b>#{@contact.lead.extrainfo}</b> <br>
 
-  %div
-    - if @contact.lead && @contact.lead.desireddeal.present?
-      == #{t 'desired deal date'}: <b>#{@contact.lead.desireddeal}</b><br />
 
   .caption #{t :contact_summary}
   %li
