@@ -58,13 +58,13 @@
   %li
     %dt= @lead.assigned_to ? truncate(@lead.assignee.full_name, length: 16) : nil
     %tt #{t :assigned_to}:
-  %li
-    %dt
-      - if @lead.campaign
-        = link_to(truncate(@lead.campaign.name, length: 16), @lead.campaign, title: @lead.campaign.name)
-      - else
-        #{t :n_a}
-    %tt #{t :campaign}:
+  -#%li
+  -#  %dt
+  -#    - if @lead.campaign
+  -#      = link_to(truncate(@lead.campaign.name, length: 16), @lead.campaign, title: @lead.campaign.name)
+  -#    - else
+  -#      #{t :n_a}
+  -#  %tt #{t :campaign}:
   %li
     %dt
       - if @lead.contact
