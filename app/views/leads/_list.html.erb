@@ -73,12 +73,17 @@
   </table>
   <%= submit_tag "delete selected", id: "delsubmit" %>
   <% end %>
+  <input value="Select All" type="submit" id="checkAll">
 </div>
 
 <script type="text/javascript" charset="utf-8">
   $(function() {
+    $('input:checkbox').prop('checked', false);
     $('#delsubmit').click(function() {
       return window.confirm("Are you sure?");
+    });
+    $("#checkAll").click(function(){
+      $('input:checkbox').prop('checked', true);
     });
   });
 </script>
