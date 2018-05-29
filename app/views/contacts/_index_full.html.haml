@@ -21,7 +21,7 @@
       - else
         = contact.title if contact.title?
 
-      - if (account = contact.account) and account.name?
+      -#- if (account = contact.account) and account.name?
         = #{t :at} #{link_to_if can?(:read, account), account.name, account_path(account)}
 
       - if (lead = contact.lead) and lead.referred_by?
@@ -53,7 +53,7 @@
 
     %dt{ style: "padding: 2px 0px 0px 0px" }
       - if can?(:read, contact)
-        = render "contacts/section_general", contact: contact
+        -#= render "contacts/section_general", contact: contact
         = render "contacts/section_extra", contact: contact
         = render "entities/section_custom_fields", entity: contact
         = render "comments/new", commentable: contact
