@@ -45,8 +45,8 @@
   <%= form_tag destroy_multiple_leads_path, method: :delete do %>
   <table id="filter">
     <tr>
-      <th>Name</th>
       <th>Lead Status</th>
+      <th>Name</th>
       <th>Buyer/Seller</th>
       <th>Area</th>
       <th>Email</th>
@@ -57,8 +57,8 @@
     </tr>
     <% leads.each do |lead| %>
         <tr>
-          <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
           <td><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
+          <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
           <td><%= lead.buysell if lead.buysell.present? %></td>
           <td><%= lead.cityname %></td>
           <td><%= lead.email %></td>
