@@ -47,14 +47,16 @@
         </tr>
     <% end %>
   </table>
-  <%= submit_tag "delete selected" %>
+  <%= submit_tag "delete selected", id: "delsubmit" %>
   <% end %>
 </div>
 
 <script type="text/javascript" charset="utf-8">
-  $('input').click(function(){
-    $('input').type("checkbox")
-  })
+  $(function() {
+    $('#delsubmit').click(function() {
+      return window.confirm("Are you sure?");
+    });
+  });
 </script>
 
 <%= will_paginate contacts %>

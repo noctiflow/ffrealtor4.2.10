@@ -71,8 +71,16 @@
         </tr>
     <% end %>
   </table>
-  <%= submit_tag "delete selected" %>
+  <%= submit_tag "delete selected", id: "delsubmit" %>
   <% end %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('#delsubmit').click(function() {
+      return window.confirm("Are you sure?");
+    });
+  });
+</script>
 
 <%= will_paginate leads %>
