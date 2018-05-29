@@ -25,6 +25,43 @@ class ContactsController < EntitiesController
       format.js
     end
   end
+
+  def buyersindex
+    @filterrific = initialize_filterrific(
+        Contact.joins(:lead).where(:leads => { :buysell => "Buyer" }),
+        params[:filterrific],
+        :select_options => {
+            sorted_by: Contact.options_for_sorted_by,
+            with_assigned_to: User.options_for_select,
+            with_buysell: Contact.options_for_buysell
+        }
+    ) or return
+    @contacts = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def sellersindex
+    @filterrific = initialize_filterrific(
+        Contact.joins(:lead).where(:leads => { :buysell => "Seller" }),
+        params[:filterrific],
+        :select_options => {
+            sorted_by: Contact.options_for_sorted_by,
+            with_assigned_to: User.options_for_select,
+            with_buysell: Contact.options_for_buysell
+        }
+    ) or return
+    @contacts = @filterrific.find.page(params[:page])
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   def User.options_for_select
     order('LOWER(username)').map { |e| [e.username, e.id] }
   end
