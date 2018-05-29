@@ -228,6 +228,11 @@
   :url:
     :controller: contacts
 - :active: false
+  :text: "Matches"
+  :icon: :fa-bar-chart-o
+  :url:
+    :controller: matches
+- :active: false
   :text: :tab_opportunities
   :icon: :fa-money
   :url:

@@ -20,8 +20,9 @@
   }
   .innerbox{
     border-bottom:thin black solid;
-    width:50%;
+    width:33.33%;
     display: inline-block;
+    text-align: center;
   }
 </style>
 <h2>Potential Matching Contacts</h2>
@@ -40,8 +41,10 @@
       <div style="width:100%;display:flex;">
         <div class="infoheader"><h4>name</h4></div>
         <div class="infoheader"><h4>area</h4></div>
+        <div class="infoheader"><h4>deal date</h4></div>
         <div class="infoheader"><h4>name</h4></div>
         <div class="infoheader"><h4>address</h4></div>
+        <div class="infoheader"><h4>deal date</h4></div>
       </div>
       <div style="width:100%;display:flex;">
         <div style="border:thin black solid;float:left;flex:1;" class="buyers <%= lastcity %>">
@@ -53,11 +56,11 @@
   <% end %>
     <% if contact.lead.buysell == "Buyer" %>
       <script type="text/javascript" charset="utf-8">
-        $('.buyers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.neighbourhood %></div>');
+        $('.buyers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.neighbourhood %></div><div class="innerbox"><%= contact.lead.desireddeal %></div>');
       </script>
     <% elsif contact.lead.buysell == "Seller" %>
       <script type="text/javascript" charset="utf-8">
-        $('.sellers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.address %></div>');
+        $('.sellers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.address %></div><div class = "innerbox"><%= contact.lead.desireddeal %></div>');
       </script>
     <% end %>
 <% end %>
