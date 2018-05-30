@@ -4,9 +4,10 @@ $(document).ready(function(){
   return $('#calendar').fullCalendar({
     header: { center: 'agendaWeek,month,listWeek' },
     defaultView: 'agendaWeek',
-    editable: 'true',
-    droppable: 'true',
-    dragOpacity: "0.5",
+    disableDragging: true,
+    // editable: 'true',
+    // droppable: 'true',
+    // dragOpacity: "0.5",
     eventLimit: 3,
     height: 600,
     events: '/tasks.json',

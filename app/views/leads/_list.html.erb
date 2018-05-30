@@ -28,6 +28,9 @@
   </div>
   <br>
   <style>
+   body{
+     font-size: 1.3em;
+   }
     #filter{
       width:100%;
     }
@@ -41,10 +44,13 @@
       text-align: right;
       padding-right:5px;
     }
+    .tablecss td{
+      text-align: center !important;
+    }
   </style>
   <%= form_tag destroy_multiple_leads_path, method: :delete do %>
-  <table id="filter">
-    <tr>
+  <table class="tablecss" id="filter">
+    <tr style="text-align: center;">
       <th>Lead Status</th>
       <th>Name</th>
       <th>Buyer/Seller</th>
@@ -64,7 +70,7 @@
           <td><%= lead.email %></td>
           <td><%= lead.phone %></td>
           <td><%= lead.decorated_created_at %></td>
-          <td><%= link_to('/', lead_path(lead)) %></td>
+          <td style="text-decoration: none; color:black;"><%= link_to(lead_path(lead)) do %><i class="fa fa-pencil"></i><% end %></td>
           <!--<td><%# link_to('x', lead_path(lead), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
           <!--<td><%# check_box_tag("convert[#{lead.id}]",1,false,class: "convertcheck") %></td>-->
           <td><%= check_box_tag("lead_ids[]",lead.id,false,class: "deletecheck") %></td>

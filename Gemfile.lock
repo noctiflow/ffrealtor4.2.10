@@ -369,6 +369,7 @@ DEPENDENCIES
   dotenv-rails
   fat_free_crm!
   filterrific (~> 4.0)
+  font-awesome-rails
   fullcalendar-rails
   google-api-client
   hirb
