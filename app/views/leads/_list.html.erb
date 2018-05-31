@@ -61,6 +61,7 @@
       <th>Delete</th>
     </tr>
     <% leads.each do |lead| %>
+      <% if lead.status != "converted" %>
         <tr>
           <td><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
           <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
@@ -74,6 +75,7 @@
           <!--<td><%# check_box_tag("convert[#{lead.id}]",1,false,class: "convertcheck") %></td>-->
           <td><%= check_box_tag("lead_ids[]",lead.id,false,class: "deletecheck") %></td>
         </tr>
+      <% end %>
     <% end %>
   </table>
   <%= submit_tag "delete selected", id: "delsubmit" %>
