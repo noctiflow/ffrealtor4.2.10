@@ -19,10 +19,14 @@
       text-align: right;
       padding-right:5px;
     }
+    .tablecss td{
+      text-align: center !important;
+      font-size: 1.3em;
+    }
   </style>
   <%= form_tag destroy_multiple_contacts_path, method: :delete do %>
-  <table id="filter">
-    <tr>
+  <table class="tablecss" id="filter">
+    <tr style="text-align: center;">
       <th>Name</th>
       <th>Buyer/Seller</th>
       <th>Assigned to</th>
