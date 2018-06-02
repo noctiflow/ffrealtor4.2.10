@@ -27,6 +27,12 @@
         %td
           .label #{t :discount} #{t :currency}:
           = f.text_field :discount, :style => "width:110px; text-align:right;"
+        %td= spacer
+        %td
+          -#.label #{t :contact}:
+          -#= collection_select :opportunity, :contacts, Contact.all, :id, :full_name, {:include_blank => '--none--' }, :style => "width:110px; text-align:right;"
+          -#= collection_select :opportunity, :contacts, Contact.all, :id, :full_name, { :multiple => true, :include_blank => '--none--' }, :style => "width:110px; text-align:right;"
+          -#= select :contact, :contact_id, Contact.all, :id, :full_name, {:include_blank => '--none--' }, :style => "width:110px; text-align:right;"
 
     = fields_for(@account) do |a|
       = a.hidden_field :user_id
