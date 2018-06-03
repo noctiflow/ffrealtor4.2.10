@@ -20,7 +20,8 @@ class LeadMailer < ApplicationMailer
     @lead = lead
     mg_client = Mailgun::Client.new ENV['mailgun_key']
     message_params = {:from => 'noctiflow@gmail.com',
-                      :to => 'jmacdonald404@gmail.com', #lead.email when mailgun plan setup
+                      # :to => 'jmacdonald404@gmail.com', #lead.email when mailgun plan setup
+                      :to => lead.email,
                       # :bcc => 'noctiflow@gmail.com',
                       :subject => 'Contact Form',
                       :text => "Thanks for signing up #{lead.first_name}! We are currently reviewing your information regarding real estate in #{lead.cityname}, and will be in touch with you soon! this was generated from #{lead.source}. now to add you to the mailing list",
