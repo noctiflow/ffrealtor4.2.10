@@ -4,13 +4,13 @@
 
 .remote#create_opportunity{ hidden }
 
-= render 'search'
+-#= render 'search'
 
 .remote#options{ hidden }
--#
--#.stages{ hidden }
--#  = render 'something'
--#
+
+.stages{ hidden }
+  = render 'something'
+
 -#.list#opportunities
 -#  - if @opportunities.any?
 -#    = render @opportunities
