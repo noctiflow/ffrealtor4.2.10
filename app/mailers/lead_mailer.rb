@@ -32,10 +32,10 @@ class LeadMailer < ApplicationMailer
 
 
     mail({
-             :from    => "noctiflow@gmail.com",
+             :from    => "noreply@jameswangcrm.ca",
              :to      => @lead.email,
-             :subject => "Sample Mail using Mailgun API.",
-             :text    => "This mail is sent using Mailgun API via mailgun-ruby."
+             :subject => "Your information has been sent.",
+             :text    => "Thank you for contacting us. We will be in touch with you shortly."
          })
   end
 end
