@@ -237,12 +237,12 @@
   :icon: :fa-list-alt
   :url:
     :controller: opportunities
-- :active: false
-  :text: :tab_team
-  :icon: :fa-globe
-  :url:
-    :controller: users
-    :action: opportunities_overview
+#- :active: false
+#  :text: :tab_team
+#  :icon: :fa-globe
+#  :url:
+#    :controller: users
+#    :action: opportunities_overview
 
 :admin_tabs:
 - :active: true
