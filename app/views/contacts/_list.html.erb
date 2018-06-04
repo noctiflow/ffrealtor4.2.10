@@ -44,7 +44,7 @@
           <td><%= contact.email %></td>
           <td><%= contact.phone %></td>
           <td><%= contact.decorated_created_at %></td>
-          <td><%= link_to('/', contact_path(contact)) %></td>
+          <td style="text-decoration: none; color:black;"><%= link_to(contact_path(contact)) do %><i class="fa fa-pencil"></i><% end %></td>
           <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
           <!--<td><%# check_box_tag("delete[#{contact.id}]",1) %></td>-->
           <td><%= check_box_tag("contact_ids[]",contact.id,false,class: "deletecheck") %></td>

@@ -106,17 +106,17 @@
       <div class="row" style="padding-top: 6%;">
         <div class="col s1 m1 l1">
         </div>
-      <div class="col s12 m8 l5">
+      <div class="col s12 m8 l5 formbg">
         <%= simple_form_for @lead, url: landing_path, remote: true do |f| %>
           <%= f.input :source, :as => :hidden, input_html: { value: 'Buyer Form 1'} %>
           <%= f.input :buysell, :as => :hidden, input_html: { value: 'Buyer'} %>
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
 
           <div id="address-form">
-            <h1><strong>Find Out What Your Home is Worth</h1></strong>
+            <h2><strong>Find Out What Your Home is Worth</h1></strong>
             <h5 style="padding-bottom: 3%;">Search For The Property Address Below</h5>
             <div id="locationField">
-              <%= f.input :cityname, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver", "West Vancouver", "White Rock"] %>
+              <%= f.input :cityname, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver", "West Vancouver", "White Rock" ] %>
               <%= f.input :neighbourhood, :label => "Neighbourhood" %>
               <%= f.input :first_name , :label => "First Name *", placeholder: 'First Name...' %>
               <%= f.input :last_name , :label => "Last Name *", placeholder: 'Last Name...' %>

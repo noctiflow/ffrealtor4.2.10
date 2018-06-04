@@ -1,11 +1,20 @@
 <head>
- <div class="navbar-fixed">
+ <!-- <div class="navbar-fixed">
    <nav style="background-color: rgba(0,0,0,0); box-shadow: none;">
      <div style="padding-left: 2%; scale: 0.2;">
        <a href="" class="brand-logo responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></a>
      </div>
    </nav>
- </div>
+ </div> -->
+
+
+ <nav style="background-color: rgba(0,0,0,0.7);">
+   <div class="nav-wrapper">
+     <a href="" class="brand-logo responsive-img logoimg"><%= image_tag( 'logo/white/horeng300x200.png' ) %></a>
+     <ul id="nav-mobile" class="right hide-on-med-and-down">
+     </ul>
+   </div>
+ </nav>
   <%= stylesheet_link_tag "buyer2" %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -96,7 +105,7 @@
           <%= f.input :buysell, :as => :hidden, input_html: { value: 'Buyer'} %>
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
           <div id="address-form">
-            <center><h1><strong>Find Out What Your Home is Worth</h1></strong></center>
+            <center><h2><strong>Find Out What Your Home is Worth</h2></strong></center>
             <center><h6 style="padding-bottom: 4%;">Search For The Property Address Below</h6></center>
             <div id="locationField">
               <%= f.input :cityname, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver", "West Vancouver", "White Rock"] %>
@@ -107,7 +116,7 @@
               <%= f.input :email , :label => "E-mail *", placeholder: 'Email Address...' %>
               <br/>
               <div class="right-align">
-                <%= f.button :submit ,:id => "form-continue", :class => "btn formbtn waves-effect waves-light" , value: 'Click Here To Continue', :style => "display:none;margin-top: 10%; font-size: 20px;" %>
+                <%= f.button :submit ,:id => "form-continue", :class => "btn formbtn waves-effect waves-light" , value: 'Click Here To Continue', :style => "display:none;margin-top: 10%; font-size: 20px; color: white;" %>
               </div>
             </div>
           </div>
