@@ -1,6 +1,6 @@
 .background-image {
 background: image_url('2.jpg') no-repeat center center fixed;
-color: black !important;
+// color: black !important;
 -webkit-background-size: cover;
 -moz-background-size: cover;
 -o-background-size: cover;
@@ -140,4 +140,8 @@ textarea::placeholder {
   padding: 0 20px !important;
   float: right !important;
   font-size: 25px;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: black !important;
 }
