@@ -27,6 +27,7 @@ gem 'filterrific', '~> 4.0'
 gem 'will_paginate', '~> 3.1.0'
 gem 'mailgun-ruby'
 gem "font-awesome-rails"
+gem 'rails_12factor'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
