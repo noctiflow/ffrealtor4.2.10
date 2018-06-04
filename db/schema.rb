@@ -285,7 +285,7 @@ ActiveRecord::Schema.define(version: 20180515050130) do
     t.string   "address"
     t.string   "unit"
     t.string   "postalcode"
-    t.datetime "desireddeal"
+    t.date     "desireddeal"
     t.text     "extrainfo"
     t.string   "buysell"
     t.string   "leadstatus"

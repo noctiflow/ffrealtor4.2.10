@@ -147,6 +147,9 @@ class ContactsController < EntitiesController
   # DELETE /contacts/1
   #----------------------------------------------------------------------------
   def destroy
+    if @contact.opportunities.any?
+      Opportunity.joins(:contacts).where(:contacts => {:id => @contact.id}).destroy_all
+    end
     @contact.destroy
 
     respond_with(@contact) do |format|
@@ -156,7 +159,13 @@ class ContactsController < EntitiesController
   end
 
   def destroy_multiple
-    Contact.where(id: params[:contact_ids]).destroy_all
+    @contacts = Contact.where(id: params[:contact_ids])
+    @contacts.each do |contact|
+      if contact.opportunities.any?
+        Opportunity.joins(:contacts).where(:contacts => {:id => contact.id}).destroy_all
+      end
+    end
+    @contacts.destroy_all
     respond_to do |format|
       format.html { redirect_to contacts_url }
       format.json { head :no_content }
