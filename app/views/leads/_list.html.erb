@@ -35,21 +35,12 @@
     }
   </style>
   <div>
-    <%= page_entries_info leads %>(s)
+    <% if current_user.admin? %>
+      <%= page_entries_info leads %>(s)
+    <% end %>
     <!--<div class="bulkbutton" id="bulkconvert" style="background-color:green;">Convert Selected</div>-->
-
-
   </div>
-  <script type="text/javascript" charset="utf-8">
-    $('#bulkdelete').click(function(){
-      console.log("hi")
-    })
 
-
-  </script>
-  <div>
-
-  </div>
   <br>
   <%= form_tag destroy_multiple_leads_path, method: :delete do %>
   <table class="tablecss" id="filter">
@@ -65,7 +56,7 @@
       <th>Delete</th>
     </tr>
     <% leads.each do |lead| %>
-      <% if lead.status != "converted" %>
+      <% if lead.status != "converted" && current_user.admin? %>
         <tr>
           <td id="leadcolor"><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
           <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
@@ -82,9 +73,13 @@
       <% end %>
     <% end %>
   </table>
-  <%= submit_tag "Delete Selected", id: "delsubmit", class: "bulkbutton" %>
+  <% if current_user.admin? %>
+    <%= submit_tag "Delete Selected", id: "delsubmit", class: "bulkbutton" %>
   <% end %>
-  <input value="Select All" type="submit" id="checkAll" class="bulkbutton">
+  <% end %>
+  <% if current_user.admin? %>
+    <input value="Select All" type="submit" id="checkAll" class="bulkbutton">
+  <% end %>
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -108,7 +103,14 @@
     })
   });
 </script>
+<% if !current_user.admin? %>
+    <script type="text/javascript" charset="utf-8">
+      $('#filters').hide();
+    </script>
+<% end %>
 <br><br><br><br>
 <div>
-  <%= will_paginate leads %>
+  <% if current_user.admin? %>
+    <%= will_paginate leads %>
+  <% end %>
 </div>
