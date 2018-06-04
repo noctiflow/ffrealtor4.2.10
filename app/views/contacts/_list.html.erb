@@ -49,9 +49,12 @@
       <th>Phone</th>
       <th>Registered at</th>
       <th>Edit</th>
-      <th>Delete</th>
+      <% if current_user.admin? %>
+        <th>Delete</th>
+      <% end %>
     </tr>
-    <% contacts.each do |contact| %>
+    <% if current_user.admin? %>
+      <% contacts.each do |contact| %>
         <tr>
           <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
           <td><%= contact.lead.buysell if contact.lead.present? %></td>
@@ -62,13 +65,37 @@
           <td style="text-decoration: none; color:black;"><%= link_to(contact_path(contact)) do %><i class="fa fa-pencil"></i><% end %></td>
           <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
           <!--<td><%# check_box_tag("delete[#{contact.id}]",1) %></td>-->
-          <td><%= check_box_tag("contact_ids[]",contact.id,false,class: "deletecheck") %></td>
+          <% if current_user.admin? %>
+            <td><%= check_box_tag("contact_ids[]",contact.id,false,class: "deletecheck") %></td>
+          <% end %>
         </tr>
+      <% end %>
+    <% else %>
+      <% contacts.where(:assigned_to => current_user.id).each do |contact| %>
+        <tr>
+          <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
+          <td><%= contact.lead.buysell if contact.lead.present? %></td>
+          <td><%= User.where(:id => contact.assigned_to).last.username if contact.assigned_to.present? %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.phone %></td>
+          <td><%= contact.decorated_created_at %></td>
+          <td style="text-decoration: none; color:black;"><%= link_to(contact_path(contact)) do %><i class="fa fa-pencil"></i><% end %></td>
+          <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
+          <!--<td><%# check_box_tag("delete[#{contact.id}]",1) %></td>-->
+          <% if current_user.admin? %>
+              <td><%= check_box_tag("contact_ids[]",contact.id,false,class: "deletecheck") %></td>
+          <% end %>
+        </tr>
+      <% end %>
     <% end %>
   </table>
-  <%= submit_tag "Delete Selected", id: "delsubmit", class: "bulkbutton" %>
+  <% if current_user.admin? %>
+    <%= submit_tag "Delete Selected", id: "delsubmit", class: "bulkbutton" %>
   <% end %>
-  <input value="Select All" type="submit" id="checkAll" class="bulkbutton">
+  <% end %>
+  <% if current_user.admin? %>
+    <input value="Select All" type="submit" id="checkAll" class="bulkbutton">
+  <% end %>
 </div>
 
 <script type="text/javascript" charset="utf-8">
