@@ -234,7 +234,7 @@
     :controller: matches
 - :active: false
   :text: "Pipeline"
-  :icon: :fa-money
+  :icon: :fa-fa-list-alt
   :url:
     :controller: opportunities
 - :active: false
