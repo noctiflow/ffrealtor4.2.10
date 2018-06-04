@@ -24,5 +24,7 @@
     = render :partial => "opportunities/opportunities", :locals => {:object => @contact}
 
     = render :partial => "versions/versions", :locals => {:object => @contact}
+    :javascript
+      $('#versions').children().find($('li')).find( ":contains('Account')" ).hide()
 
     = load_select_popups_for(@contact, :tasks, :opportunities)
