@@ -55,20 +55,21 @@
   = web_presence_icons(@contact)
 
   %div
-    -if @contact.lead.propertytype.present?
-      == Property Type: <b>#{@contact.lead.propertytype}</b> <br>
-    -if @contact.lead.pricemin.present?
-      == Minimum Price: <b>$#{@contact.lead.pricemin}</b> <br>
-    -if @contact.lead.pricemax.present?
-      == Maximum Price: <b>$#{@contact.lead.pricemax}</b> <br>
-    -if @contact.lead.bedrooms.present?
-      == # of bedrooms: <b>#{@contact.lead.bedrooms}</b> <br>
-    -if @contact.lead.bathrooms.present?
-      == # of bathrooms: <b>#{@contact.lead.bathrooms}</b> <br>
-    -if @contact.lead.buildingage.present?
-      == Max. Bldg. Age: <b>#{@contact.lead.buildingage}</b> <br>
-    -if @contact.lead.extrainfo.present?
-      == Extra Information: <b>#{@contact.lead.extrainfo}</b> <br>
+    -if @contact.lead.present?
+      -if @contact.lead.propertytype.present?
+        == Property Type: <b>#{@contact.lead.propertytype}</b> <br>
+      -if @contact.lead.pricemin.present?
+        == Minimum Price: <b>$#{@contact.lead.pricemin}</b> <br>
+      -if @contact.lead.pricemax.present?
+        == Maximum Price: <b>$#{@contact.lead.pricemax}</b> <br>
+      -if @contact.lead.bedrooms.present?
+        == # of bedrooms: <b>#{@contact.lead.bedrooms}</b> <br>
+      -if @contact.lead.bathrooms.present?
+        == # of bathrooms: <b>#{@contact.lead.bathrooms}</b> <br>
+      -if @contact.lead.buildingage.present?
+        == Max. Bldg. Age: <b>#{@contact.lead.buildingage}</b> <br>
+      -if @contact.lead.extrainfo.present?
+        == Extra Information: <b>#{@contact.lead.extrainfo}</b> <br>
 
 
   .caption #{t :contact_summary}
