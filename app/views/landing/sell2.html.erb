@@ -42,8 +42,8 @@
           <%= f.input :last_name , :as => :hidden, input_html: { value: 'anonymous'} %>
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
           <div id="address-form">
-            <center><h1><strong>Looking To Sell A Property?</h1></strong></center>
-            <center><h6 style="padding-bottom: 4%;">Search For The Property Address Below</h6></center>
+            <center><h1><strong>Find Out What Your Home is Worth?</h1></strong></center>
+            <center><h5>We Offer Free Home Value Report</h5></center>
             <div id="locationField">
               <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' }, placeholder: 'Enter a location and select from the following list...' %>
               <br/>
@@ -61,8 +61,7 @@
         <% end %>
         <%= simple_form_for @lead, url: landing4_path do |f| %>
           <div id="secondary-form" style="display:none;">
-            <h1><center><strong>Property Found!</h1></strong></center>
-            <center><h6 style="padding-bottom: 3%;">Let Us Help You By Leaving Your Information Below</h6></center>
+            <h1><center><strong>Who do we send the report to?</h1></strong></center>
             <%= f.input :first_name , placeholder: 'First Name...' %>
             <%= f.input :last_name , placeholder: 'Last Name...' %>
 

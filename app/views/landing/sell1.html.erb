@@ -49,8 +49,8 @@
           <%= f.input :last_name , :as => :hidden, input_html: { value: 'anonymous'} %>
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
           <div id="address-form">
-            <h1><strong>Get Listings In Your Inbox Every Day!</h1></strong>
-            <h5 style="padding-bottom: 3%;">Where Are You Looking To Buy?</h5>
+            <h1><strong>Find Out What Your Home is Worth?</h1></strong>
+            <h5>We Offer Free Home Value Report</h5>
             <div id="locationField">
             <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' }, placeholder: 'Enter a location and select from the following list...' %>
             <br/>
@@ -66,8 +66,7 @@
         <% end %>
         <%= simple_form_for @lead, url: landing3_path do |f| %>
           <div id="secondary-form" style="display:none;">
-            <h1><strong>Property Found!</h1></strong>
-            <h5 style="padding-bottom: 3%;">Let Us Help You By Leaving Your Information Below</h5>
+            <h1><strong>Who do we send the report to?</h1></strong>
             <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'full'} %>
             <%= f.input :first_name , placeholder: 'First Name...' %>
             <%= f.input :last_name , placeholder: 'Last Name...' %>
@@ -76,6 +75,7 @@
             <%= f.input :email , placeholder: 'Email Address...', label: 'Email *' %>
 
             <%= f.input :desireddeal ,label: 'Desire Date To Sell' , placeholder: 'Please Select From The Calendar...'%>
+            <!-- <%= f.input :desireddeal ,label: 'I am....', collection: [ "Just Curious", "Selling in 3-6 Months", "Selling in 6-12 Months", "Refinancing" ] %> -->
 
             <%= f.input :extrainfo, label: 'Other Information', placeholder: 'Please Write Down Any Information You Would Like To Share With Us...' %>
 
