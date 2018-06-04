@@ -145,3 +145,27 @@ textarea::placeholder {
 .dropdown-content li>a, .dropdown-content li>span {
   color: black !important;
 }
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: white !important;
+  background-color: rgba(0,0,0,0.75) !important;
+  padding-top: 0px !important;
+}
+
+.dropdown-content li {
+  min-height: 0px !important;
+
+}
+
+.dropdown-content {
+  border: none !important;
+}
+
+.navbar-material .nav-wrapper .brand-logo img {
+    height: 64px;
+}
+
+.logoimg {
+  margin-top: -1%;
+  transform: scale(0.8) !important;
+}

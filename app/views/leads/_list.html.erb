@@ -22,6 +22,8 @@
     $('#bulkdelete').click(function(){
       console.log("hi")
     })
+
+
   </script>
   <div>
 
@@ -63,7 +65,7 @@
     <% leads.each do |lead| %>
       <% if lead.status != "converted" %>
         <tr>
-          <td><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
+          <td id="leadcolor"><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
           <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
           <td><%= lead.buysell if lead.buysell.present? %></td>
           <td><%= lead.cityname %></td>
@@ -92,7 +94,19 @@
     $("#checkAll").click(function(){
       $('input:checkbox').prop('checked', true);
     });
+    $('td').each(function(){
+      if($(this).html()=="Partial"){
+        $(this).css('background-color','red');
+      $(this).css('color', 'white');
+      }
+      else if($(this).html()=="Full") {
+      $(this).css('background-color', 'green');
+      $(this).css('color','white');
+    }
+    })
   });
+
+
 </script>
 
 <%= will_paginate leads %>
