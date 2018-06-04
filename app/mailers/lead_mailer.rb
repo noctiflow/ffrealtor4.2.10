@@ -1,5 +1,5 @@
 class LeadMailer < ApplicationMailer
-  default from: "jeff@noctiflow.com"
+  default from: "noreply@jameswangcrm.ca"
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
   #
