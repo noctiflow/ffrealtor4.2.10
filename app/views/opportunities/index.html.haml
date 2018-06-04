@@ -4,7 +4,7 @@
 
 .remote#create_opportunity{ hidden }
 
-= render 'search'
+-#= render 'search'
 
 .remote#options{ hidden }
 
@@ -17,7 +17,7 @@
   - else
     = render "shared/empty"
 
-#paginate= render "shared/paginate_with_per_page"
-#export= render "shared/export"
-
+-##paginate= render "shared/paginate_with_per_page"
+-##export= render "shared/export"
+-#
 = hook(:opportunity_index_after, self)
