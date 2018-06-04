@@ -27,14 +27,14 @@
           ) %>
     </div>
     <% if current_user.admin? %>
-    <div style="display:inline-block;padding-left:10px">
-      Assigned Realtor
-      <%= f.select(
-              :with_assigned_to,
-              @filterrific.select_options[:with_assigned_to],
-              { include_blank: '- Any -' }
+    <!--<div style="display:inline-block;padding-left:10px">-->
+      <!--Assigned Realtor-->
+      <%# f.select(
+#               :with_assigned_to,
+#               @filterrific.select_options[:with_assigned_to],
+#               { include_blank: '- Any -' }
           ) %>
-    </div>
+    <!--</div>-->
     <% end %>
     <div style="display:inline-block;padding-left:10px">
       Buyer/Seller
