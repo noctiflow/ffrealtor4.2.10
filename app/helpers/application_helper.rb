@@ -510,7 +510,7 @@ module ApplicationHelper
       when "leads" then "fa-tasks"
       when "accounts" then "fa-users"
       when "contacts" then "fa-user"
-      when "opportunities" then "fa-money"
+      when "pipeline" then "fa-list-alt"
       when "team" then "fa-globe"
     end
   end
