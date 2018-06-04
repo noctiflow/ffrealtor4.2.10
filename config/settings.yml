@@ -233,7 +233,7 @@
   :url:
     :controller: matches
 - :active: false
-  :text: :tab_opportunities
+  :text: "Pipeline"
   :icon: :fa-money
   :url:
     :controller: opportunities
