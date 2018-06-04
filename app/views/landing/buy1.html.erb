@@ -113,8 +113,8 @@
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
 
           <div id="address-form">
-            <h2><strong>Find Out What Your Home is Worth</h1></strong>
-            <h5 style="padding-bottom: 3%;">Search For The Property Address Below</h5>
+            <center><h2><strong>Get Listings in Your Inbox Every Day</h1></strong></center>
+            <center><h5 style="padding-bottom: 3%;">Where are you looking to buy?</h5></center>
             <div id="locationField">
               <%= f.input :cityname, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver", "West Vancouver", "White Rock" ] %>
               <%= f.input :neighbourhood, :label => "Neighbourhood" %>
@@ -130,7 +130,7 @@
         <% end %>
         <%= simple_form_for @lead, url: landing_path do |f| %>
           <div id="secondary-form" style="display:none;">
-            <h1><strong>Property Found!</h1></strong>
+            <h1><strong>Additional Information</h1></strong>
             <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'full'} %>
 
             <%= f.input :propertytype ,label: 'Property Type', collection: [ "House", "1/2 Duplex", "Townhouse", "Apartment/Condo" ] %>
