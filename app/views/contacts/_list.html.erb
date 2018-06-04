@@ -23,6 +23,21 @@
       text-align: center !important;
       font-size: 1.3em;
     }
+    .bulkbutton{
+      color:white;
+      display:inline-block;
+      float:right;
+      padding: 5px;
+      margin: 5px;
+      border-radius: 4px;
+      box-shadow: 2px 2px 3px #aaa;
+    }
+    #delsubmit{
+      background-color: red;
+    }
+    #checkAll{
+      background-color: dodgerblue;
+    }
   </style>
   <%= form_tag destroy_multiple_contacts_path, method: :delete do %>
   <table class="tablecss" id="filter">
@@ -51,9 +66,9 @@
         </tr>
     <% end %>
   </table>
-  <%= submit_tag "delete selected", id: "delsubmit" %>
+  <%= submit_tag "Delete Selected", id: "delsubmit", class: "bulkbutton" %>
   <% end %>
-  <input value="Select All" type="submit" id="checkAll">
+  <input value="Select All" type="submit" id="checkAll" class="bulkbutton">
 </div>
 
 <script type="text/javascript" charset="utf-8">
@@ -67,5 +82,7 @@
     });
   });
 </script>
-
-<%= will_paginate contacts %>
+<br><br><br><br>
+<div>
+  <%= will_paginate contacts %>
+</div>
