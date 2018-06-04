@@ -19,8 +19,15 @@ class LandingController < ApplicationController
     @lead = Lead.create (lead_params)
     # LeadMailer.new_lead_notification(@lead).deliver
     respond_to do |format|
-      format.html { redirect_to landing_path }
-      format.js { }
+      if @lead.save
+        format.html { redirect_to landing_path }
+        format.js { }
+      else
+        format.html { flash.now[:alert] = "Not done"
+        render "new"
+        }
+        format.js { render :js=>'alert("not done");' }
+      end
     end
   end
   def create2
@@ -49,11 +56,19 @@ class LandingController < ApplicationController
   end
   def update1
     @lead = Lead.find(params[:id])
-    LeadMailer.new_lead_notification(@lead).deliver
-    if @lead.update(lead_params)
-      redirect_to '/landing'
-    else
-      render :create1
+
+    # if @lead.update(lead_params)
+    #   redirect_to '/landing'
+    # else
+    #   render :create1
+    # end
+    respond_to do |format|
+      if @lead.update(lead_params)
+        format.html { redirect_to '/landing' }
+        LeadMailer.new_lead_notification(@lead).deliver
+      else
+        format.html { render :create1 }
+      end
     end
   end
   private
