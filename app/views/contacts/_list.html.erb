@@ -56,7 +56,16 @@
         <tr>
           <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
           <td><%= contact.lead.buysell if contact.lead.present? %></td>
-          <td><%= User.where(:id => contact.assigned_to).last.username if contact.assigned_to.present? %></td>
+          <td>
+          <% if contact.assigned_to.present? %>
+            <% magic = User.where(:id => contact.assigned_to).last %>
+            <% if magic.first_name.present? && magic.last_name.present? %>
+              <%= magic.first_name %> <%= magic.last_name %>
+            <% else %>
+              <%= magic.username %>
+            <% end %>
+          <% end %>
+          </td>
           <td><%= contact.decorated_created_at %></td>
           <td style="text-decoration: none; color:black;"><%= link_to(contact_path(contact)) do %><i class="fa fa-pencil"></i><% end %></td>
           <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
@@ -71,7 +80,14 @@
         <tr>
           <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
           <td><%= contact.lead.buysell if contact.lead.present? %></td>
-          <td><%= User.where(:id => contact.assigned_to).last.username if contact.assigned_to.present? %></td>
+          <% if contact.assigned_to.present? %>
+              <% magic = User.where(:id => contact.assigned_to).last %>
+              <% if magic.first_name.present? && magic.last_name.present? %>
+                  <%= magic.first_name %> <%= magic.last_name %>
+              <% else %>
+                  <%= magic.username %>
+              <% end %>
+          <% end %>
           <td><%= contact.decorated_created_at %></td>
           <td style="text-decoration: none; color:black;"><%= link_to(contact_path(contact)) do %><i class="fa fa-pencil"></i><% end %></td>
           <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
