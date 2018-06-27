@@ -90,7 +90,9 @@
   <span class="btncontact"><%= link_to contacts_sellers_path do %><span>Sellers</span><% end %></span>
 </div>
 <br>
+<div id="clist">
 <%= render(
         partial: 'contacts/list',
         locals: { contacts: @contacts }
     ) %>
+</div>
