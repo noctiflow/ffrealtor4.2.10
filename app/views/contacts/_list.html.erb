@@ -45,8 +45,6 @@
       <th>Name</th>
       <th>Buyer/Seller</th>
       <th>Assigned to</th>
-      <th>Email</th>
-      <th>Phone</th>
       <th>Registered at</th>
       <th>Edit</th>
       <% if current_user.admin? %>
@@ -59,8 +57,6 @@
           <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
           <td><%= contact.lead.buysell if contact.lead.present? %></td>
           <td><%= User.where(:id => contact.assigned_to).last.username if contact.assigned_to.present? %></td>
-          <td><%= contact.email %></td>
-          <td><%= contact.phone %></td>
           <td><%= contact.decorated_created_at %></td>
           <td style="text-decoration: none; color:black;"><%= link_to(contact_path(contact)) do %><i class="fa fa-pencil"></i><% end %></td>
           <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
@@ -76,8 +72,6 @@
           <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
           <td><%= contact.lead.buysell if contact.lead.present? %></td>
           <td><%= User.where(:id => contact.assigned_to).last.username if contact.assigned_to.present? %></td>
-          <td><%= contact.email %></td>
-          <td><%= contact.phone %></td>
           <td><%= contact.decorated_created_at %></td>
           <td style="text-decoration: none; color:black;"><%= link_to(contact_path(contact)) do %><i class="fa fa-pencil"></i><% end %></td>
           <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->

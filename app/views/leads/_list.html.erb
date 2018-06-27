@@ -49,8 +49,6 @@
       <th>Name</th>
       <th>Buyer/Seller</th>
       <th>Area</th>
-      <th>Email</th>
-      <th>Phone</th>
       <th>Registered at</th>
       <th>Edit</th>
       <th>Delete</th>
@@ -62,8 +60,6 @@
           <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
           <td><%= lead.buysell if lead.buysell.present? %></td>
           <td><%= lead.cityname %></td>
-          <td><%= lead.email %></td>
-          <td><%= lead.phone %></td>
           <td><%= lead.decorated_created_at %></td>
           <td style="text-decoration: none; color:black;"><%= link_to(lead_path(lead)) do %><i class="fa fa-pencil"></i><% end %></td>
           <!--<td><%# link_to('x', lead_path(lead), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
