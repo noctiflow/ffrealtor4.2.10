@@ -49,6 +49,7 @@
       <th>Name</th>
       <th>Buyer/Seller</th>
       <th>Area</th>
+      <th>Assigned To</th>
       <th>Registered at</th>
       <th>Edit</th>
       <th>Delete</th>
@@ -60,6 +61,16 @@
           <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
           <td><%= lead.buysell if lead.buysell.present? %></td>
           <td><%= lead.cityname %></td>
+          <td>
+            <% if lead.assigned_to.present? %>
+                <% magic = User.where(:id => lead.assigned_to).last %>
+                <% if magic.first_name.present? && magic.last_name.present? %>
+                    <%= magic.first_name %> <%= magic.last_name %>
+                <% else %>
+                    <%= magic.username %>
+                <% end %>
+            <% end %>
+          </td>
           <td><%= lead.decorated_created_at %></td>
           <td style="text-decoration: none; color:black;"><%= link_to(lead_path(lead)) do %><i class="fa fa-pencil"></i><% end %></td>
           <!--<td><%# link_to('x', lead_path(lead), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
