@@ -13,10 +13,14 @@ body {
     flex-direction: column;
   }
 
-  main {
-    flex: 1 0 auto;
-  }
+main {
+  flex: 1 0 auto;
+}
 
+select{
+  display: block !important;
+  border-radius: 30px !important;
+}
 
 input {
   color: black;
