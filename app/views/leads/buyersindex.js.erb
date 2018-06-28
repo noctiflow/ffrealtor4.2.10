@@ -1,0 +1,8 @@
+<%# app/views/leads/index.js.erb %>
+<% js = escape_javascript(
+  render(partial: 'leads/list', locals: { leads: @leads })
+) %>
+$("#filterrific_results").html("<%= js %>");
+if ($('.pagination').length > 1){
+  $('.pagination:first').hide(); //weird double pagination bugfix
+}

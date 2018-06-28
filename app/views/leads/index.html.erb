@@ -5,6 +5,21 @@
 <div class="remote" id="create_lead" hidden="true"></div>
 
 <%# app/views/leads/index.html.erb %>
+<style>
+  .btncontact{
+    background-color: oldlace; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px;
+    box-shadow:2px 2px 3px #aaa;
+    font-weight: 600;
+  }
+</style>
 
 <%#
   Filterrific adds the `form_for_filterrific` view helper:
@@ -71,7 +86,15 @@
   });
 </script>
 <br>
+<div style="float: right; padding-right: 1%;">
+  <span class="btncontact"><%= link_to leads_path do %><span>All Leads</span><% end %></span>
+  <span class="btncontact"><%= link_to leads_buyers_path do %><span>Buyers</span><% end %></span>
+  <span class="btncontact"><%= link_to leads_sellers_path do %><span>Sellers</span><% end %></span>
+</div>
+<br>
+<div id="llist">
 <%= render(
         partial: 'leads/list',
         locals: { leads: @leads }
     ) %>
+</div>

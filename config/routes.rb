@@ -75,6 +75,8 @@ Rails.application.routes.draw do
   get 'matches', to: 'matches#index'
   get 'contacts/buyers', to: 'contacts#buyersindex'
   get 'contacts/sellers', to: 'contacts#sellersindex'
+  get 'leads/buyers', to: 'leads#buyersindex'
+  get 'leads/sellers', to: 'leads#sellersindex'
 
 
   resources :contacts, id: /\d+/ do

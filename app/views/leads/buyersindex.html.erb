@@ -1,0 +1,103 @@
+<%= styles_for :lead %>
+
+<%= render 'entities/title_bar' %>
+
+<div class="remote" id="create_lead" hidden="true"></div>
+
+<%# app/views/leads/index.html.erb %>
+<style>
+  .btncontact{
+    background-color: oldlace; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px;
+    box-shadow:2px 2px 3px #aaa;
+    font-weight: 600;
+  }
+</style>
+
+<%#
+  Filterrific adds the `form_for_filterrific` view helper:
+  * adds dom id 'filterrific_filter'
+  * applies javascript behaviors:
+      * AJAX form submission on change
+      * AJAX spinner while AJAX request is being processed
+  * sets form_for options like :url, :method and input name prefix
+%>
+<div style="border: thin grey solid;box-shadow:2px 2px 3px #aaa;background-color: #eee">
+  <h3 style="padding-left:10px;padding-top: 8px">Filter</h3>
+  <br>
+  <%= form_for_filterrific @filterrific do |f| %>
+      <div style="display:inline-block;padding-left:10px">
+        Search
+        <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+        <%= f.text_field(
+                :search_query,
+                class: 'filterrific-periodically-observed'
+            ) %>
+      </div>
+      <% if current_user.admin? %>
+          <!--<div style="display:inline-block;padding-left:10px">-->
+          <!--Assigned Realtor-->
+          <%# f.select(
+#               :with_assigned_to,
+#               @filterrific.select_options[:with_assigned_to],
+#               { include_blank: '- Any -' }
+          ) %>
+          <!--</div>-->
+      <% end %>
+      <!--<div style="display:inline-block;padding-left:10px">-->
+      <!--Buyer/Seller-->
+      <!--<%# f.select(-->
+                <!--:with_buysell,-->
+                <!--@filterrific.select_options[:with_buysell],-->
+                <!--{ include_blank: '- All -'}-->
+            <!--) %>-->
+      <!--</div>-->
+      <div style="display:inline-block;padding-left:10px">
+        <%= f.text_field(:with_buysell, value: "Buyer", hidden: "true")%>
+      </div>
+      <div style="display:inline-block;padding-left:10px">
+        Registered after
+        <%= f.text_field(:with_created_at_gte, class: 'js-datepicker') %>
+      </div>
+      <div style="display:inline-block;padding-left:10px">
+        Sort by
+        <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
+      </div>
+      <br><br>
+      <div style="padding-left:10px;padding-bottom: 7px">
+        <%= link_to(
+                'Reset filters',
+                reset_filterrific_url,
+            ) %>
+      </div>
+      <%# add an automated spinner to your form when the list is refreshed %>
+      <%= render_filterrific_spinner %>
+  <% end %>
+</div>
+<script>
+  $(function(){
+    $( ".js-datepicker" ).datepicker({
+      dateFormat: 'yy-mm-dd'
+    });
+  });
+</script>
+<br>
+<div style="float: right; padding-right: 1%;">
+  <span class="btncontact"><%= link_to leads_path do %><span>All Leads</span><% end %></span>
+  <span class="btncontact"><%= link_to leads_buyers_path do %><span>Buyers</span><% end %></span>
+  <span class="btncontact"><%= link_to leads_sellers_path do %><span>Sellers</span><% end %></span>
+</div>
+<br>
+<div id="llist">
+  <%= render(
+          partial: 'leads/list',
+          locals: { leads: @leads }
+      ) %>
+</div>

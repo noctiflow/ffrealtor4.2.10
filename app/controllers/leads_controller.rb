@@ -39,6 +39,40 @@ class LeadsController < EntitiesController
     end
   end
 
+  def buyersindex
+    @filterrific = initialize_filterrific(
+        Lead.where(:buysell => "Buyer"),
+        params[:filterrific],
+        :select_options => {
+            sorted_by: Lead.options_for_sorted_by,
+            with_assigned_to: User.options_for_select,
+            with_buysell: Lead.options_for_buysell
+        }
+    ) or return
+    @leads = @filterrific.find.page(params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
+  def sellersindex
+    @filterrific = initialize_filterrific(
+        Lead.where(:buysell => "Seller"),
+        params[:filterrific],
+        :select_options => {
+            sorted_by: Lead.options_for_sorted_by,
+            with_assigned_to: User.options_for_select,
+            with_buysell: Lead.options_for_buysell
+        }
+    ) or return
+    @leads = @filterrific.find.page(params[:page])
+    respond_to do |format|
+      format.html
+      format.js
+    end
+  end
+
   # GET /leads/1
   # AJAX /leads/1
   #----------------------------------------------------------------------------
