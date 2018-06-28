@@ -65,7 +65,7 @@ class LandingController < ApplicationController
     respond_to do |format|
       if @lead.update(lead_params)
         format.html { redirect_to '/landing' }
-        LeadMailer.new_lead_notification(@lead).deliver
+        # LeadMailer.new_lead_notification(@lead).deliver # disabled for the moment
       else
         format.html { render :create1 }
       end
