@@ -51,7 +51,7 @@
       <th>Area</th>
       <th>Assigned To</th>
       <th>Registered at</th>
-      <th>Edit</th>
+      <th>Rating</th>
       <th>Delete</th>
     </tr>
     <% leads.each do |lead| %>
@@ -72,7 +72,7 @@
             <% end %>
           </td>
           <td><%= lead.decorated_created_at %></td>
-          <td style="text-decoration: none; color:black;"><%= link_to(lead_path(lead)) do %><i class="fa fa-pencil"></i><% end %></td>
+          <td><%= stars_for(lead) %></td>
           <!--<td><%# link_to('x', lead_path(lead), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
           <!--<td><%# check_box_tag("convert[#{lead.id}]",1,false,class: "convertcheck") %></td>-->
           <td><%= check_box_tag("lead_ids[]",lead.id,false,class: "deletecheck") %></td>
