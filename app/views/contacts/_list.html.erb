@@ -46,7 +46,7 @@
       <th>Buyer/Seller</th>
       <th>Assigned to</th>
       <th>Registered at</th>
-      <!--<th>Rating</th>-->
+      <th>Rating</th>
       <% if current_user.admin? %>
         <th>Delete</th>
       <% end %>
@@ -67,7 +67,7 @@
           <% end %>
           </td>
           <td><%= contact.decorated_created_at %></td>
-          <!--<td><%# stars_for(contact) %></td>-->
+          <td><%= stars_for(contact) %></td>
           <!--<td><%# link_to('x', contact_path(contact), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
           <!--<td><%# check_box_tag("delete[#{contact.id}]",1) %></td>-->
           <% if current_user.admin? %>

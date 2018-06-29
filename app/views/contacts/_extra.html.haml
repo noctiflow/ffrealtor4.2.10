@@ -10,6 +10,9 @@
         %tr
           %td
             .label Address:
+        %td
+          .label.top #{t :rating}:
+          = rating_select "contact[rating]", { :id => :contact_rating, :selected => @contact.rating, :style => "width:160px" }
         -#%tr
         -#  %td
         -#    .label #{t :job_title}:

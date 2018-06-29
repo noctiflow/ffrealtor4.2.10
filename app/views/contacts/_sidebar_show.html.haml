@@ -83,6 +83,9 @@
       - else
         #{t :n_a}
     %tt #{t :lead}:
+  %li
+    %span{style: "float:right;"}= stars_for(@contact)
+    %tt #{t :rating}:
   -#%li
   -#  %dt
   -#    - if @contact.lead.try(:campaign)
