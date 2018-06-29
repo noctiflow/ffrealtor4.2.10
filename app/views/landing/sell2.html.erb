@@ -42,8 +42,8 @@
           <%= f.input :last_name , :as => :hidden, input_html: { value: 'anonymous'} %>
           <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
           <div id="address-form">
-            <center><h1><strong>Find Out What Your Home is Worth?</h1></strong></center>
-            <center><h5>We Offer Free Home Value Report</h5></center>
+            <center><h1><strong>Find Out What Your Home is Worth.</h1></strong></center>
+            <center><h5>We Offer Free Home Value Reports</h5></center>
             <div id="locationField">
               <%= f.input :address, input_html: { id: 'autocomplete', onFocus: 'geolocate()' }, placeholder: 'Enter a location and select from the following list...' %>
               <br/>
@@ -69,8 +69,9 @@
             <%= f.input :email , placeholder: 'Email Address...', label: "Email *" %>
             <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'full'} %>
             <%= f.input :propertytype ,label: 'Property Type', collection: [ "House", "1/2 Duplex", "Townhouse", "Apartment/Condo" ] %>
+            <%= f.input :pricemax, label: 'Asking Price' %>
 
-            <%= f.input :desireddeal ,label: 'Desire Date To Sell' , placeholder: 'Please Select From The Calendar...'%>
+            <%= f.input :desireddeal ,label: 'Desired Date To Sell' , placeholder: 'Please Select From The Calendar...'%>
 
             <%= f.input :extrainfo, label: 'Other Information', placeholder: 'Please Write Down Any Information You Would Like To Share With Us...' %>
 
