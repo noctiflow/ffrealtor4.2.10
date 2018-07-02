@@ -12,5 +12,9 @@ Rails.application.config.assets.version = '1.0'
 
 Rails.application.config.assets.precompile += %w( buyer1.css )
 Rails.application.config.assets.precompile += %w( buyer2.css )
+Rails.application.config.assets.precompile += %w( buyer3.css )
+Rails.application.config.assets.precompile += %w( buyer4.css )
 Rails.application.config.assets.precompile += %w( seller1.css )
 Rails.application.config.assets.precompile += %w( seller2.css )
+Rails.application.config.assets.precompile += %w( seller3.css )
+Rails.application.config.assets.precompile += %w( seller4.css )

@@ -9,10 +9,22 @@ class LandingController < ApplicationController
   def buy2
     @lead = Lead.new
   end
+  def buy3
+    @lead = Lead.new
+  end
+  def buy4
+    @lead = Lead.new
+  end
   def sell1
     @lead = Lead.new
   end
   def sell2
+    @lead = Lead.new
+  end
+  def sell3
+    @lead = Lead.new
+  end
+  def sell4
     @lead = Lead.new
   end
   def create1
