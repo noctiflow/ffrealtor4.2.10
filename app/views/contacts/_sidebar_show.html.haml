@@ -14,7 +14,7 @@
 
   %div
     - if @contact.lead && @contact.lead.desireddeal.present?
-      == #{t 'desired deal date'}: <b>#{@contact.lead.desireddeal}</b><br />
+      == #{t 'Desired Deal Date'}: <b>#{@contact.lead.desireddeal.strftime("%B %d, %Y")}</b><br />
 
   <br>
 
