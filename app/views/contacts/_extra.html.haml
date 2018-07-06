@@ -9,7 +9,7 @@
       = hook(:contact_extra_details_form, self, :f => f) do
         %tr
           %td
-            .label Address:
+            = render "shared/address", :f => f, :asset => @contact, :type => 'business', :title => :address
         %td
           .label.top #{t :rating}:
           = rating_select "contact[rating]", { :id => :contact_rating, :selected => @contact.rating, :style => "width:160px" }

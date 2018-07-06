@@ -48,7 +48,9 @@
       <th>Lead Status</th>
       <th>Name</th>
       <th>Buyer/Seller</th>
+      <th>Property Type</th>
       <th>Area</th>
+      <th>Price</th>
       <th>Assigned To</th>
       <th>Registered at</th>
       <th>Rating</th>
@@ -60,7 +62,15 @@
           <td id="leadcolor"><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
           <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
           <td><%= lead.buysell if lead.buysell.present? %></td>
+          <td><%= lead.propertytype %></td>
           <td><%= lead.cityname %></td>
+          <td>
+            <% if lead.pricemax.present? %>
+                $<%= number_with_delimiter(lead.pricemax , :delimiter => ',') %>
+                <% else %>
+                    N/A
+            <% end %>
+          </td>
           <td>
             <% if lead.assigned_to.present? %>
                 <% magic = User.where(:id => lead.assigned_to).last %>

@@ -44,6 +44,9 @@
     <tr style="text-align: center;">
       <th>Name</th>
       <th>Buyer/Seller</th>
+      <th>Property Type</th>
+      <th>Area</th>
+      <th>Price</th>
       <th>Assigned to</th>
       <th>Registered at</th>
       <th>Rating</th>
@@ -56,6 +59,9 @@
         <tr>
           <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
           <td><%= contact.lead.buysell if contact.lead.present? %></td>
+          <td></td>
+          <td></td>
+          <td></td>
           <td>
           <% if contact.assigned_to.present? %>
             <% magic = User.where(:id => contact.assigned_to).last %>
