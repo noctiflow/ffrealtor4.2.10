@@ -55,6 +55,14 @@
   = web_presence_icons(@contact)
 
   %div
+    -if @contact.secname.present?
+      == Secondary Contact: <b>#{@contact.secname}</b> <br />
+    -if @contact.secemail.present?
+      == Secondary Email: <b>#{@contact.secemail}</b> <br />
+    -if @contact.secphone.present?
+      == Secondary Phone: <b>#{@contact.secphone}</b> <br />
+
+  %div
     -if @contact.lead.present?
       -if @contact.lead.propertytype.present?
         == Property Type: <b>#{@contact.lead.propertytype}</b> <br>
