@@ -9,7 +9,46 @@
       = hook(:contact_extra_details_form, self, :f => f) do
         %tr
           %td
-            .label Address:
+            %br
+            %h3 Property Info
+        %tr
+          %td
+            .label address:
+          %td
+            .label unit:
+        %tr
+          %td
+            .label postal code:
+          %td
+            .label city:
+        %tr
+          %td
+            .label neighbourhood:
+          %td
+            .label property type:
+        %tr
+          %td
+            .label asking price:
+          %td
+            .label building age:
+        %tr
+          %td
+            .label bedrooms:
+          %td
+            .label bathrooms:
+        %tr
+          %td
+            %br
+            %h3 Secondary Contact
+        %tr
+          %td
+            .label name:
+        %tr
+          %td
+            .label email:
+        %tr
+          %td
+            .label phone:
         %td
           .label.top #{t :rating}:
           = rating_select "contact[rating]", { :id => :contact_rating, :selected => @contact.rating, :style => "width:160px" }

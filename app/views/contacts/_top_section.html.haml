@@ -3,6 +3,8 @@
   .section
     %table
       %tr
+        %br
+        %h3 Contact Info
         %td
           .label.top.req{ :class => "#{Setting.require_first_names ? 'req' : nil}" } #{t :first_name}:
           = f.text_field :first_name, :autofocus => true
