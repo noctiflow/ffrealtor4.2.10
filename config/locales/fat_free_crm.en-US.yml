@@ -55,14 +55,15 @@ en-US:
   web: Website
   word_of_mouth: Word of Mouth
   other: Other
-  prospecting: Prospecting
-  analysis: Analysis
-  presentation: Presentation
-  proposal: Proposal
-  negotiation: Negotiation
-  final_review: Final Review
-  won: Closed/Won
-  lost: Closed/Lost
+  prospecting: Lead In
+  analysis: Contact Made
+  presentation: Meet
+  proposal: Pre-Qualified
+  negotiation: Start Showing
+  final_review: Write Offer
+  won: Accept Offer
+  lost: Pending Completion
+  closed: Closed
   call: Call
   email: Email
   follow_up: Follow-up

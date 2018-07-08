@@ -4,8 +4,9 @@
 // See MIT-LICENSE file or http://www.opensource.org/licenses/mit-license.php
 //------------------------------------------------------------------------------
 $color_body: #B0C4DE;
-$color_link: #0033cc;
-$color_link_hover: red;
+$color_link: black;
+$color_visited: #6F6F6F;
+$color_link_hover: 	#52BAD5;
 $color_link_hover_background: none;
 $color_link_image: white;
 $color_link_image_background: white;
@@ -42,8 +43,12 @@ ul li {
 //------------------------------------------------------------------------------
 a {
   text-decoration: none;
-  &:link, &:visited {
-    color: $color_link; }
+  &:link{
+    color: $color_link;
+  }
+  &:visited {
+    color: $color_visited;
+  }
   &:hover {
     background: $color_link_hover_background;
     color: $color_link_hover; }

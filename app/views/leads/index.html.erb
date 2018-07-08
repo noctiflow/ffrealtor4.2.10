@@ -6,19 +6,20 @@
 
 <%# app/views/leads/index.html.erb %>
 <style>
-  .btncontact{
-    background-color: oldlace; /* Green */
-    border: none;
-    color: white;
-    padding: 5px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 12px;
-    border-radius: 5px;
-    box-shadow:2px 2px 3px #aaa;
-    font-weight: 600;
-  }
+.btncontact{
+ background-color: rgba(0,0,0,0.75); /* Green */
+ border: none;
+ /*color: white !important;*/
+ padding: 5px 20px;
+ text-align: center;
+ text-decoration: none;
+ display: inline-block;
+ font-size: 12px;
+ border-radius: 5px;
+ box-shadow:2px 2px 3px #aaa;
+ font-weight: 600;
+}
+
 </style>
 
 <%#
@@ -29,8 +30,9 @@
       * AJAX spinner while AJAX request is being processed
   * sets form_for options like :url, :method and input name prefix
 %>
+<center>
 <div style="border: thin grey solid;box-shadow:2px 2px 3px #aaa;background-color: #eee">
-  <h3 style="padding-left:10px;padding-top: 8px">Filter</h3>
+  <!-- <h3 style="padding-left:10px;padding-top: 8px">Filter</h3> -->
   <br>
   <%= form_for_filterrific @filterrific do |f| %>
     <div style="display:inline-block;padding-left:10px">
@@ -67,17 +69,20 @@
       Sort by
       <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
     </div>
-    <br><br>
-    <div style="padding-left:10px;padding-bottom: 7px">
+
+
       <%= link_to(
-              'Reset filters',
+              'Reset Filters',
               reset_filterrific_url,
+              {:style=>' color: white !important; padding: 8px; margin-right: 2%; background-color: rgba(0,0,0,0.75); float:right; border-radius: 5px;'}
           ) %>
-    </div>
+
     <%# add an automated spinner to your form when the list is refreshed %>
     <%= render_filterrific_spinner %>
   <% end %>
+  <br>
 </div>
+</center>
 <script>
   $(function(){
     $( ".js-datepicker" ).datepicker({
@@ -87,9 +92,9 @@
 </script>
 <br>
 <div style="float: right; padding-right: 1%;">
-  <span class="btncontact"><%= link_to leads_path do %><span>All Leads</span><% end %></span>
-  <span class="btncontact"><%= link_to leads_buyers_path do %><span>Buyers</span><% end %></span>
-  <span class="btncontact"><%= link_to leads_sellers_path do %><span>Sellers</span><% end %></span>
+  <span class="btncontact"><%= link_to leads_path do %><span style="color: white !important;">All Leads</span><% end %></span>
+  <span class="btncontact"><%= link_to leads_buyers_path do %><span style="color: white !important;">Buyers</span><% end %></span>
+  <span class="btncontact"><%= link_to leads_sellers_path do %><span style="color: white !important;">Sellers</span><% end %></span>
 </div>
 <br>
 <div id="llist">
