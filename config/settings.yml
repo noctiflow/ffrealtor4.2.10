@@ -355,6 +355,7 @@ opportunity_stage:
   - :final_review
   - :won
   - :lost
+  - :closed
 
 opportunity_stage_color:
   :prospecting  : Silver
