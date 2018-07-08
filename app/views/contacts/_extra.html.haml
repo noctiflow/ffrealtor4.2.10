@@ -50,7 +50,8 @@
           %td
             .label phone:
         %td
-          .label.top #{t :rating}:
+          %br
+          %h3 #{t :rating}:
           = rating_select "contact[rating]", { :id => :contact_rating, :selected => @contact.rating, :style => "width:160px" }
         -#%tr
         -#  %td
