@@ -95,7 +95,8 @@
   <% end %>
   <% end %>
   <% if current_user.admin? %>
-    <input value="Select All" type="submit" id="checkAll" class="bulkbutton">
+  <input value="Deselect All" type="submit" id="uncheckAll" class="bulkbutton" style="background-color:green;">
+  <input value="Select All" type="submit" id="checkAll" class="bulkbutton">
   <% end %>
 </div>
 
@@ -107,6 +108,9 @@
     });
     $("#checkAll").click(function(){
       $('input:checkbox').prop('checked', true);
+    });
+    $("#uncheckAll").click(function(){
+      $('input:checkbox').prop('checked', false);
     });
     $('td').each(function(){
       if($(this).html()=="Partial"){

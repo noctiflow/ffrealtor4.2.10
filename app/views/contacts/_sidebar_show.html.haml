@@ -14,7 +14,7 @@
 
   %div
     - if @contact.lead && @contact.lead.desireddeal.present?
-      == #{t 'desired deal date'}: <b>#{@contact.lead.desireddeal}</b><br />
+      == #{t 'Desired Deal Date'}: <b>#{@contact.lead.desireddeal}</b><br />
 
   <br>
 
@@ -68,6 +68,8 @@
         == # of bathrooms: <b>#{@contact.lead.bathrooms}</b> <br>
       -if @contact.lead.buildingage.present?
         == Max. Bldg. Age: <b>#{@contact.lead.buildingage}</b> <br>
+      -if @contact.title.present?
+        == Occupation: <b>#{@contact.title}</b> <br>
       -if @contact.lead.extrainfo.present?
         == Extra Information: <b>#{@contact.lead.extrainfo}</b> <br>
 
