@@ -10,13 +10,13 @@ class ContactsController < EntitiesController
   #----------------------------------------------------------------------------
   def index
     @filterrific = initialize_filterrific(
-        Contact,
-        params[:filterrific],
-        :select_options => {
-            sorted_by: Contact.options_for_sorted_by,
-            with_assigned_to: User.options_for_select,
-            with_buysell: Contact.options_for_buysell
-        }
+      Contact,
+      params[:filterrific],
+      :select_options => {
+        sorted_by: Contact.options_for_sorted_by,
+        with_assigned_to: User.options_for_select,
+        with_buysell: Contact.options_for_buysell
+      }
     ) or return
     @contacts = @filterrific.find.page(params[:page])
 
@@ -28,13 +28,13 @@ class ContactsController < EntitiesController
 
   def buyersindex
     @filterrific = initialize_filterrific(
-        Contact.joins(:lead).where(:leads => { :buysell => "Buyer" }),
-        params[:filterrific],
-        :select_options => {
-            sorted_by: Contact.options_for_sorted_by,
-            with_assigned_to: User.options_for_select,
-            with_buysell: Contact.options_for_buysell
-        }
+      Contact.joins(:lead).where(:leads => { :buysell => "Buyer" }),
+      params[:filterrific],
+      :select_options => {
+        sorted_by: Contact.options_for_sorted_by,
+        with_assigned_to: User.options_for_select,
+        with_buysell: Contact.options_for_buysell
+      }
     ) or return
     @contacts = @filterrific.find.page(params[:page])
 
@@ -46,13 +46,13 @@ class ContactsController < EntitiesController
 
   def sellersindex
     @filterrific = initialize_filterrific(
-        Contact.joins(:lead).where(:leads => { :buysell => "Seller" }),
-        params[:filterrific],
-        :select_options => {
-            sorted_by: Contact.options_for_sorted_by,
-            with_assigned_to: User.options_for_select,
-            with_buysell: Contact.options_for_buysell
-        }
+      Contact.joins(:lead).where(:leads => { :buysell => "Seller" }),
+      params[:filterrific],
+      :select_options => {
+        sorted_by: Contact.options_for_sorted_by,
+        with_assigned_to: User.options_for_select,
+        with_buysell: Contact.options_for_buysell
+      }
     ) or return
     @contacts = @filterrific.find.page(params[:page])
 

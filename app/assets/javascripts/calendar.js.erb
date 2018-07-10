@@ -1,8 +1,10 @@
 var updateEvent;
 
-$(document).ready(function(){
+$(document).ready(function() {
   return $('#calendar').fullCalendar({
-    header: { center: 'agendaWeek,month,listWeek' },
+    header: {
+      center: 'agendaWeek,month,listWeek'
+    },
     defaultView: 'agendaWeek',
     disableDragging: true,
     // editable: 'true',
@@ -17,14 +19,14 @@ $(document).ready(function(){
     // }],
 
     eventDrop: function(event, dayDelta, minuteDelta, allDay, revertFunc) {
-     return updateEvent(event);
-   },
-   eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
-     return updateEvent(event);
-   },
+      return updateEvent(event);
+    },
+    eventResize: function(event, dayDelta, minuteDelta, revertFunc) {
+      return updateEvent(event);
+    },
 
-    eventRender: function (event, element, view) {
-      element.find('.fc-title').append('<div class="hr-line-solid-no-margin"></div><span style="font-size: 10px"><em>'+event.description+'</em></span></div>');
+    eventRender: function(event, element, view) {
+      element.find('.fc-title').append('<div class="hr-line-solid-no-margin"></div><span style="font-size: 10px"><em>' + event.description + '</em></span></div>');
     }
   });
 
@@ -34,23 +36,23 @@ $(document).ready(function(){
 updateEvent = function(the_task) {
   return $.ajax("/tasks/" + the_task.id, {
     type: "PUT",
-//    dataType: 'json',
+    //    dataType: 'json',
     data: {
-      task:{
-//        title: the_task.title,
+      task: {
+        //        title: the_task.title,
         name: the_task.title,
         start_time: "" + new Date(the_task.start).toUTCString(),
         due_at: "" + new Date(the_task.end).toUTCString(),
-//      start_time: "99999999999",
-//      due_at: "99999999999",
-//        due_at: the_task.end,
+        //      start_time: "99999999999",
+        //      due_at: "99999999999",
+        //        due_at: the_task.end,
         description: the_task.description
       }
     },
-    success: function (data) {
+    success: function(data) {
       console.log("success");
     },
-    error: function(e){
+    error: function(e) {
       console.log(e);
     }
   });
