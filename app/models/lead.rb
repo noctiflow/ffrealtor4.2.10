@@ -235,7 +235,11 @@ class Lead < ActiveRecord::Base
         ['Name (a-z)', 'name_asc'],
         ['Registration date (newest first)', 'created_at_desc'],
         ['Registration date (oldest first)', 'created_at_asc'],
-        ['Lead Status', 'leadstatus_asc']
+        ['Lead Status', 'leadstatus_asc'],
+        ['Property Type', 'propertytype_asc'],
+        ['Price (High To Low)', 'pricemax_asc'],
+        ['Price (Low To High)', 'pricemax_desc']
+
         # ['Country (a-z)', 'country_name_asc']
     ]
   end

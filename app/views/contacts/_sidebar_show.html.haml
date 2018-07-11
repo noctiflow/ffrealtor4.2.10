@@ -76,6 +76,8 @@
         == # of bathrooms: <b>#{@contact.lead.bathrooms}</b> <br>
       -if @contact.lead.buildingage.present?
         == Max. Bldg. Age: <b>#{@contact.lead.buildingage}</b> <br>
+      -if @contact.title.present?
+        == Occupation: <b>#{@contact.title}</b> <br>
       -if @contact.lead.extrainfo.present?
         == Extra Information: <b>#{@contact.lead.extrainfo}</b> <br>
 

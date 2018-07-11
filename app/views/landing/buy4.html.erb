@@ -1,20 +1,9 @@
 <head>
- <!-- <div class="navbar-fixed">
-   <nav style="background-color: rgba(0,0,0,0); box-shadow: none;">
-     <div style="padding-left: 2%; scale: 0.2;">
-       <a href="" class="brand-logo responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></a>
-     </div>
-   </nav>
- </div> -->
+  <!-- <div class="navbar-fixed"> <nav style="background-color: rgba(0,0,0,0); box-shadow: none;"> <div style="padding-left: 2%; scale: 0.2;"> <a href="" class="brand-logo responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></a> </div>
+  </nav> </div> -->
 
-<!--
- <nav style="background-color: rgba(0,0,0,0.7);">
-   <div class="nav-wrapper">
-     <a href="" class="brand-logo responsive-img logoimg"><%= image_tag( 'logo/white/horeng300x200.png' ) %></a>
-     <ul id="nav-mobile" class="right hide-on-med-and-down">
-     </ul>
-   </div>
- </nav> -->
+  <!-- <nav style="background-color: rgba(0,0,0,0.7);"> <div class="nav-wrapper"> <a href="" class="brand-logo responsive-img logoimg"><%= image_tag( 'logo/white/horeng300x200.png' ) %></a> <ul id="nav-mobile" class="right hide-on-med-and-down"> </ul>
+  </div> </nav> -->
   <%= stylesheet_link_tag "buyer4" %>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
@@ -29,63 +18,57 @@
     var field_c;
     var field_d;
 
-    function showButton(){
-      setTimeout(function(){
-        if(field_a&&field_b&&field_c&&field_d){
+    function showButton() {
+      setTimeout(function () {
+        if (field_a && field_b && field_c && field_d) {
           jQuery("i").fadeIn();
-        }else{
+        } else {
           jQuery("i").fadeOut();
         }
-      },100)
+      }, 100)
     }
-    $(document).ready(function(){
+    $(document).ready(function () {
       $('.lead_cityname label').append(' <em>required</em>');
       $('.lead_first_name label').append(' <em>required</em>');
       $('.lead_last_name label').append(' <em>required</em>');
       $('.lead_email label').append(' <em>required</em>');
 
-
-
-      $('form').bind("keypress", function(e) {
+      $('form').bind("keypress", function (e) {
         if (e.keyCode == 13) {
           e.preventDefault();
           return false;
         }
       });
       $('select').formSelect();
-      $('.dropdown-content > li').click(function(){
-        if($(this).children().text()){
+      $('.dropdown-content > li').click(function () {
+        if ($(this).children().text()) {
           field_a = true;
           showButton();
-        }
-        else{
+        } else {
           field_a = false;
         }
       });
-      $('#lead_email').on('input', function(){
-        if(isEmail($(this).val())){
+      $('#lead_email').on('input', function () {
+        if (isEmail($(this).val())) {
           field_b = true;
           showButton();
-        }
-        else{
+        } else {
           field_b = false;
         }
       });
-      $('#lead_first_name').on('input',function(){
-        if($(this).val()){
+      $('#lead_first_name').on('input', function () {
+        if ($(this).val()) {
           field_c = true;
           showButton();
-        }
-        else{
+        } else {
           field_c = false;
         }
       });
-      $('#lead_last_name').on('input',function(){
-        if($(this).val()){
+      $('#lead_last_name').on('input', function () {
+        if ($(this).val()) {
           field_d = true;
           showButton();
-        }
-        else{
+        } else {
           field_d = false;
         }
       });
@@ -94,66 +77,75 @@
   </script>
 </head>
 
-    <body class="background-image">
-      <main>
-      <div class="row" style="padding-top: 8%;">
-        <div class="col s1 m2 l4">
-        </div>
+<body class="background-image">
+  <main>
+    <div class="row" style="padding-top: 8%;">
+      <div class="col s1 m2 l4"></div>
       <div class="col s12 m8 l4 formbg">
         <%= simple_form_for @lead, url: landing2_path, remote: true do |f| %>
-          <%= f.input :source, :as => :hidden, input_html: { value: 'Nancy Buyer Form 2'} %>
-          <%= f.input :buysell, :as => :hidden, input_html: { value: 'Buyer'} %>
-          <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
-          <div id="address-form">
-            <center><h2><strong>Get Listings in Your Inbox Every Day</h2></strong></center>
-            <center><h6 style="padding-bottom: 4%;">Where are you looking to buy?</h6></center>
-            <div id="locationField">
-              <%= f.input :cityname, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver", "West Vancouver", "White Rock"] %>
-              <%= f.input :neighbourhood, :label => "Neighbourhood" %>
-              <%= f.input :first_name , :label => "First Name *", placeholder: 'First Name...' %>
-              <%= f.input :last_name , :label => "Last Name *", placeholder: 'Last Name...' %>
-              <%= f.input :phone , placeholder: 'Phone Number...' %>
-              <%= f.input :email , :label => "E-mail *", placeholder: 'Email Address...' %>
-              <br/>
-              <div class="right-align">
-                <%= f.button :submit ,:id => "form-continue", :class => "btn formbtn waves-effect waves-light" , value: 'Click Here To Continue', :style => "display:none;margin-top: 10%; font-size: 20px; color: white;" %>
-              </div>
+        <%= f.input :source, :as => :hidden, input_html: { value: 'Nancy Buyer Form 2'} %>
+        <%= f.input :buysell, :as => :hidden, input_html: { value: 'Buyer'} %>
+        <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'partial'} %>
+        <div id="address-form">
+          <center>
+            <h2>
+              <strong>Get Listings in Your Inbox Every Day</h2>
+            </strong>
+          </center>
+          <center>
+            <h6 style="padding-bottom: 4%;">Where are you looking to buy?</h6>
+          </center>
+          <div id="locationField">
+            <%= f.input :cityname, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver",
+            "West Vancouver", "White Rock"] %>
+            <%= f.input :neighbourhood, :label => "Neighbourhood" %>
+            <%= f.input :first_name , :label => "First Name *", placeholder: 'First Name...' %>
+            <%= f.input :last_name , :label => "Last Name *", placeholder: 'Last Name...' %>
+            <%= f.input :phone , placeholder: 'Phone Number...' %>
+            <%= f.input :email , :label => "E-mail *", placeholder: 'Email Address...' %>
+            <br/>
+            <div class="right-align">
+              <%= f.button :submit ,:id => "form-continue", :class => "btn formbtn waves-effect waves-light" , value: 'Click Here To Continue', :style => "display:none;margin-top: 10%; font-size: 20px; color: white;" %>
             </div>
           </div>
-        <% end %>
-        <%= simple_form_for @lead, url: landing2_path do |f| %>
-          <div id="secondary-form" style="display:none;">
-            <h1><center><strong>Additional Information</h1></strong></center>
-            <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'full'} %>
-
-            <%= f.input :propertytype ,label: 'Property Type', collection: [ "House", "1/2 Duplex", "Townhouse", "Apartment/Condo" ] %>
-            <%= f.input :pricemax ,label: 'Maximum Price'%>
-            <%= f.input :pricemin ,label: 'Minimum Price'%>
-            <%= f.input :bedrooms ,label: 'Bedrooms'%>
-            <%= f.input :bathrooms ,label: 'Bathrooms'%>
-            <%= f.input :buildingage ,label: 'Max Building Age'%>
-
-            <%= f.input :extrainfo, label: 'Other Information', placeholder: 'Please Write Down Any Information You Would Like To Share With Us...' %>
-
-            <%= f.button :submit , :class => "btn formbtn" , value: 'Submit Information' %>
-
-          </div>
-        <% end %>
-
-        <span class="responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></span>
-
-      </div>
-      <div class="col s1 m2 l4">
-      </div>
-      </div>
-    </main>
-
-    <footer>
-      <div class="footer-copyright">
-        <div class="container center-align" style="color: white;">
-          ©2018 James Wang Personal Real Estate Corporation. All Rights Reserved
         </div>
-      </div>
-    </footer>
+      <% end %>
+      <%= simple_form_for @lead, url: landing2_path do |f| %>
+      <div id="secondary-form" style="display:none;">
+        <h1>
+          <center>
+            <strong>Additional Information</h1>
+          </strong>
+        </center>
+        <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'full'} %>
 
-  </body>
+        <%= f.input :propertytype ,label: 'Property Type', collection: [ "House", "1/2 Duplex", "Townhouse", "Apartment/Condo" ] %>
+        <%= f.input :pricemax ,label: 'Maximum Price'%>
+        <%= f.input :pricemin ,label: 'Minimum Price'%>
+        <%= f.input :bedrooms ,label: 'Bedrooms'%>
+        <%= f.input :bathrooms ,label: 'Bathrooms'%>
+        <%= f.input :buildingage ,label: 'Max Building Age'%>
+
+        <%= f.input :extrainfo, label: 'Other Information', placeholder: 'Please Write Down Any Information You Would Like To Share With Us...' %>
+
+        <%= f.button :submit , :class => "btn formbtn" , value: 'Submit Information' %>
+
+      </div>
+    <% end %>
+
+    <span class="responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></span>
+
+  </div>
+  <div class="col s1 m2 l4"></div>
+</div>
+</main>
+
+<footer>
+<div class="footer-copyright">
+  <div class="container center-align" style="color: white;">
+    ©2018 James Wang Personal Real Estate Corporation. All Rights Reserved
+  </div>
+</div>
+</footer>
+
+</body>

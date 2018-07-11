@@ -276,7 +276,7 @@ en-US:
   image_file: Image file
   image_help: The image file you upload will be automatically resized to 75 x 75 pixels.
     Supported formats are GIF, JPG, and PNG.
-  job_title: Title
+  job_title: Occupation
   last_name: Last name
   login_now_link: Login Now!
   mobile: Mobile

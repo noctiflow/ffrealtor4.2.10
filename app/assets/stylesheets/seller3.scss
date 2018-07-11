@@ -1,23 +1,23 @@
 .background-image {
-background: image_url('3.jpg') no-repeat center center fixed;
-color: white !important;
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;
+  background: image_url('3.jpg') no-repeat center center fixed;
+  color: white !important;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
 }
 
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
-  }
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
 
 main {
   flex: 1 0 auto;
 }
 
-select{
+select {
   display: block !important;
   border-radius: 30px !important;
 }
@@ -30,25 +30,27 @@ input {
 }
 
 input:focus {
-    // box-shadow: 0 2px 0 0 white !important;
-    box-shadow: inset 0px 17px 15px -15px black !important;
-    border-bottom-color: black !important;
+  // box-shadow: 0 2px 0 0 white !important;
+  box-shadow: inset 0px 17px 15px -15px black !important;
+  border-bottom-color: black !important;
 }
 
-input::placeholder{
+input::placeholder {
   color: #656565 !important;
   padding-left: 2% !important;
 }
 
 
-.btn, .btn-large, .btn-small {
-  background-color: #89cff0 !important;
+.btn,
+.btn-large,
+.btn-small {
+  background-color: #89CFF0 !important;
   color: white !important;
   border-radius: 30px !important;
 }
 
-.btn:hover{
-  background-color: #404e70 !important;
+.btn:hover {
+  background-color: #404E70 !important;
   color: white !important;
 }
 
@@ -64,8 +66,9 @@ label {
   border-radius: 30px !important;
 }
 
-.ui-datepicker-prev , .ui-datepicker-next {
-  color: #039be5;
+.ui-datepicker-prev,
+.ui-datepicker-next {
+  color: #039BE5;
   cursor: pointer !important;
 }
 
@@ -79,7 +82,7 @@ label {
   float: right;
 }
 
-#ui-datepicker-div{
+#ui-datepicker-div {
   background-color: white !important;
   color: white;
   font-size: 15px !important;
@@ -99,11 +102,13 @@ label {
   border-radius: 5px !important;
 }
 table {
- background-color: rgba(0,0,0,0.8) !important;
- color: white !important;
+  background-color: rgba(0,0,0,0.8) !important;
+  color: white !important;
 }
 
-table , th, td {
+table,
+th,
+td {
   border: solid 1px !important;
   text-align: center !important;
 }
@@ -119,7 +124,8 @@ textarea {
   border: none !important;
 }
 
-.text:focus , .optional:focus {
+.text:focus,
+.optional:focus {
   outline: none;
   box-shadow: inset 0px 17px 15px -15px black !important;
 }
@@ -132,7 +138,7 @@ textarea {
   font-size: 25px;
 }
 
-.formbg{
+.formbg {
   background-color: rgba(0,0,0,0.8);
   border-radius: 20px;
   box-shadow: 60px 60px 10px -10px rgba(48,48,48,0.8);
@@ -142,7 +148,7 @@ textarea {
 }
 
 .navbar-material .nav-wrapper .brand-logo img {
-    height: 64px;
+  height: 64px;
 }
 
 .logoimg {

@@ -69,7 +69,7 @@
             <%= f.input :email , placeholder: 'Email Address...', label: "Email *" %>
             <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'full'} %>
 
-            <%= f.input :desireddeal ,label: 'Desire Date To Sell' , placeholder: 'Please Select From The Calendar...'%>
+            <%= f.input :desireddeal ,label: 'I am....', collection: [ "Just Curious", "Selling in 3-6 Months", "Selling in 6-12 Months", "Refinancing" ] %>
 
             <%= f.input :extrainfo, label: 'Other Information', placeholder: 'Please Write Down Any Information You Would Like To Share With Us...' %>
 

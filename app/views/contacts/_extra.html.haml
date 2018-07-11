@@ -56,10 +56,12 @@
           %br
           %h3 #{t :rating}:
           = rating_select "contact[rating]", { :id => :contact_rating, :selected => @contact.rating, :style => "width:160px" }
-        -#%tr
-        -#  %td
-        -#    .label #{t :job_title}:
-        -#    = f.text_field :title
+        %tr
+          %td
+            .label #{t :job_title}:
+            = f.text_field :title
+        %tr
+
         -#  %td= spacer
         -#  %td
         -#    .label #{t :department}:
