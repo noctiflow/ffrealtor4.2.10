@@ -5,8 +5,27 @@
   -#= account_with_title_and_department(@contact)
 
   %div
+    - unless @contact.phone.blank?
+      == #{t :phone}: <b>#{@contact.do_not_call ? content_tag(:strike, h(@contact.phone)) : h(@contact.phone)}</b><br />
+    - unless @contact.mobile.blank?
+      == #{t :mobile}: <b>#{@contact.do_not_call ? content_tag(:strike, h(@contact.mobile)) : h(@contact.mobile)}</b><br />
+    - unless @contact.fax.blank?
+      == #{t :fax}: <b>#{@contact.do_not_call ? content_tag(:strike, h(@contact.fax)) : h(@contact.fax)}</b><br />
+  %div
+    - unless @contact.email.blank?
+      == #{t :email}: <b>#{link_to_email(@contact.email)}</b><br />
+    - unless @contact.alt_email.blank?
+      == #{t :alt_email_small}: <b>#{link_to_email(@contact.alt_email)}</b><br />
+
+  %div
+    - unless @contact.occupation.blank?
+      == #{t :occupation}: <b>#{@contact.occupation}</b><br />
+
+  %hr
+
+  %div
     - if @contact.lead.present? && @contact.lead.buysell.present?
-      == <b>[#{@contact.lead.buysell}]</b><br />
+      == <b>#{@contact.lead.buysell}</b><br />
 
   %div
     - if @contact.lead && @contact.lead.source.present?
@@ -16,7 +35,13 @@
     - if @contact.lead && @contact.lead.desireddeal.present?
       == #{t 'Desired Deal Date'}: <b>#{@contact.lead.desireddeal.strftime("%B %d, %Y")}</b><br />
 
-  <br>
+  %div
+    - if @contact.price.present?
+      == #{t 'Asking Price'}: <b>#{@contact.price}</b><br />
+    - elsif @contact.lead.pricemax.present?
+      == #{t 'Asking Price'}: <b>#{@contact.lead.pricemax}</b><br />
+
+  %hr
 
   %div
     - if @contact.lead && @contact.lead.buysell.present?
@@ -29,28 +54,65 @@
   %div= render "shared/address_show", asset: @contact, type: 'business', title: :address
 
   %div
-    - if @contact.lead
+    - if @contact.address.present? && @contact.unit.present?
+      == #{t :Property}: <b>#{@contact.unit} - #{@contact.address}</b></br >
+    - elsif @contact.address.present? && @contact.unit.blank?
+      == #{t :Property}: <b>#{@contact.address}</b><br />
+    - elsif @contact.lead.present?
       - if @contact.lead.address.present? && @contact.lead.unit.present?
         == #{t :Property}: <b>Unit #{@contact.lead.unit} - #{@contact.lead.address}</b><br />
       - elsif @contact.lead.address.present? && @contact.lead.unit.blank?
         == #{t :Property}: <b>#{@contact.lead.address}</b><br />
 
   %div
-    - if @contact.lead && @contact.lead.postalcode.present?
-      == <b>#{@contact.lead.postalcode}</b><br /><br />
+    - if @contact.city.present?
+      == <b>#{@contact.city}</b><br />
+    - elsif @contact.lead.present?
+      - if @contact.lead.cityname.present?
+        == <b>#{@contact.lead.cityname}</b><br />
 
   %div
-    - unless @contact.phone.blank?
-      == #{t :phone}: <b>#{@contact.do_not_call ? content_tag(:strike, h(@contact.phone)) : h(@contact.phone)}</b><br />
-    - unless @contact.mobile.blank?
-      == #{t :mobile}: <b>#{@contact.do_not_call ? content_tag(:strike, h(@contact.mobile)) : h(@contact.mobile)}</b><br />
-    - unless @contact.fax.blank?
-      == #{t :fax}: <b>#{@contact.do_not_call ? content_tag(:strike, h(@contact.fax)) : h(@contact.fax)}</b><br />
+    - if @contact.neighbourhood.present?
+      == <b>(#{@contact.neighbourhood})</b><br />
+    - elsif @contact.lead.present?
+      - if @contact.lead.neighbourhood.present?
+        == <b>(#{@contact.lead.neighbourhood})</b><br />
+
   %div
-    - unless @contact.email.blank?
-      == #{t :email}: <b>#{link_to_email(@contact.email)}</b><br />
-    - unless @contact.alt_email.blank?
-      == #{t :alt_email_small}: <b>#{link_to_email(@contact.alt_email)}</b><br />
+    - if @contact.postalcode.present?
+      == <b>#{@contact.postalcode}</b><br /><br />
+    - elsif @contact.lead.present?
+      - if @contact.lead.postalcode.present?
+        == <b>#{@contact.lead.postalcode}</b><br /><br />
+
+  %div
+    - if @contact.propertytype.present?
+      == #{t :Type}: <b>#{@contact.propertytype}</b><br />
+    - elsif @contact.lead.present?
+      - if @contact.lead.propertytype.present?
+        == #{t :Type}: <b>#{@contact.lead.propertytype}</b><br />
+
+  %div
+    - if @contact.buildingage.present?
+      == #{t 'Building Age'}: <b>#{@contact.buildingage}</b><br />
+    - elsif @contact.lead.present?
+      - if @contact.lead.buildingage.present?
+        == #{t 'Building Age'}: <b>#{@contact.lead.buildingage}</b><br />
+
+  %div
+    - if @contact.bathrooms.present?
+      == #{t 'Bathrooms'}: <b>#{@contact.bathrooms}</b><br />
+    - elsif @contact.lead.present?
+      - if @contact.lead.bathrooms.present?
+        == #{t 'Bathrooms'}: <b>#{@contact.lead.bathrooms}</b><br />
+
+  %div
+    - if @contact.bedrooms.present?
+      == #{t 'Bedrooms'}: <b>#{@contact.bedrooms}</b><br />
+    - elsif @contact.lead.present?
+      - if @contact.lead.bedrooms.present?
+        == #{t 'Bedrooms'}: <b>#{@contact.lead.bedrooms}</b><br />
+
 
   = web_presence_icons(@contact)
 

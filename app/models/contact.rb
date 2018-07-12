@@ -80,13 +80,14 @@ class Contact < ActiveRecord::Base
     # configure number of OR conditions for provision
     # of interpolation arguments. Adjust this if you
     # change the number of OR conditions.
-    num_or_conditions = 3
+    num_or_conditions = 4
     where(
         terms.map {
           or_clauses = [
               "LOWER(contacts.first_name) LIKE ?",
               "LOWER(contacts.last_name) LIKE ?",
-              "LOWER(contacts.email) LIKE ?"
+              "LOWER(contacts.email) LIKE ?",
+              "LOWER(contacts.occupation) LIKE?"
           ].join(' OR ')
           "(#{ or_clauses })"
         }.join(' AND '),

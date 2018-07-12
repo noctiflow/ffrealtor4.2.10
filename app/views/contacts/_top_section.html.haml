@@ -21,6 +21,10 @@
           .label #{t :phone}:
           = f.text_field :phone
 
+      %tr
+        %td
+          .label #{t :job_title}:
+          = f.text_field :occupation
     %table
       = fields_for(@account) do |a|
         = a.hidden_field :user_id

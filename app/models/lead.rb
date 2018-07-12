@@ -71,13 +71,16 @@ class Lead < ActiveRecord::Base
     # configure number of OR conditions for provision
     # of interpolation arguments. Adjust this if you
     # change the number of OR conditions.
-    num_or_conditions = 3
+    num_or_conditions = 4
     where(
         terms.map {
           or_clauses = [
               "LOWER(leads.first_name) LIKE ?",
               "LOWER(leads.last_name) LIKE ?",
-              "LOWER(leads.email) LIKE ?"
+              "LOWER(leads.propertytype) LIKE ?",
+              "LOWER(leads.cityname) LIKE ?"
+              # "LOWER(leads.pricemax) LIKE ?"
+              # "LOWER(leads.assigned_to) LIKE ?"
           ].join(' OR ')
           "(#{ or_clauses })"
         }.join(' AND '),
@@ -106,7 +109,7 @@ class Lead < ActiveRecord::Base
     where('leads.created_at >= ?', Date.parse(ref_date))
   }
   scope :with_buysell, lambda { |buysells|
-    where(:buysell => [*buysells])
+    where(:leadstatus => [*buysells])
   }
 
   scope :state, ->(filters) {
@@ -244,7 +247,7 @@ class Lead < ActiveRecord::Base
     ]
   end
   def self.options_for_buysell
-      order('LOWER(buysell)').map { |e| [e.buysell] }.uniq
+      order('LOWER(leadstatus)').map { |e| [e.leadstatus] }.uniq
   end
   def decorated_created_at
     created_at.to_date.to_s(:long)

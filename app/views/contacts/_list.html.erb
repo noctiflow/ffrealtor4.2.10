@@ -44,6 +44,7 @@
     <tr style="text-align: center;">
       <th>Name</th>
       <th>Buyer/Seller</th>
+      <th>Occupation</th>
       <th>Property Type</th>
       <th>Area</th>
       <th>Price</th>
@@ -59,9 +60,32 @@
         <tr>
           <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
           <td><%= contact.lead.buysell if contact.lead.present? %></td>
-          <td></td>
-          <td></td>
-          <td></td>
+
+          <td><%= contact.occupation if contact.occupation.present? %></td>
+
+          <% if contact.propertytype.present? %>
+            <td><%= contact.propertytype %></td>
+          <% elsif contact.lead.present? && contact.lead.propertytype.present? %>
+            <td><%= contact.lead.propertytype %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+
+          <% if contact.city.present? %>
+              <td><%= contact.city %></td>
+          <% elsif contact.lead.present? && contact.lead.cityname.present? %>
+              <td><%= contact.lead.cityname %></td>
+          <% else %>
+              <td></td>
+          <% end %>
+
+          <% if contact.price.present? %>
+              <td><%= contact.price %></td>
+          <% elsif contact.lead.present? && contact.lead.pricemax.present? %>
+              <td><%= contact.lead.pricemax %></td>
+          <% else %>
+              <td></td>
+          <% end %>
           <td>
           <% if contact.assigned_to.present? %>
             <% magic = User.where(:id => contact.assigned_to).last %>

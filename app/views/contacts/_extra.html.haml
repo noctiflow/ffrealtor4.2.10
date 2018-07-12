@@ -13,53 +13,64 @@
             %h3 Property Info
         %tr
           %td
-            .label address:
+            .label Address:
+            = f.text_field :address
+          %td= spacer
           %td
-            .label unit:
+            .label Unit:
+            = f.text_field :unit
         %tr
           %td
-            .label postal code:
+            .label Postal Code:
+            = f.text_field :postalcode
+          %td= spacer
           %td
-            .label city:
+            .label City:
+            = f.text_field :city
         %tr
           %td
-            .label neighbourhood:
+            .label Neighbourhood:
+            = f.text_field :neighbourhood
+          %td= spacer
           %td
-            .label property type:
+            .label Property Type:
+            = f.text_field :propertytype
         %tr
           %td
-            .label asking price:
+            .label Asking Price:
+            = f.text_field :price
+          %td= spacer
           %td
-            .label building age:
+            .label Building Age:
+            = f.text_field :buildingage
         %tr
           %td
-            .label bedrooms:
+            .label Bedrooms:
+            = f.text_field :bedrooms
+          %td= spacer
           %td
-            .label bathrooms:
+            .label Bathrooms:
+            = f.text_field :bathrooms
         %tr
           %td
             %br
             %h3 Secondary Contact
         %tr
           %td
-            .label name:
+            .label Name:
             = f.text_field :secname
         %tr
           %td
-            .label email:
+            .label Email:
             = f.text_field :secemail
         %tr
           %td
-            .label phone:
+            .label Phone:
             = f.text_field :secphone
         %td
           %br
           %h3 #{t :rating}:
           = rating_select "contact[rating]", { :id => :contact_rating, :selected => @contact.rating, :style => "width:160px" }
-        %tr
-          %td
-            .label #{t :job_title}:
-            = f.text_field :title
         %tr
 
         -#  %td= spacer
