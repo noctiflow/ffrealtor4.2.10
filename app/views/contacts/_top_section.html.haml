@@ -25,6 +25,10 @@
         %td
           .label #{t :job_title}:
           = f.text_field :occupation
+        %td= spacer
+        %td
+          .label #{"Buyer/Seller"}:
+          = f.text_field :buysell
     %table
       = fields_for(@account) do |a|
         = a.hidden_field :user_id

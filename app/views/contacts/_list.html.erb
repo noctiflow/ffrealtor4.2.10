@@ -59,8 +59,15 @@
       <% contacts.each do |contact| %>
         <tr>
           <td><%= link_to(contact.full_name, contact_path(contact)) %></td>
-          <td><%= contact.lead.buysell if contact.lead.present? %></td>
 
+          <% if contact.buysell.present? %>
+            <td><%= contact.buysell %></td>
+          <% elsif contact.lead.present? && contact.lead.buysell.present? %>
+            <td><%= contact.lead.buysell %></td>
+          <% else %>
+            <td></td>
+          <% end %>
+          
           <td><%= contact.occupation if contact.occupation.present? %></td>
 
           <% if contact.propertytype.present? %>
