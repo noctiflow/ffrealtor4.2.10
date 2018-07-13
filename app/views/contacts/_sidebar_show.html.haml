@@ -24,22 +24,29 @@
   %hr
 
   %div
-    - if @contact.lead.present? && @contact.lead.buysell.present?
-      == <b>#{@contact.lead.buysell}</b><br />
+    - if @contact.buysell.present?
+      == <b>#{@contact.buysell}</b><br />
+    - elsif @contact.lead.present?
+      - if @contact.lead.buysell.present?
+        == <b>#{@contact.lead.buysell}</b><br />
 
   %div
     - if @contact.lead && @contact.lead.source.present?
       == #{t :source}: <b>#{@contact.lead.source}</b><br />
 
   %div
-    - if @contact.lead && @contact.lead.desireddeal.present?
-      == #{t 'Desired Deal Date'}: <b>#{@contact.lead.desireddeal.strftime("%B %d, %Y")}</b><br />
+    - if @contact.desireddeal.present?
+      == #{t 'Desired Deal Date'}: <b>#{@contact.desireddeal}</b><br />
+    - elsif @contact.lead.present?
+      - if @contact.lead.desireddeal.present?
+        == #{t 'Desired Deal Date'}: <b>#{@contact.lead.desireddeal}</b><br />
 
   %div
     - if @contact.price.present?
       == #{t 'Asking Price'}: <b>#{@contact.price}</b><br />
-    - elsif @contact.lead.pricemax.present?
-      == #{t 'Asking Price'}: <b>#{@contact.lead.pricemax}</b><br />
+    - elsif @contact.lead.present?
+      - if contact.lead.pricemax.present?
+        == #{t 'Asking Price'}: <b>#{@contact.lead.pricemax}</b><br />
 
   %hr
 
