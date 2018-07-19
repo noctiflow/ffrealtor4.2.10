@@ -1,18 +1,5 @@
-$("#form-continue").prop('disabled', true);
-$('#secondary-form').fadeIn(3000);
-$('#address-form').fadeOut(0);
-$(function(){
-  $("form").submit(function(event) {
-    event.preventDefault();
-    var magic = $(this).serializeArray();
-    var path = $(this).attr("href");
-    $.ajax({
-      type: 'PUT',
-      url: '/landing/' + "<%= @lead.id %>",
-      data: magic,
-      success: function (data) {
-        console.log('success');
-        location.href = "<%= landing7_path %>"
+$("#form-continue").prop('disabled', true); $('#secondary-form').fadeIn(3000); $('#address-form').fadeOut(0); $(function(){ $("form").submit(function(event) { event.preventDefault(); var magic = $(this).serializeArray(); var path =
+$(this).attr("href"); $.ajax({ type: 'PUT', url: '/landing/' + "<%= @lead.id %>", data: magic, success: function (data) { console.log('success'); location.href = "<%= landing7_path %>"
       },
       error: function (data){
         console.log('error');
