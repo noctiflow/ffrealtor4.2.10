@@ -1,58 +1,79 @@
 <br><br>
-<div style="display: flex; width:100%;align-content: stretch;">
+<div style="display: flex; width:100%;align-content: stretch; pointer-events: none;">
   <% @stage.each do |value, key| %>
-    <div style="flex:1;text-align: center">
-    <%= label_tag(key, value) %>
+    <div style="flex:1;text-align: center; font-size: 2.5em; font-weight: 900;">
+      <%= label_tag(key, value) %>
     </div>
   <% end %>
 </div>
 <br>
 <div style="display: flex; width:100%;align-content: stretch;">
-<% @stage.each do |value, key| %>
-  <%# label_tag(key) %>
-    <div style="border:thin whitesmoke solid;flex:1;">
-      <% @opportunities.where(stage: key).each do |op| %>
-        <% if current_user.admin? %>
-          <%= link_to opportunity_path(op) do %>
-            <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px;">
-              <div style="text-align: center;color:white;word-break: break-all;hyphens: auto">
-                <span style="font-size:1.2em;">Status: <%= op.name %></span>
+  <% @stage.each do |value, key| %>
+    <%# label_tag(key) %>
+      <div style="border:thin whitesmoke solid;flex:1;">
+        <% @opportunities.where(stage: key).each do |op| %>
+          <% if current_user.admin? %>
+            <%= link_to opportunity_path(op) do %>
+            <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px; padding: 5px; overflow: ellipsis;">
+              <div style="text-align: center;color:white;word-break: keep-all;">
+                <span style="font-size:1.2em;">
+                  <b style="color:orange;">Status:</b>
+                  <br><%= op.name %></span>
                 <br>
                 <br>
-                <span style="font-size:1.2em;"> Client:
+                <span style="font-size:1.2em;">
+                  <b style="color:orange;">Client:</b>
+                  <br>
                   <% op.contacts.each do |contact| %>
-                  <%= contact.name  %>
+                    <%= contact.name %>
                   <% end %>
                 </span>
                 <br>
-                <span style="font-size:.9em;font-weight: 100"><% if op.amount? %>$<%= op.amount %><% end %></span>
+                <span style="font-size:.9em;font-weight: 100">
+                  <% if op.amount? %>$<%= op.amount %>
+                  <% end %>
+                </span>
                 <br>
-                <span style="font-size:.8em;"><em>Assigned To: <% if op.assigned_to? %><%= User.find(op.assigned_to).full_name %><% end %></em></span>
+                <span style="font-size:.8em;">
+                  <em>
+                    <b style="color:orange;">Assigned To:</b>
+                    <br>
+                    <% if op.assigned_to? %><%= User.find(op.assigned_to).full_name %>
+                    <% end %>
+                  </em>
+                </span>
               </div>
             </div>
           <% end %>
         <% else %>
           <% if current_user.id == op.assigned_to %>
             <%= link_to opportunity_path(op) do %>
-                <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px;">
-                  <div style="text-align: center;color:white;word-break: break-all;hyphens: auto">
-                    <span style="font-size:1.2em;">Status: <%= op.name %></span>
-                    <br>
-                    <br>
-                    <span style="font-size:1.2em;"> Client:
-                      <% op.contacts.each do |contact| %>
-                      <%= contact.name  %>
-                      <% end %>
-                    </span>
-                    <br>
-                    <span style="font-size:.9em;font-weight: 100"><% if op.amount? %>$<%= op.amount %><% end %></span>
-                    <br>
-                  </div>
-                </div>
-            <% end %>
+            <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px;">
+              <div style="text-align: center;color:white;word-break: keep-all;">
+                <span style="font-size:1.2em;">
+                  <b style="color:orange;">Status:
+                  </b>
+                  <%= op.name %></span>
+                <br>
+                <br>
+                <span style="font-size:1.2em;">
+                  <b style="color:orange;">Client:</b>
+                  <% op.contacts.each do |contact| %>
+                    <%= contact.name %>
+                  <% end %>
+                </span>
+                <br>
+                <span style="font-size:.9em;font-weight: 100">
+                  <% if op.amount? %>$<%= op.amount %>
+                  <% end %>
+                </span>
+                <br>
+              </div>
+            </div>
           <% end %>
         <% end %>
       <% end %>
-    </div>
+    <% end %>
+  </div>
 <% end %>
 </div>
