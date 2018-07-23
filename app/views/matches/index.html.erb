@@ -41,10 +41,8 @@
       <div style="width:100%;display:flex;">
         <div class="infoheader"><h4>Name</h4></div>
         <div class="infoheader"><h4>Area</h4></div>
-        <div class="infoheader"><h4>Desire Date</h4></div>
         <div class="infoheader"><h4>Name</h4></div>
         <div class="infoheader"><h4>Address</h4></div>
-        <div class="infoheader"><h4>Desire Date</h4></div>
       </div>
       <div style="width:100%;display:flex;">
         <div style="border:3px black solid;float:left;flex:1;" class="buyers <%= lastcity %>">
@@ -56,11 +54,11 @@
   <% end %>
     <% if contact.lead.buysell == "Buyer" %>
       <script type="text/javascript" charset="utf-8">
-        $('.buyers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.neighbourhood %></div><div border-bottom: 1px black solid;" class="innerbox">N/A</div>');
+        $('.buyers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.neighbourhood %></div>');
       </script>
     <% elsif contact.lead.buysell == "Seller" %>
       <script type="text/javascript" charset="utf-8">
-        $('.sellers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.address %></div><div class = "innerbox"><%= contact.lead.desireddeal %></div>');
+        $('.sellers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.address %></div>');
       </script>
     <% end %>
 <% end %>
@@ -71,7 +69,7 @@
      if($("."+cityname+".buyers").children().length && $("."+cityname+".sellers").children().length){
        console.log("k");
      }else{
-       $(this).hide();
+//       $(this).hide();
      }
    });
  })
