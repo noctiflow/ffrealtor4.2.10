@@ -37,9 +37,9 @@
 # incoming request, so you’ll need to provide all of the details needed to
 # generate a URL.
 #
-# :host: "www.example.com"
+# :host:                        "www.example.com"
 #
-:host: ""
+:host:                          ""
 
 
 # Base URL
@@ -52,14 +52,14 @@
 # http://www.domain.com/crm   => :base_url: "/crm"   # (without trailing slash)
 # http://www.domain.com/a/crm => :base_url: "/a/crm" # (without trailing slash)
 #
-:base_url: ""
+:base_url:                      ""
 
 
 # Locale
 #------------------------------------------------------------------------------
 # Default locale is American English.
 #
-:locale: "en-US"
+:locale:                        "en-US"
 
 
 # Settings for outgoing email (SMTP)
@@ -114,7 +114,7 @@
 # By default, individual users can't pick their own locale and are presented
 # with the default locale.
 #
-:per_user_locale: false
+:per_user_locale:               false
 
 
 # Default records permissions
@@ -124,7 +124,7 @@
 #   Public  -- public access, share with everyone. This is the default.
 #   Shared  -- shared with selected accounts, should be selected by the user.
 #
-:default_access: "Public"
+:default_access:                "Public"
 
 
 # User Signup
@@ -134,7 +134,7 @@
 #   :not_allowed    -- users can only be added by system administrator. This is the default.
 #   :needs_approval -- users can sign up but must be approved before they can use the system.
 #
-:user_signup: :not_allowed
+:user_signup:                   :not_allowed
 
 
 # Address format
@@ -143,7 +143,7 @@
 #   true  -- use separate street1, street2, city, state, zipcode, and country field.  (default)
 #   false -- use single text area field to enter the entire address.
 #
-:compound_address: true
+:compound_address:              true
 
 
 # Dropdown calendar format
@@ -153,17 +153,17 @@
 #   true  -- allow selecting date and time.  (default)
 #   false -- allow selecting date only.
 #
-:task_calendar_with_time: true
+:task_calendar_with_time:       true
 
 
 # Enable/disable first/last name validations on Leads and Contacts
 #------------------------------------------------------------------------------
 #
-:require_first_names: true
-:require_last_names:  true
+:require_first_names:           true
+:require_last_names:            true
 
 # Enable/disable name validation on Accounts
-:require_unique_account_names: false
+:require_unique_account_names:  false
 
 # Show comments on dashboard
 :comments_visible_on_dashboard: false
@@ -186,7 +186,7 @@
 #
 # By default, no background information is shown.
 #
-:background_info: []
+:background_info:               []
 
 # Priority countries
 #------------------------------------------------------------------------------
@@ -197,84 +197,84 @@
 # Main and Admin Tabs
 #------------------------------------------------------------------------------
 :tabs:
-- :active: true
-  :text: :tab_dashboard
-  :icon: :fa-dashboard
+- :active:                      true
+  :text:                        :tab_dashboard
+  :icon:                        :fa-dashboard
   :url:
-    :controller: home
-- :active: false
-  :text: :tab_tasks
-  :icon: :fa-check-square-o
+    :controller:                home
+- :active:                      false
+  :text:                        :tab_tasks
+  :icon:                        :fa-check-square-o
   :url:
-    :controller: tasks
-#- :active: false
-#  :text: :tab_campaigns
-#  :icon: :fa-bar-chart-o
+    :controller:                tasks
+#- :active:                     false
+#  :text:                       :tab_campaigns
+#  :icon:                       :fa-bar-chart-o
 #  :url:
-#    :controller: campaigns
-- :active: false
-  :text: :tab_leads
-  :icon: :fa-tasks
+#    :controller:               campaigns
+- :active:                      false
+  :text:                        :tab_leads
+  :icon:                        :fa-tasks
   :url:
-    :controller: leads
-#- :active: false
-#  :text: :tab_accounts
-#  :icon: :fa-users
+    :controller:                leads
+#- :active:                     false
+#  :text:                       :tab_accounts
+#  :icon:                       :fa-users
 #  :url:
-#    :controller: accounts
-- :active: false
-  :text: :tab_contacts
-  :icon: :fa-user
+#    :controller:               accounts
+- :active:                      false
+  :text:                        :tab_contacts
+  :icon:                        :fa-user
   :url:
-    :controller: contacts
-- :active: false
-  :text: "Matches"
-  :icon: :fa-bar-chart-o
+    :controller:                contacts
+- :active:                      false
+  :text:                        "Matches"
+  :icon:                        :fa-bar-chart-o
   :url:
-    :controller: matches
-- :active: false
-  :text: "Pipeline"
-  :icon: :fa-list-alt
+    :controller:                matches
+- :active:                      false
+  :text:                        "Pipeline"
+  :icon:                        :fa-list-alt
   :url:
-    :controller: opportunities
-#- :active: false
-#  :text: :tab_team
-#  :icon: :fa-globe
+    :controller:                opportunities
+#- :active:                     false
+#  :text:                       :tab_team
+#  :icon:                       :fa-globe
 #  :url:
-#    :controller: users
-#    :action: opportunities_overview
+#    :controller:               users
+#    :action:                   opportunities_overview
 
 :admin_tabs:
-- :active: true
-  :text: :admin_tab_users
-  :icon: :fa-user
+- :active:                      true
+  :text:                        :admin_tab_users
+  :icon:                        :fa-user
   :url:
-    :controller: admin/users
-- :active: true
-  :text: :admin_tab_groups
-  :icon: :fa-users
+    :controller:                admin/users
+- :active:                      true
+  :text:                        :admin_tab_groups
+  :icon:                        :fa-users
   :url:
-    :controller: admin/groups
-- :active: false
-  :text: :admin_tab_fields
-  :icon: :fa-list-alt
+    :controller:                admin/groups
+- :active:                      false
+  :text:                        :admin_tab_fields
+  :icon:                        :fa-list-alt
   :url:
-    :controller: admin/fields
-- :active: false
-  :text: :admin_tab_tags
-  :icon: :fa-tags
+    :controller:                admin/fields
+- :active:                      false
+  :text:                        :admin_tab_tags
+  :icon:                        :fa-tags
   :url:
-    :controller: admin/tags
-#- :active: false
-#  :text: :admin_tab_settings
-#  :icon: :fa-cogs
+    :controller:                admin/tags
+#- :active:                     false
+#  :text:                       :admin_tab_settings
+#  :icon:                       :fa-cogs
 #  :url:
-#    :controller: admin/settings
-#- :active: false
-#  :text: :admin_tab_plugins
-#  :icon: :fa-plus-circle
+#    :controller:               admin/settings
+#- :active:                     false
+#  :text:                       :admin_tab_plugins
+#  :icon:                       :fa-plus-circle
 #  :url:
-#    :controller: admin/plugins
+#    :controller:               admin/plugins
 
 # Account Category. To add custom account type use string value, for example:
 #
@@ -291,12 +291,12 @@ account_category:
   - :vendor
 
 account_category_color:
-  :affiliate   : lavender
-  :competitor  : paleturquoise
-  :customer    : pink
-  :partner     : bisque
-  :reseller    : thistle
-  :vendor      : skyblue
+  :affiliate   :                lavender
+  :competitor  :                paleturquoise
+  :customer    :                pink
+  :partner     :                bisque
+  :reseller    :                thistle
+  :vendor      :                skyblue
 
 # Campaign Status. To add custom status use string value, for example:
 #
@@ -312,11 +312,11 @@ campaign_status:
   - :called_off
 
 campaign_status_color:
-  :planned    : Gold
-  :started    : Turquoise
-  :completed  : Lime
-  :on_hold    : Orchid
-  :called_off : OrangeRed
+  :planned    :                 Gold
+  :started    :                 Turquoise
+  :completed  :                 Lime
+  :on_hold    :                 Orchid
+  :called_off :                 OrangeRed
 
 # Lead Status and Source.
 #------------------------------------------------------------------------------
@@ -327,10 +327,10 @@ lead_status:
   - :rejected
 
 lead_status_color:
-  :new       : Silver
-  :contacted : Turquoise
-  :converted : Lime
-  :rejected  : OrangeRed
+  :new       :                  Silver
+  :contacted :                  Turquoise
+  :converted :                  Lime
+  :rejected  :                  OrangeRed
 
 lead_source:
   - :campaign
@@ -345,10 +345,10 @@ lead_source:
 
 # Opportunity Stage.
 #------------------------------------------------------------------------------
-opportunity_default_stage: :prospecting
+opportunity_default_stage:      :prospecting
 opportunity_stage:
   - :prospecting
-  - :analysis
+  - :Contact Made
   - :presentation
   - :proposal
   - :negotiation
@@ -356,16 +356,24 @@ opportunity_stage:
   - :won
   - :lost
   - :closed
-
+  # - :prospecting
+  # - :analysis
+  # - :presentation
+  # - :proposal
+  # - :negotiation
+  # - :final_review
+  # - :won
+  # - :lost
+  # - :closed
 opportunity_stage_color:
-  :prospecting  : Silver
-  :analysis     : PaleGoldenRod
-  :presentation : Salmon
-  :proposal     : Gold
-  :negotiation  : Orchid
-  :final_review : Turquoise
-  :won          : Lime
-  :lost         : OrangeRed
+  :prospecting  :               Silver
+  :analysis     :               PaleGoldenRod
+  :presentation :               Salmon
+  :proposal     :               Gold
+  :negotiation  :               Orchid
+  :final_review :               Turquoise
+  :won          :               Lime
+  :lost         :               OrangeRed
 
 # Task Category, Due Date, and Completed Date.
 #------------------------------------------------------------------------------
@@ -380,14 +388,14 @@ task_category:
   - :trip
 
 task_category_color:
-  :call         : Silver
-  :email        : Turquoise
-  :follow_up    : Gold
-  :lunch        : Tomato
-  :meeting      : Orchid
-  :money        : Lime
-  :presentation : Salmon
-  :trip         : Turquoise
+  :call         :               Silver
+  :email        :               Turquoise
+  :follow_up    :               Gold
+  :lunch        :               Tomato
+  :meeting      :               Orchid
+  :money        :               Lime
+  :presentation :               Salmon
+  :trip         :               Turquoise
 
 task_bucket:
   - :overdue

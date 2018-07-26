@@ -45,7 +45,7 @@
     - if @contact.price.present?
       == #{t 'Asking Price'}: <b>#{@contact.price}</b><br />
     - elsif @contact.lead.present?
-      - if contact.lead.pricemax.present?
+      - if @contact.lead.pricemax.present?
         == #{t 'Asking Price'}: <b>#{@contact.lead.pricemax}</b><br />
 
   %hr

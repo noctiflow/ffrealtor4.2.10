@@ -46,3 +46,19 @@ Gem.loaded_specs.keys.grep(/^ffcrm_/).each do |plugin|
   require_asset(plugin) rescue Sprockets::FileNotFound
 end
 %>
+
+$(function(){
+  (function(seconds) {
+      var refresh,
+          intvrefresh = function() {
+              clearInterval(refresh);
+              refresh = setTimeout(function() {
+                 location.href = location.href;
+              }, seconds * 1000);
+          };
+
+      $(document).on('keypress click', function() { intvrefresh() });
+      intvrefresh();
+
+  }(25));
+})
