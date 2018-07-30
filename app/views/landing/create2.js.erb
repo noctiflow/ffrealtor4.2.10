@@ -1,8 +1,6 @@
 $("#form-continue").prop('disabled', true);
 $('#secondary-form').fadeIn(3000);
 $('#address-form').fadeOut(0);
-$('#map').attr('src','https://www.google.com/maps/embed/v1/place?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= @lead.address %>');
-
 $(function(){
 
   $("form").submit(function(event) {

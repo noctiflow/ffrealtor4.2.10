@@ -28,10 +28,10 @@
       }, 100)
     }
     $(document).ready(function () {
-      $('.lead_cityname label').append(' <em>required</em>');
-      $('.lead_first_name label').append(' <em>required</em>');
-      $('.lead_last_name label').append(' <em>required</em>');
-      $('.lead_email label').append(' <em>required</em>');
+      $('.contact_cityname label').append(' <em>required</em>');
+      $('.contact_first_name label').append(' <em>required</em>');
+      $('.contact_last_name label').append(' <em>required</em>');
+      $('.contact_email label').append(' <em>required</em>');
 
       $('form').bind("keypress", function (e) {
         if (e.keyCode == 13) {
@@ -48,7 +48,7 @@
           field_a = false;
         }
       });
-      $('#lead_email').on('input', function () {
+      $('#contact_email').on('input', function () {
         if (isEmail($(this).val())) {
           field_b = true;
           showButton();
@@ -56,7 +56,7 @@
           field_b = false;
         }
       });
-      $('#lead_first_name').on('input', function () {
+      $('#contact_first_name').on('input', function () {
         if ($(this).val()) {
           field_c = true;
           showButton();
@@ -64,7 +64,7 @@
           field_c = false;
         }
       });
-      $('#lead_last_name').on('input', function () {
+      $('#contact_last_name').on('input', function () {
         if ($(this).val()) {
           field_d = true;
           showButton();
@@ -96,7 +96,7 @@
             <h6 style="padding-bottom: 4%;">Where are you looking to buy?</h6>
           </center>
           <div id="locationField">
-            <%= f.input :cityname, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver",
+            <%= f.input :city, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver",
             "West Vancouver", "White Rock"] %>
             <%= f.input :neighbourhood, :label => "Neighbourhood" %>
             <%= f.input :first_name , :label => "First Name *", placeholder: 'First Name...' %>
@@ -120,12 +120,12 @@
         <%= f.input :leadstatus , :as => :hidden, input_html: { value: 'full'} %>
 
         <%= f.input :propertytype ,label: 'Property Type', collection: [ "House", "1/2 Duplex", "Townhouse", "Apartment/Condo" ] %>
-        <%= f.input :pricemax ,label: 'Maximum Price'%>
+        <%= f.input :price ,label: 'Maximum Price'%>
         <%= f.input :bedrooms ,label: 'Bedrooms'%>
         <%= f.input :bathrooms ,label: 'Bathrooms'%>
         <%= f.input :buildingage ,label: 'Max Building Age'%>
 
-        <%= f.input :extrainfo, label: 'Other Information', placeholder: 'Please Write Down Any Information You Would Like To Share With Us...' %>
+        <%# f.input :extrainfo, label: 'Other Information', placeholder: 'Please Write Down Any Information You Would Like To Share With Us...' %>
 
         <%= f.button :submit , :class => "btn formbtn" , value: 'Submit Information' %>
 
