@@ -628,7 +628,7 @@ en-US:
   me:                                   me
   more:                                 More...
   n_a:                                  N/A
-  name:                                 Status
+  name:                                 Notes
   no_match:                             No %{value} match
   no_recent_items:                      There are no recent items to display yet.
   options:                              Options
