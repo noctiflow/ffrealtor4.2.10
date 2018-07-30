@@ -3,44 +3,37 @@
 <%= render 'entities/title_bar' %>
 
 <style>
-.btncontact{
- background-color: rgba(0,0,0,0.75); /* Green */
- border: none;
- /*color: white !important;*/
- padding: 5px 20px;
- text-align: center;
- text-decoration: none;
- display: inline-block;
- font-size: 12px;
- border-radius: 5px;
- box-shadow:2px 2px 3px #aaa;
- font-weight: 600;
-}
-
+  .btncontact {
+    background-color: rgba(0,0,0,0.75);
+    /* Green */
+    border: none;
+    /*color: white !important;*/
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px #aaa;
+    font-weight: 600;
+  }
 </style>
 
 <div class="remote" id="create_contact" hidden="true"></div>
 <center>
-<div style="border: thin grey solid;box-shadow:2px 2px 3px #aaa;background-color: #eee">
-  <br>
-  <%= form_for_filterrific @filterrific do |f| %>
-      <div style="display:inline-block;padding-left:10px">
-        Search
-        <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
-        <%= f.text_field(
-                :search_query,
-                class: 'filterrific-periodically-observed'
-            ) %>
+  <div style="border: thin grey solid;box-shadow:2px 2px 3px #aaa;background-color: #eee">
+    <br>
+    <%= form_for_filterrific @filterrific do |f| %>
+    <div style="display:inline-block;padding-left:10px">
+      Search
+      <%# give the search field the 'filterrific-periodically-observed' class for live updates %>
+        <%= f.text_field( :search_query, class: 'filterrific-periodically-observed' ) %>
       </div>
       <% if current_user.admin? %>
-          <div style="display:inline-block;padding-left:10px">
-            Assigned Realtor
-            <%= f.select(
-                    :with_assigned_to,
-                    @filterrific.select_options[:with_assigned_to],
-                    { include_blank: '- Any -' }
-                ) %>
-          </div>
+        <div style="display:inline-block;padding-left:10px">
+          Assigned Realtor
+          <%= f.select( :with_assigned_to, @filterrific.select_options[:with_assigned_to], { include_blank: '- Any -' } ) %>
+        </div>
       <% end %>
       <div style="display:inline-block;padding-left:10px">
         <%= f.text_field(:with_buysell, value: "Seller", hidden: "true")%>
@@ -53,34 +46,36 @@
         Sort by
         <%= f.select(:sorted_by, @filterrific.select_options[:sorted_by]) %>
       </div>
-        <%= link_to(
-                'Reset filters',
-                reset_filterrific_url,
-                {:style=>' color: white !important; padding: 8px; margin-right: 2%; background-color: rgba(0,0,0,0.75); float:right; border-radius: 5px;'}
-            ) %>
-      <%# add an automated spinner to your form when the list is refreshed %>
-      <%= render_filterrific_spinner %>
-  <% end %>
-  <br>
-</div>
-</center>
-<script>
-  $(function(){
-    $( ".js-datepicker" ).datepicker({
-      dateFormat: 'yy-mm-dd'
+      <div></div>
+      <br>
+      <div>
+
+        <%= link_to( 'Reset Filters', reset_filterrific_url, {:style=>' color: white !important; padding: 8px; margin-right: 2%; background-color: rgba(0,0,0,0.75); border-radius: 5px;'} ) %>
+        <%# add an automated spinner to your form when the list is refreshed %>
+          <%= render_filterrific_spinner %>
+        </div>
+      <% end %>
+      <br>
+    </div>
+  </center>
+  <script>
+    $(function () {
+      $(".js-datepicker").datepicker({dateFormat: 'yy-mm-dd'});
     });
-  });
-</script>
-<br>
-<div style="float: right;padding-right: 1%;">
-  <span class="btncontact"><%= link_to contacts_path do %><span style="color: white !important;">All Contacts</span><% end %></span>
-  <span class="btncontact"><%= link_to contacts_buyers_path do %><span style="color: white !important;">Buyers</span><% end %></span>
-  <span class="btncontact"><%= link_to contacts_sellers_path do %><span style="color: white !important;">Sellers</span><% end %></span>
+  </script>
+  <br>
+  <div style="float: right;padding-right: 1%;">
+    <span class="btncontact"><%= link_to contacts_path do %>
+      <span style="color: white !important;">All Contacts</span><% end %>
+  </span>
+  <span class="btncontact"><%= link_to contacts_buyers_path do %>
+    <span style="color: white !important;">Buyers</span><% end %>
+</span>
+<span class="btncontact"><%= link_to contacts_sellers_path do %>
+  <span style="color: white !important;">Sellers</span><% end %>
+</span>
 </div>
 <br>
 <div id="clist">
-<%= render(
-        partial: 'contacts/list',
-        locals: { contacts: @contacts }
-    ) %>
+<%= render( partial: 'contacts/list', locals: { contacts: @contacts } ) %>
 </div>
