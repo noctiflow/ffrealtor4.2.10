@@ -21,13 +21,16 @@
   }
   .innerbox {
     /*border-bottom:3px black solid;*/
-    width: 33.33%;
+    width: 50%;
     display: inline-block;
     text-align: center;
   }
 </style>
 <h2>Potential Matching Contacts</h2>
 <hr>
+<% @extras.each do |extra| %>
+  <div><%= extra.name %> | <%= extra.buysell %> | <%= extra.city %> | <%= extra.propertytype %></div>
+<% end %>
 <% lastcity = "" %>
   <% @contacts.each do |contact| %>
     <% if lastcity == "" || lastcity != contact.lead.cityname %>
@@ -48,19 +51,13 @@
               <h4>Name</h4>
             </div>
             <div class="infoheader">
-              <h4>Area</h4>
-            </div>
-            <div class="infoheader">
-              <h4>Desire Date</h4>
+              <h4>Property Type</h4>
             </div>
             <div class="infoheader">
               <h4>Name</h4>
             </div>
             <div class="infoheader">
-              <h4>Address</h4>
-            </div>
-            <div class="infoheader">
-              <h4>Desire Date</h4>
+              <h4>Property Type</h4>
             </div>
           </div>
           <div style="width:100%;display:flex;">
@@ -71,11 +68,11 @@
       <% end %>
       <% if contact.lead.buysell == "Buyer" %>
         <script type="text/javascript" charset="utf-8">
-          $('.buyers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.neighbourhood %></div><div border-bottom: 1px black solid;" class="innerbox">N/A</div>');
+          $('.buyers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div border-bottom: 1px black solid;" class="innerbox"><%= contact.lead.propertytype %></div>');
         </script>
         <% elsif contact.lead.buysell == "Seller" %>
           <script type="text/javascript" charset="utf-8">
-            $('.sellers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class="innerbox"><%= contact.lead.address %></div><div class = "innerbox"><%= contact.lead.desireddeal %></div>');
+            $('.sellers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class = "innerbox"><%= contact.lead.propertytype %></div>');
           </script>
         <% end %>
       <% end %>
@@ -86,7 +83,7 @@
             if ($("." + cityname + ".buyers").children().length && $("." + cityname + ".sellers").children().length) {
               console.log("k");
             } else {
-              $(this).hide();
+//              $(this).hide();
             }
           });
         })
