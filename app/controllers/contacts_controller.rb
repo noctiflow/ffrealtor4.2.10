@@ -10,7 +10,7 @@ class ContactsController < EntitiesController
   #----------------------------------------------------------------------------
   def index
     @filterrific = initialize_filterrific(
-      Contact.where(:islead=>"false"),
+      Contact.where(:islead=>"false").where.not(:stage=>"Closed"),
       params[:filterrific],
       :select_options => {
         sorted_by: Contact.options_for_sorted_by,
@@ -28,7 +28,7 @@ class ContactsController < EntitiesController
 
   def buyersindex
     @filterrific = initialize_filterrific(
-      Contact.where(:islead=>"false",:buysell=>"Buyer"),
+      Contact.where(:islead=>"false",:buysell=>"Buyer").where.not(:stage=>"Closed"),
       params[:filterrific],
       :select_options => {
         sorted_by: Contact.options_for_sorted_by,
@@ -46,7 +46,7 @@ class ContactsController < EntitiesController
 
   def sellersindex
     @filterrific = initialize_filterrific(
-        Contact.where(:islead=>"false",:buysell=>"Seller"),
+      Contact.where(:islead=>"false",:buysell=>"Seller").where.not(:stage=>"Closed"),params[:filterrific],
       :select_options => {
         sorted_by: Contact.options_for_sorted_by,
         with_assigned_to: User.options_for_select,
@@ -63,7 +63,8 @@ class ContactsController < EntitiesController
 
   def closed
     @filterrific = initialize_filterrific(
-        Contact.where(:islead=>"false"),
+        Contact.where(:islead=>"false",:stage=>"Closed"),
+        params[:filterrific],
         :select_options => {
             sorted_by: Contact.options_for_sorted_by,
             with_assigned_to: User.options_for_select,
