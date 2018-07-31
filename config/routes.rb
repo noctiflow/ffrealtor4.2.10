@@ -87,6 +87,7 @@ Rails.application.routes.draw do
   get 'matches', to: 'matches#index'
   get 'contacts/buyers', to: 'contacts#buyersindex'
   get 'contacts/sellers', to: 'contacts#sellersindex'
+  get 'contacts/closed', to: 'contacts#closed'
   get 'leads/buyers', to: 'leads#buyersindex'
   get 'leads/sellers', to: 'leads#sellersindex'
   get 'logout_session'  => 'authentications#destroy'
