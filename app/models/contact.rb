@@ -114,7 +114,7 @@ class Contact < ActiveRecord::Base
     where('contacts.created_at >= ?', Date.parse(ref_date))
   }
   scope :with_buysell, lambda { |buysells|
-    joins(:lead).where(:leads => { :buysell => [*buysells] })
+    where(:buysell => [*buysells])
   }
 
   scope :created_by,  ->(user) { where(user_id: user.id) }
