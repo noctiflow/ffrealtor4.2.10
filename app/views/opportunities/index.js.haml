@@ -6,6 +6,7 @@
 - else
   $('##{entities}').html('#{ j render(:partial => "shared/empty") }');
 
+$('.create_asset').hide();
 $('#paginate').html('#{ j render(:partial => "shared/paginate_with_per_page") }');
 $('#export').html('#{ j render(:partial => "shared/export") }');
 $('.stages').html('#{ j render(:partial => "something") }');
