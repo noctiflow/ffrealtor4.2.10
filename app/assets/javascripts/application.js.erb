@@ -46,7 +46,6 @@ Gem.loaded_specs.keys.grep(/^ffcrm_/).each do |plugin|
   require_asset(plugin) rescue Sprockets::FileNotFound
 end
 %>
-
 // codes for automatically logout session
 
 $(function(){
@@ -55,7 +54,9 @@ $(function(){
          intvrefresh = function() {
              clearInterval(refresh);
              refresh = setTimeout(function() {
-                window.location.href = '/logout_session'
+               if($('#welcome_username').html()){
+                 window.location.href = '/logout_session'
+               }
              }, seconds * 1000);
          };
 
