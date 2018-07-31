@@ -41,7 +41,7 @@
           %td= spacer
           %td
             .label Property Type:
-            = f.text_field :propertytype
+            = select("contact","propertytype",%w[House 1/2\ Duplex Townhouse Apartment/Condo],{include_blank: 'None'})
         %tr
           %td
             .label Asking Price:

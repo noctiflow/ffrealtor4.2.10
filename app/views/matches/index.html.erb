@@ -28,14 +28,14 @@
 </style>
 <h2>Potential Matching Contacts</h2>
 <hr>
-<% @extras.each do |extra| %>
+<% @contacts.each do |extra| %>
   <div><%= extra.name %> | <%= extra.buysell %> | <%= extra.city %> | <%= extra.propertytype %></div>
 <% end %>
 <% lastcity = "" %>
   <% @contacts.each do |contact| %>
-    <% if lastcity == "" || lastcity != contact.lead.cityname %>
+    <% if lastcity == "" || lastcity != contact.city %>
       <!--also if where has buyer && where has seller-->
-      <% lastcity = contact.lead.cityname %>
+      <% lastcity = contact.city %>
         <div id="<%=lastcity%>">
           <h2><%= lastcity %></h2>
           <div style="width:100%;display:flex;">
@@ -66,13 +66,13 @@
           </div>
         </div>
       <% end %>
-      <% if contact.lead.buysell == "Buyer" %>
+      <% if contact.buysell == "Buyer" %>
         <script type="text/javascript" charset="utf-8">
-          $('.buyers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div border-bottom: 1px black solid;" class="innerbox"><%= contact.lead.propertytype %></div>');
+          $('.buyers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div border-bottom: 1px black solid;" class="innerbox"><%= contact.propertytype %></div>');
         </script>
-        <% elsif contact.lead.buysell == "Seller" %>
+        <% elsif contact.buysell == "Seller" %>
           <script type="text/javascript" charset="utf-8">
-            $('.sellers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class = "innerbox"><%= contact.lead.propertytype %></div>');
+            $('.sellers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class = "innerbox"><%= contact.propertytype %></div>');
           </script>
         <% end %>
       <% end %>

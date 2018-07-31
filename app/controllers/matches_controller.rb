@@ -1,10 +1,9 @@
 class MatchesController < ApplicationController
   def index
     if current_user.admin?
-      @contacts = Contact.joins(:lead).order('leads.cityname asc')
-      @extras = Contact.all
+      @contacts = Contact.order('city asc')
     else
-      @contacts = Contact.joins(:lead).where(:assigned_to => current_user.id).order('leads.cityname asc')
+      @contacts = Contact.where(:assigned_to => current_user.id).order('city asc')
     end
   end
 end

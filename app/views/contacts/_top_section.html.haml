@@ -29,7 +29,8 @@
         %td= spacer
         %td
           .label #{"Buyer/Seller"}:
-          = f.text_field :buysell
+          -#= f.text_field :buysell
+          = select("contact","buysell",%w[Buyer Seller],{include_blank: 'None'})
     %table
       = fields_for(@account) do |a|
         = a.hidden_field :user_id
