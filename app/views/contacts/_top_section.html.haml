@@ -9,6 +9,8 @@
           .label.top.req{ :class => "#{Setting.require_first_names ? 'req' : nil}" } #{t :first_name}:
           = f.text_field :first_name, :autofocus => true
           = f.hidden_field :islead, value: 'false'
+          - if @contact.new_record? || @contact.islead.blank?
+            = f.hidden_field :stage, value: 'Lead In'
         %td= spacer
         %td
           .label.top{ :class => "#{Setting.require_last_names ? 'req' : nil}" } #{t :last_name}:
@@ -31,6 +33,10 @@
           .label #{"Buyer/Seller"}:
           -#= f.text_field :buysell
           = select("contact","buysell",%w[Buyer Seller],{include_blank: 'None'})
+      %tr
+        %td
+          .label #{"Stage"}:
+          = select("contact","stage",%w[Lead\ In Contact\ Made Meet Pre-Qualified Start\ Showing Write\ Offer Accept\ Offer Pending Closed])
     %table
       = fields_for(@account) do |a|
         = a.hidden_field :user_id

@@ -70,8 +70,8 @@
                 <td></td>
               <% end %>
 
-              <% if contact.opportunities.any? %>
-                <td><%= contact.opportunities.first.stage %></td>
+              <% if contact.stage.present? %>
+                <td><%= contact.stage %></td>
               <% else %>
                 <td></td>
               <% end %>
