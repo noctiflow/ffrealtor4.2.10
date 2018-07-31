@@ -56,14 +56,22 @@ en-US:
   word_of_mouth:                        Word of Mouth
   other:                                Other
   prospecting:                          Lead In
+  Lead In:                              Lead In
   analysis:                             Contact Made
   Contact Made:                         Contact Made
   presentation:                         Meet
+  Meet:                                 Meet
   proposal:                             Pre-Qualified
+  Pre-Qualified:                        Pre-Qualified
   negotiation:                          Start Showing
+  Start Showing:                        Start Showing
   final_review:                         Write Offer
+  Write Offer:                          Write Offer
   won:                                  Accept Offer
+  Accept Offer:                         Accept Offer
   lost:                                 Pending Completion
+  Pending Completion:                   Pending Completion
+  closed:                               Closed
   closed:                               Closed
   call:                                 Call
   email:                                Email
@@ -620,7 +628,7 @@ en-US:
   me:                                   me
   more:                                 More...
   n_a:                                  N/A
-  name:                                 Status
+  name:                                 Notes
   no_match:                             No %{value} match
   no_recent_items:                      There are no recent items to display yet.
   options:                              Options

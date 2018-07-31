@@ -345,16 +345,16 @@ lead_source:
 
 # Opportunity Stage.
 #------------------------------------------------------------------------------
-opportunity_default_stage:      :prospecting
+opportunity_default_stage:      :Lead In
 opportunity_stage:
-  - :prospecting
+  - :Lead In
   - :Contact Made
-  - :presentation
-  - :proposal
-  - :negotiation
-  - :final_review
-  - :won
-  - :lost
+  - :Meet
+  - :Pre-Qualified
+  - :Start Showing
+  - :Write Offer
+  - :Accept Offer
+  - :Pending Completion
   - :closed
   # - :prospecting
   # - :analysis

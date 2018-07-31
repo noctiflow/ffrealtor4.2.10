@@ -10,37 +10,36 @@
 <div style="display: flex; width:100%;align-content: stretch;">
   <% @stage.each do |value, key| %>
     <%# label_tag(key) %>
-      <div style="border:thin whitesmoke solid;flex:1;">
+      <div style="border:thin white solid;flex:1;">
         <% @opportunities.where(stage: key).each do |op| %>
           <% if current_user.admin? %>
             <%= link_to opportunity_path(op) do %>
             <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px; padding: 5px; overflow: ellipsis;">
-              <div style="text-align: center;color:white;word-break: keep-all;">
-                <span style="font-size:1.2em;">
-                  <b style="color:orange;">Status:</b>
-                  <br><%= op.name %></span>
+              <div style="color:white;word-break: keep-all;">
                 <br>
-                <br>
-                <span style="font-size:1.2em;">
-                  <b style="color:orange;">Client:</b>
-                  <br>
+                <span style="font-size:1.2em; text-align: center;">
                   <% op.contacts.each do |contact| %>
-                    <%= contact.name %>
+                    <center><b style="color:orange;">Client:</b></center>
+                  <div><%= contact.name %></div>
                   <% end %>
                 </span>
                 <br>
-                <span style="font-size:.9em;font-weight: 100">
-                  <% if op.amount? %>$<%= op.amount %>
+                <span style="font-size:1.2em;font-weight: 100;">
+                  <% if op.amount? %>
+                <div style="margin-bottom: 5%;"><b style="color:orange;">Price:</b> $<%= op.amount %></div>
                   <% end %>
                 </span>
-                <br>
-                <span style="font-size:.8em;">
-                  <em>
+                <span style="font-size:1.2em;">
+                    <% if op.assigned_to? %>
                     <b style="color:orange;">Assigned To:</b>
-                    <br>
-                    <% if op.assigned_to? %><%= User.find(op.assigned_to).full_name %>
+                    <div style="margin-bottom: 5%;"><%= User.find(op.assigned_to).full_name %></div>
                     <% end %>
-                  </em>
+                </span>
+                <span style="font-size:1.2em;">
+                  <% if op.name? %>
+                  <b style="color:orange;">Notes:</b>
+                  <div style="margin-bottom: 5%;"><%= op.name %></div>
+                  <% end %>
                 </span>
               </div>
             </div>

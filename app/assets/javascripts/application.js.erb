@@ -47,18 +47,20 @@ Gem.loaded_specs.keys.grep(/^ffcrm_/).each do |plugin|
 end
 %>
 
-//$(function(){
-//  (function(seconds) {
-//      var refresh,
-//          intvrefresh = function() {
-//              clearInterval(refresh);
-//              refresh = setTimeout(function() {
-//                 location.href = location.href;
-//              }, seconds * 1000);
-//          };
-//
-//      $(document).on('keypress click', function() { intvrefresh() });
-//      intvrefresh();
-//
-//  }(25));
-//})
+// codes for automatically logout session
+
+$(function(){
+ (function(seconds) {
+     var refresh,
+         intvrefresh = function() {
+             clearInterval(refresh);
+             refresh = setTimeout(function() {
+                window.location.href = '/logout_session'
+             }, seconds * 1000);
+         };
+
+     $(document).on('keypress click', function() { intvrefresh() });
+     intvrefresh();
+
+ }(300));
+})

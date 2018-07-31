@@ -89,7 +89,7 @@ Rails.application.routes.draw do
   get 'contacts/sellers', to: 'contacts#sellersindex'
   get 'leads/buyers', to: 'leads#buyersindex'
   get 'leads/sellers', to: 'leads#sellersindex'
-
+  get 'logout_session'  => 'authentications#destroy'
 
   resources :contacts, id: /\d+/ do
     collection do
