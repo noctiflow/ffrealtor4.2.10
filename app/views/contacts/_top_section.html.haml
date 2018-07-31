@@ -8,6 +8,7 @@
         %td
           .label.top.req{ :class => "#{Setting.require_first_names ? 'req' : nil}" } #{t :first_name}:
           = f.text_field :first_name, :autofocus => true
+          = f.hidden_field :islead, value: 'false'
         %td= spacer
         %td
           .label.top{ :class => "#{Setting.require_last_names ? 'req' : nil}" } #{t :last_name}:

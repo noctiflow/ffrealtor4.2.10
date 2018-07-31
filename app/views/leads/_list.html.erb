@@ -57,16 +57,16 @@
       <th>Delete</th>
     </tr>
     <% leads.each do |lead| %>
-      <% if lead.status != "converted" && current_user.admin? %>
+      <% if current_user.admin? %>
         <tr>
           <td id="leadcolor"><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
-          <td><%= link_to(lead.full_name, lead_path(lead)) %></td>
+          <td><%= link_to(lead.full_name, contact_path(lead)) %></td>
           <td><%= lead.buysell if lead.buysell.present? %></td>
           <td><%= lead.propertytype %></td>
-          <td><%= lead.cityname %></td>
+          <td><%= lead.city %></td>
           <td>
-            <% if lead.pricemax.present? %>
-                $<%= number_with_delimiter(lead.pricemax , :delimiter => ',') %>
+            <% if lead.price.present? %>
+                $<%= number_with_delimiter(lead.price , :delimiter => ',') %>
                 <% else %>
                     N/A
             <% end %>

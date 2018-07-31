@@ -10,7 +10,7 @@ class ContactsController < EntitiesController
   #----------------------------------------------------------------------------
   def index
     @filterrific = initialize_filterrific(
-      Contact,
+      Contact.where(:islead=>"false"),
       params[:filterrific],
       :select_options => {
         sorted_by: Contact.options_for_sorted_by,
@@ -28,7 +28,7 @@ class ContactsController < EntitiesController
 
   def buyersindex
     @filterrific = initialize_filterrific(
-      Contact.joins(:lead).where(:leads => { :buysell => "Buyer" }),
+      Contact.where(:islead=>"false",:buysell=>"Buyer"),
       params[:filterrific],
       :select_options => {
         sorted_by: Contact.options_for_sorted_by,
@@ -46,8 +46,7 @@ class ContactsController < EntitiesController
 
   def sellersindex
     @filterrific = initialize_filterrific(
-      Contact.joins(:lead).where(:leads => { :buysell => "Seller" }),
-      params[:filterrific],
+        Contact.where(:islead=>"false",:buysell=>"Seller"),
       :select_options => {
         sorted_by: Contact.options_for_sorted_by,
         with_assigned_to: User.options_for_select,

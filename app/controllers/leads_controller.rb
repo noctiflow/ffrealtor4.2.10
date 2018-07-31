@@ -11,12 +11,12 @@ class LeadsController < EntitiesController
   #----------------------------------------------------------------------------
   def index
     @filterrific = initialize_filterrific(
-        Lead,
+        Contact.where(:islead =>"true"),
         params[:filterrific],
         :select_options => {
-            sorted_by: Lead.options_for_sorted_by,
+            sorted_by: Contact.options_for_sorted_by,
             with_assigned_to: User.options_for_select,
-            with_buysell: Lead.options_for_buysell
+            with_buysell: Contact.options_for_buysell
         }
     ) or return
     @leads = @filterrific.find.page(params[:page])
@@ -41,7 +41,7 @@ class LeadsController < EntitiesController
 
   def buyersindex
     @filterrific = initialize_filterrific(
-        Lead.where(:buysell => "Buyer"),
+        Contact.where(:islead => "true", :buysell => "Buyer"),
         params[:filterrific],
         :select_options => {
             sorted_by: Lead.options_for_sorted_by,
@@ -58,7 +58,7 @@ class LeadsController < EntitiesController
 
   def sellersindex
     @filterrific = initialize_filterrific(
-        Lead.where(:buysell => "Seller"),
+        Contact.where(:islead => "true", :buysell => "Seller"),
         params[:filterrific],
         :select_options => {
             sorted_by: Lead.options_for_sorted_by,
