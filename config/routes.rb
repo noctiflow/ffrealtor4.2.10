@@ -91,6 +91,8 @@ Rails.application.routes.draw do
   get 'leads/buyers', to: 'leads#buyersindex'
   get 'leads/sellers', to: 'leads#sellersindex'
   get 'logout_session'  => 'authentications#destroy'
+  get 'opportunities/buyers', to: 'opportunities#buyersindex'
+  get 'opportunities/sellers', to: 'opportunities#sellersindex'
 
   resources :contacts, id: /\d+/ do
     collection do

@@ -1,3 +1,4 @@
+buttons
 <br><br>
 <div style="display: flex; width:100%;align-content: stretch; pointer-events: none;">
   <% @stage.each do |value, key| %>
@@ -11,22 +12,20 @@
   <% @stage.each do |value, key| %>
     <%# label_tag(key) %>
       <div style="border:thin white solid;flex:1;">
-        <% @opportunities.where(stage: key).each do |op| %>
+        <% @contacts.where(stage: key).each do |op| %>
           <% if current_user.admin? %>
-            <%= link_to opportunity_path(op) do %>
+            <%= link_to contact_path(op) do %>
             <div style="margin-bottom:2px;background-color: #466bb1;border-radius:5px;border:thin dodgerblue solid;min-height: 40px; padding: 5px; overflow: ellipsis;">
               <div style="color:white;word-break: keep-all;">
                 <br>
                 <span style="font-size:1.2em; text-align: center;">
-                  <% op.contacts.each do |contact| %>
-                    <center><b style="color:orange;">Client:</b></center>
-                  <div><%= contact.name %></div>
-                  <% end %>
+                  <center><b style="color:orange;">Client:</b></center>
+                  <div><%= op.name %></div>
                 </span>
                 <br>
                 <span style="font-size:1.2em;font-weight: 100;">
-                  <% if op.amount? %>
-                <div style="margin-bottom: 5%;"><b style="color:orange;">Price:</b> $<%= op.amount %></div>
+                  <% if op.price? %>
+                <div style="margin-bottom: 5%;"><b style="color:orange;">Price:</b> $<%= op.price %></div>
                   <% end %>
                 </span>
                 <span style="font-size:1.2em;">
@@ -35,12 +34,12 @@
                     <div style="margin-bottom: 5%;"><%= User.find(op.assigned_to).full_name %></div>
                     <% end %>
                 </span>
-                <span style="font-size:1.2em;">
-                  <% if op.name? %>
-                  <b style="color:orange;">Notes:</b>
-                  <div style="margin-bottom: 5%;"><%= op.name %></div>
-                  <% end %>
-                </span>
+                <!--<span style="font-size:1.2em;">-->
+                  <!--<%# if op.name? %>-->
+                  <!--<b style="color:orange;">Notes:</b>-->
+                  <!--<div style="margin-bottom: 5%;"><%# op.name %></div>-->
+                  <!--<%# end %>-->
+                <!--</span>-->
               </div>
             </div>
           <% end %>

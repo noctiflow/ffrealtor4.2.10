@@ -13,6 +13,7 @@ class OpportunitiesController < EntitiesController
   def index
     # @opportunities = get_opportunities(page: params[:page], per_page: params[:per_page])
     @opportunities = Opportunity.all
+    @contacts = Contact.all
 
     # if current_user.admin?
     #   @opportunities = Opportunity.all
@@ -24,6 +25,38 @@ class OpportunitiesController < EntitiesController
       format.xls { render layout: 'header' }
       format.csv { render csv: @opportunities }
     end
+  end
+
+  def buyersindex
+    @opportunities = Opportunity.all
+    @contacts = Contact.where(:buysell=>"Buyer",:islead=>"false")
+
+    # if current_user.admin?
+    #   @opportunities = Opportunity.all
+    # else
+    #   @opportunities = Opportunity.where(assigned_to: current_user)
+    # end
+
+    # respond_with @opportunities do |format|
+    #   format.xls { render layout: 'header' }
+    #   format.csv { render csv: @opportunities }
+    # end
+  end
+
+  def sellersindex
+    @opportunities = Opportunity.all
+    @contacts = Contact.where(:buysell=>"Seller",:islead=>"false")
+
+    # if current_user.admin?
+    #   @opportunities = Opportunity.all
+    # else
+    #   @opportunities = Opportunity.where(assigned_to: current_user)
+    # end
+
+    # respond_with @opportunities do |format|
+    #   format.xls { render layout: 'header' }
+    #   format.csv { render csv: @opportunities }
+    # end
   end
 
   # GET /opportunities/1
