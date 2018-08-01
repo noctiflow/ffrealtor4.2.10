@@ -44,7 +44,9 @@
             <%= f.input :address, placeholder: 'Street Address' %>
             <%= f.input :unit, placeholder: 'Unit #'%>
             <%= f.input :postalcode, input_html: { id: 'postal_code', class: 'field' } %>
-            <%= f.input :city, input_html: { id: 'locality', class: 'field' } %>
+            <!-- <%= f.input :city, input_html: { id: 'locality', class: 'field' } %> -->
+            <%= f.input :city, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver",
+            "West Vancouver", "White Rock" ] %>
             <%= f.input :propertytype ,label: 'Property Type', collection: [ "House", "1/2 Duplex", "Townhouse", "Apartment/Condo" ] %>
             <div class="center-align">
               <!--<button id="form-continue" type="button" class="waves-effect waves-light btn" style="display:none; margin-top: 4%; font-size: 20px;">Click Here To Continue <i class="material-icons right">send</i></button>-->
@@ -74,9 +76,8 @@
 
       </div>
     <% end %>
-    <br>
-    <div class="center-align">
-      <span class="responsive-img resizeimg"><%= image_tag( 'logo/png/REMAX_mastrBalloon_50x60.png' ) %></span>
+    <div class="col s12 m12 l12">
+      <span class="responsive-img"><%= image_tag( 'logo/png/REMAX_mastrBalloon_50x60.png' ) %></span>
       <span class="responsive-img"><%= image_tag( 'logo/png/Logo_Crest_rgb_horizontal_400x400.png' ) %></span>
     </div>
   </div>

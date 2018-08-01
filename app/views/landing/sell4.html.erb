@@ -49,7 +49,9 @@
             <%= f.input :address, placeholder: 'Street Address' %>
             <%= f.input :unit, placeholder: 'Unit #'%>
             <%= f.input :postalcode, input_html: { id: 'postal_code', class: 'field' } %>
-            <%= f.input :city, input_html: { id: 'locality', class: 'field' } %>
+            <!-- <%= f.input :city, input_html: { id: 'locality', class: 'field' } %> -->
+            <%= f.input :city, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver",
+            "West Vancouver", "White Rock" ] %>
             <%= f.input :propertytype ,label: 'Property Type', collection: [ "House", "1/2 Duplex", "Townhouse", "Apartment/Condo" ] %>
             <br/>
             <div class="right-align">
@@ -83,7 +85,7 @@
       </div>
     <% end %>
     <br>
-    <div class="center-align">
+    <div class="col s12 m12 l12">
       <span class="responsive-img resizeimg"><%= image_tag( 'logo/png/REMAX_mastrBalloon_50x60.png' ) %></span>
       <span class="responsive-img"><%= image_tag( 'logo/png/Logo_Crest_rgb_horizontal_400x400.png' ) %></span>
     </div>

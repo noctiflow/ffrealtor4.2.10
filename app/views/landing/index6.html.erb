@@ -1,16 +1,9 @@
 <head>
- <%= stylesheet_link_tag "buy4" %>
+ <%= stylesheet_link_tag "buyer4" %>
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
- <div class="navbar-fixed">
-   <nav style="background-color: rgba(0,0,0,0); box-shadow: none;">
-     <div style="padding-left: 2%; scale: 0.2;">
-       <a href="" class="brand-logo responsive-img"><%= image_tag( 'logo/horizontaleng300x200.png' ) %></a>
-     </div>
-   </nav>
- </div>
 </head>
 
 
@@ -21,6 +14,10 @@
     <div class="col m10 formbg center-align">
       <h3 style="padding: 3%;"><strong>Thank you for submitting the information!</h3></strong>
       <h5 style="padding: 3%;"> We will send you the report shortly</h5>
+      <div class="center-align">
+        <span class="responsive-img resizeimg"><%= image_tag( 'logo/png/REMAX_mastrBalloon_50x60.png' ) %></span>
+        <span class="responsive-img"><%= image_tag( 'logo/png/Logo_Crest_rgb_horizontal_400x400.png' ) %></span>
+      </div>
     </div>
   </div>
 </body>

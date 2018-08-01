@@ -510,7 +510,7 @@ en-US:
   probability_number:                   and %{value} probability
   save_opportunity:                     Save Pipeline
   stage:                                Stages
-  total_opportunities:                  Total Pipelines
+  total_opportunities:                  Total
   weighted_amount:                      Weighted amount
 
   # Views -> Tasks.
