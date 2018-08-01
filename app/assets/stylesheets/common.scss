@@ -942,3 +942,18 @@ table.asset_attributes {
     background-color: darkgray;
   }
 }
+
+.btncontact {
+  background-color: rgba(0,0,0,0.75);
+  /* Green */
+  border: none;
+  /*color: white !important;*/
+  padding: 5px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 3px #aaa;
+  font-weight: 600;
+}

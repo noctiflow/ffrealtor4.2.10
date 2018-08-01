@@ -1,4 +1,14 @@
-buttons
+<div style="float: right; padding-right: 1%;">
+  <span class="btncontact"><%= link_to opportunities_path do %>
+    <span style="color: white !important;">All Contacts</span><% end %>
+  </span>
+  <span class="btncontact"><%= link_to opportunities_buyers_path do %>
+    <span style="color: white !important;">Buyers</span><% end %>
+  </span>
+  <span class="btncontact"><%= link_to opportunities_sellers_path do %>
+    <span style="color: white !important;">Sellers</span><% end %>
+  </span>
+</div>
 <br><br>
 <div style="display: flex; width:100%;align-content: stretch; pointer-events: none;">
   <% @stage.each do |value, key| %>

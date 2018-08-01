@@ -31,6 +31,10 @@
         == <b>#{@contact.lead.buysell}</b><br />
 
   %div
+    - if @contact.stage.present?
+      == #{t "Stage"}: <b>#{@contact.stage}</b><br />
+
+  %div
     - if @contact.lead && @contact.lead.source.present?
       == #{t :source}: <b>#{@contact.lead.source}</b><br />
 
