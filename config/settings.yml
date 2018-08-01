@@ -366,14 +366,14 @@ opportunity_stage:
   # - :lost
   # - :closed
 opportunity_stage_color:
-  :prospecting  :               Silver
-  :analysis     :               PaleGoldenRod
-  :presentation :               Salmon
-  :proposal     :               Gold
-  :negotiation  :               Orchid
-  :final_review :               Turquoise
-  :won          :               Lime
-  :lost         :               OrangeRed
+  :Lead In      :               Silver
+  :Contact Made     :           PaleGoldenRod
+  :Meet :                       Salmon
+  :Pre-Qualified     :          Gold
+  :Start Showing  :             Orchid
+  :Write Offer :                Turquoise
+  :Accept Offer          :      Lime
+  :Pending Completion         : skyblue
 
 # Task Category, Due Date, and Completed Date.
 #------------------------------------------------------------------------------
