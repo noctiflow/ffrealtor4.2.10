@@ -13,7 +13,7 @@ class OpportunitiesController < EntitiesController
   def index
     # @opportunities = get_opportunities(page: params[:page], per_page: params[:per_page])
     @opportunities = Opportunity.all
-    @contacts = Contact.all
+    @contacts = Contact.where(:islead=>"false").where.not(:stage=>"Closed")
 
     # if current_user.admin?
     #   @opportunities = Opportunity.all
@@ -29,7 +29,7 @@ class OpportunitiesController < EntitiesController
 
   def buyersindex
     @opportunities = Opportunity.all
-    @contacts = Contact.where(:buysell=>"Buyer",:islead=>"false")
+    @contacts = Contact.where(:buysell=>"Buyer",:islead=>"false").where.not(:stage=>"Closed")
 
     # if current_user.admin?
     #   @opportunities = Opportunity.all
@@ -45,7 +45,7 @@ class OpportunitiesController < EntitiesController
 
   def sellersindex
     @opportunities = Opportunity.all
-    @contacts = Contact.where(:buysell=>"Seller",:islead=>"false")
+    @contacts = Contact.where(:buysell=>"Seller",:islead=>"false").where.not(:stage=>"Closed")
 
     # if current_user.admin?
     #   @opportunities = Opportunity.all
