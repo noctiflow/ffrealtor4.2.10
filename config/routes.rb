@@ -93,6 +93,10 @@ Rails.application.routes.draw do
   get 'logout_session'  => 'authentications#destroy'
   get 'opportunities/buyers', to: 'opportunities#buyersindex'
   get 'opportunities/sellers', to: 'opportunities#sellersindex'
+  get 'leadcontacts', to: 'leadcontacts#index'
+  get '/leadcontacts/new', to: 'leadcontacts#new'
+  post 'leadcontacts', action: :create, controller: 'leadcontacts'
+  delete 'destroy_multiple_leadcontacts', action: 'destroy_multiple', controller: 'leadcontacts'
 
   resources :contacts, id: /\d+/ do
     collection do

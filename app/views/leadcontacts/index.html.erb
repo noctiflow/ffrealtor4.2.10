@@ -1,0 +1,143 @@
+<div class="title">
+  <span>
+    Leads
+  </span>
+  <%= link_to 'New Lead', '/leadcontacts/new' %>
+</div>
+<%# app/views/leads/_list.html.erb %>
+<div id="filterrific_results">
+  <style>
+    #filter{
+      width:100%;
+    }
+    #filter td,th{
+      border:thin black solid;
+    }
+    #filter th{
+      font-size:1.2em;
+    }
+    #filter td{
+      text-align: right;
+      padding-right:5px;
+    }
+    .tablecss td{
+      text-align: center !important;
+      font-size: 1.3em;
+    }
+    .bulkbutton{
+      color:white;
+      display:inline-block;
+      float:right;
+      padding: 5px;
+      margin: 5px;
+      border-radius: 4px;
+      box-shadow: 2px 2px 3px #aaa;
+    }
+    #delsubmit{
+      background-color: red;
+    }
+    #checkAll{
+      background-color: dodgerblue;
+    }
+  </style>
+  <div>
+    <% if current_user.admin? %>
+        <%# page_entries_info @leads %>(s)
+    <% end %>
+    <!--<div class="bulkbutton" id="bulkconvert" style="background-color:green;">Convert Selected</div>-->
+  </div>
+
+  <br>
+  <%= form_tag destroy_multiple_leadcontacts_path, method: :delete do %>
+      <table class="tablecss" id="filter">
+        <tr style="text-align: center;">
+          <th>Lead Status</th>
+          <th>Name</th>
+          <th>Buyer/Seller</th>
+          <th>Property Type</th>
+          <th>Area</th>
+          <th>Price</th>
+          <th>Assigned To</th>
+          <th>Registered at</th>
+          <th>Rating</th>
+          <th>Delete</th>
+        </tr>
+        <% @leads.each do |lead| %>
+            <% if current_user.admin? %>
+                <tr>
+                  <td id="leadcolor"><%= lead.leadstatus.capitalize if lead.leadstatus.present? %></td>
+                  <td><%= link_to(lead.full_name, contact_path(lead)) %></td>
+                  <td><%= lead.buysell if lead.buysell.present? %></td>
+                  <td><%= lead.propertytype %></td>
+                  <td><%= lead.city %></td>
+                  <td>
+                    <% if lead.price.present? %>
+                        $<%= number_with_delimiter(lead.price , :delimiter => ',') %>
+                    <% else %>
+                        N/A
+                    <% end %>
+                  </td>
+                  <td>
+                    <% if lead.assigned_to.present? %>
+                        <% magic = User.where(:id => lead.assigned_to).last %>
+                        <% if magic.first_name.present? && magic.last_name.present? %>
+                            <%= magic.first_name %> <%= magic.last_name %>
+                        <% else %>
+                            <%= magic.username %>
+                        <% end %>
+                    <% end %>
+                  </td>
+                  <td><%= lead.decorated_created_at %></td>
+                  <td><%= stars_for(lead) %></td>
+                  <!--<td><%# link_to('x', lead_path(lead), data: {:confirm => "Are you sure?"}, :method => :delete) %></td>-->
+                  <!--<td><%# check_box_tag("convert[#{lead.id}]",1,false,class: "convertcheck") %></td>-->
+                  <td><%= check_box_tag("contact_ids[]",lead.id,false,class: "deletecheck") %></td>
+                </tr>
+            <% end %>
+        <% end %>
+      </table>
+      <% if current_user.admin? %>
+          <%= submit_tag "Delete Selected", id: "delsubmit", class: "bulkbutton" %>
+      <% end %>
+  <% end %>
+  <% if current_user.admin? %>
+      <input value="Deselect All" type="submit" id="uncheckAll" class="bulkbutton" style="background-color:green;">
+      <input value="Select All" type="submit" id="checkAll" class="bulkbutton">
+  <% end %>
+</div>
+
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    $('input:checkbox').prop('checked', false);
+    $('#delsubmit').click(function() {
+      return window.confirm("Are you sure?");
+    });
+    $("#checkAll").click(function(){
+      $('input:checkbox').prop('checked', true);
+    });
+    $("#uncheckAll").click(function(){
+      $('input:checkbox').prop('checked', false);
+    });
+    $('td').each(function(){
+      if($(this).html()=="Partial"){
+        $(this).css('background-color','red');
+        $(this).css('color', 'white');
+      }
+      else if($(this).html()=="Full") {
+        $(this).css('background-color', 'green');
+        $(this).css('color','white');
+      }
+    })
+  });
+</script>
+<% if !current_user.admin? %>
+    <script type="text/javascript" charset="utf-8">
+      $('#filters').hide();
+    </script>
+<% end %>
+<br><br><br><br>
+<div>
+  <% if current_user.admin? %>
+      <%# will_paginate @leads %>
+  <% end %>
+</div>

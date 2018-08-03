@@ -1,0 +1,38 @@
+<div class="title">
+  <span>
+    New Lead
+  </span>
+  <%= link_to 'Back', '/leadcontacts' %>
+</div>
+<div class="remote">
+  <%= simple_form_for @lead, url:leadcontacts_path do |f| %>
+      <%= f.input :islead , :as => :hidden, input_html: { value: 'true'} %>
+      <%= f.input :first_name %>
+      <!--req-->
+      <%= f.input :last_name %>
+      <!--req-->
+      <%= f.input :phone %>
+      <%= f.input :email, input_html: { maxlength: 50 } %>
+      <%= f.input :occupation %>
+      <%= f.input :buysell %>
+      <!--change to dropdown ^-->
+      <%= f.input :assigned_to %>
+      <!--change to dropdown ^-->
+      <%= f.input :desireddeal %>
+      <!--change to dropdown ^-->
+      <%= f.input :address %>
+      <%= f.input :unit %>
+      <%= f.input :city %>
+      <!--force capitalize^-->
+      <%= f.input :postalcode %>
+      <%= f.input :neighbourhood %>
+      <!--force capitalize^-->
+      <%= f.input :propertytype %>
+      <!--change to dropdown^-->
+      <%= f.input :price %>
+      <%= f.input :buildingage %>
+      <%= f.input :bedrooms %>
+      <%= f.input :bathrooms %>
+      <%= f.submit "Create Lead" %>
+  <% end %>
+</div>
