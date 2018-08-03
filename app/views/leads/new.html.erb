@@ -1,0 +1,26 @@
+<div class="title"><span>New Lead</span></div>
+<div class="remote">
+  <%= simple_form_for @lead, url:leads_path, remote:true do |f| %>
+    <%= f.input :islead , :as => :hidden, input_html: { value: 'true'} %>
+    <%= f.input :first_name %>
+    <%= f.input :last_name %>
+    <%= f.input :phone %>
+    <%= f.input :email, input_html: { maxlength: 50 } %>
+    <%= f.input :occupation %>
+    <%= f.input :buysell %>
+    <%= f.input :stage %>
+    <%= f.input :assigned_to %>
+    <%= f.input :desireddeal %>
+    <%= f.input :address %>
+    <%= f.input :unit %>
+    <%= f.input :city %>
+    <%= f.input :postalcode %>
+    <%= f.input :neighbourhood %>
+    <%= f.input :propertytype %>
+    <%= f.input :price %>
+    <%= f.input :buildingage %>
+    <%= f.input :bedrooms %>
+    <%= f.input :bathrooms %>
+    <%= f.submit "Create Lead" %>
+  <% end %>
+</div>

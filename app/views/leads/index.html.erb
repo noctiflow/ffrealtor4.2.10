@@ -1,6 +1,11 @@
 <%= styles_for :lead %>
 
 <%= render 'entities/title_bar' %>
+<script type="text/javascript" charset="utf-8">
+ $(function(){
+   $('.create_asset > a').attr('data-remote','false').attr('href','/leads/new');
+ });
+</script>
 
 <div class="remote" id="create_lead" hidden="true"></div>
 

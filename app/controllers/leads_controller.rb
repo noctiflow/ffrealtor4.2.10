@@ -85,19 +85,7 @@ class LeadsController < EntitiesController
   # GET /leads/new
   #----------------------------------------------------------------------------
   def new
-    @lead.attributes = { user: current_user, access: Setting.default_access, assigned_to: nil }
-    get_campaigns
-
-    if params[:related]
-      model, id = params[:related].split('_')
-      if related = model.classify.constantize.my.find_by_id(id)
-        instance_variable_set("@#{model}", related)
-      else
-        respond_to_related_not_found(model) && return
-      end
-    end
-
-    respond_with(@lead)
+    @lead = Contact.new
   end
 
   # GET /leads/1/edit                                                      AJAX

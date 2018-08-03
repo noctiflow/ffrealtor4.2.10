@@ -145,6 +145,7 @@ class ContactsController < EntitiesController
         @opportunity = Opportunity.my.find(params[:opportunity]) unless params[:opportunity].blank?
       end
     end
+
   end
 
   # PUT /contacts/1

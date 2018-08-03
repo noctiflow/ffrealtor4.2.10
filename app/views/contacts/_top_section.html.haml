@@ -38,10 +38,10 @@
           .label #{"Stage"}:
           = select("contact","stage",%w[Lead\ In Contact\ Made Meet Pre-Qualified Start\ Showing Write\ Offer Accept\ Offer Pending Closed])
     %table
-      = fields_for(@account) do |a|
-        = a.hidden_field :user_id
-        = a.hidden_field :assigned_to
-        = a.hidden_field :access, :value => Setting.default_access
+      -#= fields_for(@account) do |a|
+      -#  = a.hidden_field :user_id
+      -#  = a.hidden_field :assigned_to
+      -#  = a.hidden_field :access, :value => Setting.default_access
         %tr
           -#%td
           -#  != account_select_or_create(a) do |options|
