@@ -227,6 +227,13 @@ class ContactsController < EntitiesController
     end
   end
 
+  def convert
+    @contact = Contact.find(params[:id])
+    @contact.update_attribute(:islead, "false")
+    if @contact.save
+      redirect_to contacts_path
+    end
+  end
   private
 
   #----------------------------------------------------------------------------
