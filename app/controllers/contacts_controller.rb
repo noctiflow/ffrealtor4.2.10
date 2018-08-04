@@ -229,9 +229,9 @@ class ContactsController < EntitiesController
 
   def convert
     @contact = Contact.find(params[:id])
-    @contact.update_attribute(:islead, "false")
+    @contact = Contact.update(@contact, {:islead => "false", :stage => "Lead In"})
     if @contact.save
-      redirect_to contacts_path
+      redirect_to leadcontacts_path
     end
   end
   private

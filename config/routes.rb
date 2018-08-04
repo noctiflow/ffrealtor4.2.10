@@ -88,7 +88,7 @@ Rails.application.routes.draw do
   get 'contacts/buyers', to: 'contacts#buyersindex'
   get 'contacts/sellers', to: 'contacts#sellersindex'
   get 'contacts/closed', to: 'contacts#closed'
-  patch 'contacts/:id', action: 'convert', controller: 'contacts'
+  put 'contacts/:id', action: 'convert', controller: 'contacts', as: 'convert_contact'
   get 'leads/buyers', to: 'leads#buyersindex'
   get 'leads/sellers', to: 'leads#sellersindex'
   get 'logout_session'  => 'authentications#destroy'

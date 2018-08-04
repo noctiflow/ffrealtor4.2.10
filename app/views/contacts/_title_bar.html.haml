@@ -1,7 +1,7 @@
 #confirm{ hidden }
 .title_tools#menu
   - if @contact.islead?
-    = link_to("Convert Lead", {:controller => "contacts", :action => "convert", :id => @contact.id } )
+    = link_to("Convert Lead", convert_contact_path(@contact), :method => :put )
   = link_to_inline(:edit_contact, edit_contact_path(@contact), :text => t(:edit)) + " | "
   = link_to_function(t(:delete) + '?', confirm_delete(@contact))
 .title_tools#buttons
