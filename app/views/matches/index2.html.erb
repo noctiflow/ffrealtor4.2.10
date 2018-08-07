@@ -1,0 +1,87 @@
+<style>
+  #filter {
+    width: 100%;
+  }
+  #filter td,
+  th {
+    border: 3px black solid;
+  }
+  #filter th {
+    font-size: 1.2em;
+  }
+  #filter td {
+    text-align: right;
+    padding-right: 5px;
+  }
+  .infoheader {
+    border: 3px black solid;
+    display: inline;
+    flex: 1;
+    text-align: center;
+  }
+  .innerbox {
+    /*border-bottom:3px black solid;*/
+    width: 50%;
+    display: inline-block;
+    text-align: center;
+  }
+</style>
+<h2>Potential Matching Contacts</h2>
+<hr>
+<% lastcity = "" %>
+  <% @contacts.each do |contact| %>
+    <% if lastcity == "" || lastcity != contact.city %>
+      <!--also if where has buyer && where has seller-->
+      <% lastcity = contact.city %>
+        <div id="<%=lastcity%>">
+          <h2><%= lastcity %></h2>
+          <div style="width:100%;display:flex;">
+            <div class="infoheader">
+              <h3>Buyers</h3>
+            </div>
+            <div class="infoheader">
+              <h3>Sellers</h3>
+            </div>
+          </div>
+          <div style="width:100%;display:flex;">
+            <div class="infoheader">
+              <h4>Name</h4>
+            </div>
+            <div class="infoheader">
+              <h4>Property Type</h4>
+            </div>
+            <div class="infoheader">
+              <h4>Name</h4>
+            </div>
+            <div class="infoheader">
+              <h4>Property Type</h4>
+            </div>
+          </div>
+          <div style="width:100%;display:flex;">
+            <div style="border:3px black solid;float:left;flex:1;" class="buyers <%= lastcity %>"></div>
+            <div style="border:3px black solid;float:right;flex:1" class="sellers <%= lastcity %>"></div>
+          </div>
+        </div>
+      <% end %>
+      <% if contact.buysell == "Buyer" %>
+        <script type="text/javascript" charset="utf-8">
+          $('.buyers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div border-bottom: 1px black solid;" class="innerbox"><%= contact.propertytype %></div>');
+        </script>
+        <% elsif contact.buysell == "Seller" %>
+          <script type="text/javascript" charset="utf-8">
+            $('.sellers.<%= lastcity %>').append('<div class="innerbox"><%= link_to "#{contact.first_name} #{contact.last_name}", contact_path(contact.id) %></div><div class = "innerbox"><%= contact.propertytype %></div>');
+          </script>
+        <% end %>
+      <% end %>
+      <script type="text/javascript" charset="utf-8">
+        $(document).ready(function () {
+          $("#main > div").each(function (k, v) {
+            cityname = $(this).attr("id");
+            if ($(".buyers." + cityname).children().length && $(".sellers." + cityname).children().length) {
+              console.log("k");
+            } else {
+              $(this).hide();
+            }
+          });
+        })
+      </script>
