@@ -46,17 +46,19 @@
             <h5>We Offer Free Home Value Reports</h5>
           </center>
           <div id="locationField">
-            <%= f.input :address, placeholder: 'Street Address' %>
+            <%= f.input :address, placeholder: 'Street Address' , :label => "Address *"%>
             <%= f.input :unit, placeholder: 'Unit #'%>
             <%= f.input :postalcode, input_html: { id: 'postal_code', class: 'field' } %>
             <!-- <%= f.input :city, input_html: { id: 'locality', class: 'field' } %> -->
             <%= f.input :city, :label => "City *", collection: [ "Abbotsford", "Burnaby", "Coquitlam", "Delta", "Langley", "Maple Ridge", "New Westminster", "North Vancouver", "Pitt Meadows", "Port Coquitlam", "Port Moody", "Richmond", "Surrey", "Vancouver",
             "West Vancouver", "White Rock" ] %>
-            <%= f.input :propertytype ,label: 'Property Type', collection: [ "House", "1/2 Duplex", "Townhouse", "Apartment/Condo" ] %>
+            <br>
+            <%= f.input :propertytype ,label: 'Property Type *', collection: [ "House", "1/2 Duplex", "Townhouse", "Apartment/Condo" ] %>
             <br/>
+            <p style="color:grey;">*Required Fields</p>
             <div class="right-align">
               <!--<button id="form-continue" type="button" class="waves-effect waves-light btn" style="display:none; margin-top: 10%; font-size: 20px;">Click Here To Continue <i class="material-icons right">send</i></button>-->
-              <%= f.button :submit ,:id => "form-continue", :class => "btn formbtn waves-effect waves-light" , value: 'Click Here To Continue', :style => "margin-top: 10%; font-size: 20px;" %>
+              <%= f.button :submit ,:id => "form-continue", :class => "btn formbtn waves-effect waves-light" , value: 'Click Here To Continue', :style => "margin-top: 2%; font-size: 20px;" %>
             </div>
           </div>
         </div>
@@ -79,6 +81,7 @@
         <%= f.input :desireddeal ,label: 'I am....', collection: [ "Just Curious", "Selling in 3-6 Months", "Selling in 6-12 Months", "Refinancing" ] %>
 
         <%# f.input :extrainfo, label: 'Other Information', placeholder: 'Please Write Down Any Information You Would Like To Share With Us...' %>
+        <p style="color:grey;">*Required Fields</p>
 
         <%= f.button :submit , :class => "btn formbtn" , value: 'Submit Information', id: 'form-submitall' %>
 

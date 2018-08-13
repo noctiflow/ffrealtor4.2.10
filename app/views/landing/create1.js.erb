@@ -6,7 +6,6 @@ $(function(){
     event.preventDefault();
     var magic = $(this).serializeArray();
     var path = $(this).attr("href");
-//    console.log(magic);
     $.ajax({
       type: 'PUT',
       url: '/landing/' + "<%= @lead.id %>",
